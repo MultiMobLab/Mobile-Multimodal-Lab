@@ -14,3 +14,5 @@ Until now, the following equipment is documented:
 - table with equipment
 
 ## How to get started
+
+## How to contribute
