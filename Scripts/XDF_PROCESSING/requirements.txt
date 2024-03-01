@@ -3,4 +3,4 @@ pandas
 numpy
 jupyter
 moviepy
-glob
+ipykernel
