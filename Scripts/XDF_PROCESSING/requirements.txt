@@ -1,0 +1,6 @@
+pyxdf
+pandas
+numpy
+jupyter
+moviepy
+glob
