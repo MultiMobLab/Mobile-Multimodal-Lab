@@ -2,9 +2,6 @@ pyxdf
 pandas
 numpy
 wave
-struct
-math
-random
 noisereduce
 json
 cv2
