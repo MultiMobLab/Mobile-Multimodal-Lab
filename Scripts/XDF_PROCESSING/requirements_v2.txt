@@ -1,4 +1,3 @@
-os
 pyxdf
 glob
 pandas
