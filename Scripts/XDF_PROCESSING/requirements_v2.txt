@@ -3,7 +3,7 @@ pandas
 numpy
 wave
 noisereduce
-cv2
+opencv-python
 moviepy
 jupyter
 ipykernel
