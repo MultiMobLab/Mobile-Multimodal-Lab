@@ -3,7 +3,10 @@ pyxdf
 glob
 pandas
 numpy
-wave, struct, math, random
+wave
+struct
+math
+random
 noisereduce
 json
 cv2
