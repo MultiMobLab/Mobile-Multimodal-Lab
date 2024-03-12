@@ -1,0 +1,12 @@
+os
+pyxdf
+glob
+pandas
+numpy
+wave, struct, math, random
+noisereduce
+json
+cv2
+moviepy
+jupyter
+ipykernel
