@@ -124,7 +124,7 @@ for xdf_file in xdf_files:
     audioclip = AudioFileClip(audloc)
     new_audioclip = CompositeAudioClip([audioclip])
     videoclip.audio = new_audioclip
-    videoclip.write_videofile(dataprocessfolder+fnam+'_video_synced_audio.avi',codec='png')
+    videoclip.write_videofile(dataprocessfolder+fnam+'_video_synced_audio.avi',codec='png', codec="libx264")
     videoclip.close()
     audioclip.close()
     new_audioclip.close()
