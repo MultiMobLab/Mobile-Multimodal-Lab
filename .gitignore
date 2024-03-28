@@ -1,2 +1,8 @@
-test_dm03_Mic_nominal_srate16000.csv
 *.xdf
+<<<<<<< HEAD
+pose_iter_XXXXXX.caffemodel
+demo_3Dtracking_pose2sim-main/openpose/bin
+=======
+*.caffemodel
+*.opencv_world420d.ddl
+>>>>>>> parent of e16d537 (Coding Session 2)
