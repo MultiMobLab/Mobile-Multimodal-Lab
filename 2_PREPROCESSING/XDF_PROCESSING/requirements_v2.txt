@@ -1,0 +1,10 @@
+pyxdf
+pandas
+glob2
+numpy
+wave
+noisereduce
+opencv-python
+moviepy
+jupyter
+ipykernel
