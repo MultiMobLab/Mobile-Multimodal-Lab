@@ -1,0 +1,10 @@
+cv2
+datetime
+pylsl
+threading
+time
+ctypes
+sys
+os
+ffmpegcv
+tqdm
