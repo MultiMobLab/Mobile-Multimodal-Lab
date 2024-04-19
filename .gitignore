@@ -2,6 +2,6 @@
 pose_iter_XXXXXX.caffemodel
 demo_3Dtracking_pose2sim-main/openpose/bin
 Scripts/XDF_PROCESSING/data_processed
-2_PREPROCESSING\XDF_PROCESSING\data_processed
+2_PREPROCESSING/XDF_PROCESSING/data_processed
 *.avi
 /.ipynb_checkpoints
