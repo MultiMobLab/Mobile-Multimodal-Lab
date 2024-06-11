@@ -8,3 +8,5 @@ Scripts/XDF_PROCESSING/data_processed
 *.mp3
 *.mp4
 *.csv
+*.wav
+
