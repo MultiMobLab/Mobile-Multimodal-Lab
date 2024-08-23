@@ -1,5 +1,0 @@
-os
-glob
-cv2
-aniposelib
-table

@@ -1,5 +1,0 @@
-os
-moviepy      
-cv2 
-subprocess
-tkinter

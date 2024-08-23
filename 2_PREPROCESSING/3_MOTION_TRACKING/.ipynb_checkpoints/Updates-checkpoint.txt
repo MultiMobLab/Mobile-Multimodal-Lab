@@ -1,0 +1,10 @@
+Do the calibration using Anipose and then use Freemocap 
+
+    1. Calibration (either in anipose or free mocap) 
+    2. Mediapipe for 2D 
+    3. Anipose for 3dD to reach 3D triangulation. 
+        (blender export function for 3D animation)
+
+    We ecommend either Freemocap, Pose2Sim or DeepLabCut in the manuscript. 
+
+Check on Sarka for Pose2Sim 
