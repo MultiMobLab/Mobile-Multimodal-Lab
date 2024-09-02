@@ -1,0 +1,1 @@
+Here will be each trial in separate folder (eg, trial1) where will be initially folder raw-2d with three individual-cams videos
