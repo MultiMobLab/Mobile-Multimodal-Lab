@@ -1,0 +1,2 @@
+Start_Speaking = 7050
+End_Speaking = 7305
