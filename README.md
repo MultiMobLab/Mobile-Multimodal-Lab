@@ -61,12 +61,16 @@ To ensure that all the signals are synchronized, we use the Lab streaming layer 
 
 ## Repository structure
 
-In this repository, you will find
-- Scripts for recording and processing multimodal behaviour
-- Manuals for building the setup
+<pre><b>Github repository</b><br>                
+├── 1_LAB_SETUP                     # experiment setup
+│   ├── xxx
+├── 2_PREPROCESSING                 # data preprocessing
+│   ├── 0_XDF_Viewer
+│   ├── 1_XDF_PROCESSING
+│   └── 3_MOTION_TRACKING       
 
+└── xxx </pre>
 
-        TODO: ANIMATION OF TIMESERIES
 
 <br>
 
