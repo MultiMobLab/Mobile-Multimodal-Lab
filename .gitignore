@@ -9,4 +9,5 @@ Scripts/XDF_PROCESSING/data_processed
 *.mp4
 *.csv
 *.wav
+*.ddl
 
