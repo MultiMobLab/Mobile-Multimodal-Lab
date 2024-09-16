@@ -1,0 +1,18 @@
+most_recent_recording_path = "F:\\Mobile-Multimodal-Lab\\3_MOTION_TRACKING\\3_freemocap\\marker_MULTIPLEpairs\\P1\\Vision_NoMovement\\trial_4"
+
+[recording_status]
+synchronized_videos_status_check = true
+data2d_status_check = false
+data3d_status_check = false
+center_of_mass_data_status_check = false
+blender_file_status_check = false
+single_video_check = false
+calibration_toml_check = false
+
+[recording_status.video_and_camera_info]
+number_of_synchronized_videos = 3
+
+[recording_status.video_and_camera_info.number_of_frames_in_videos]
+"T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam1.mp4" = 684
+"T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam2.mp4" = 684
+"T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam3.mp4" = 684
