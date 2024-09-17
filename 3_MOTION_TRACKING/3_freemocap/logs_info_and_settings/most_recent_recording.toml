@@ -1,4 +1,4 @@
-most_recent_recording_path = "F:\\Mobile-Multimodal-Lab\\3_MOTION_TRACKING\\3_freemocap\\marker_MULTIPLEpairs\\P1\\Vision_NoMovement\\trial_4"
+most_recent_recording_path = "F:\\Mobile-Multimodal-Lab\\temp_davide\\MT_freemocap"
 
 [recording_status]
 synchronized_videos_status_check = true
@@ -13,6 +13,6 @@ calibration_toml_check = false
 number_of_synchronized_videos = 3
 
 [recording_status.video_and_camera_info.number_of_frames_in_videos]
-"T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam1.mp4" = 684
-"T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam2.mp4" = 684
-"T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam3.mp4" = 684
+"pilot_06_d2_speech_audiovideo_synced_cam1.mp4" = 5046
+"pilot_06_d2_speech_audiovideo_synced_cam2.mp4" = 5046
+"pilot_06_d2_speech_audiovideo_synced_cam3.mp4" = 5046
