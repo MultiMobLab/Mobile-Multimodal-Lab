@@ -1,7 +1,13 @@
-#                              MOBILE MULTIMODAL LAB
-### *An Open-Source, Low-Cost and Portable Laboratory for the study of Multimodal Human Behavior*
+<div align="center">
+  <h1>MOBILE MULTIMODAL LAB</h1>
+  <h3><i>An Open-Source, Low-Cost and Portable Laboratory for the study of Multimodal Human Behavior</i></h3>
+  <img src="Donders_MML_LOGO.png" alt="Mobile Multimodal Lab Logo">
+  
+  <img src="https://github.com/user-attachments/assets/c60fc86a-ddcf-4005-a0a2-cd85c00ce510.gif" alt="Video GIF" width="600">
 
-![Mobile Multimodal Lab Logo](Donders_MML_LOGO.png)
+</div>
+
+
 
 **MML releases:**
 - [] **v0.1** Published paper
