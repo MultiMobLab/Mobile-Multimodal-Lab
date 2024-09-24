@@ -1,4 +1,4 @@
-# MobileMultimodalLab
+#                              MOBILE MULTIMODAL LAB
 ### *An Open-Source, Low-Cost and Portable Laboratory for the study of Multimodal Human Behavior*
 
 ![Mobile Multimodal Lab Logo](Donders_MML_LOGO.png)
