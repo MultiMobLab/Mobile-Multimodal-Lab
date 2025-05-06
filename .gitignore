@@ -7,7 +7,7 @@ Scripts/XDF_PROCESSING/data_processed
 /.ipynb_checkpoints
 *.mp3
 *.mp4
-*.csv
+
 *.wav
 *.ddl
 
