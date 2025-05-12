@@ -1,35 +1,18 @@
-## THREE_WEBCAMS_LSL
-        # Author: sarkadava     
-        # Last date modified: 01-04-2024
-   
-    # SUMMARY            
-        # Python code that allows real-time capture and streaming of video data from three different cameras, 
-        # along with integration with LabStreamingLayer (LSL) for synchronization and data streaming.
-    
-    # Before running the code: 
-        # Ensure that all the libraries have been installed. To do so, Open Conda Prompt and navigate to the code's directory (where there should be a requirements.txt file). Once there, use the following command: conda install --yes --file requirements.txt
-        # In the PARAMETERS, adjust the following: 
-        #      cams: specify the correct camera IDs based on your system configuration.
-        #      freq: depending on your acquisition frequency 
-        #      frame_rate: "
-        #      vidloc: output file location
-    
-       
-
-## IMPORTING LIBRARIES & MODULES
-import cv2  # cv2 library (old OpenCV) for handling video capture and processing
-import datetime  # datetime module for timestamping
-from pylsl import StreamInfo, StreamOutlet, local_clock  # Functions from pylsl for LabStreamingLayer (LSL)
-import threading  # threading module for multithreading
-import time  # time module for time-related functions
-import ctypes  # ctypes module for C data types and calling functions in DLLs
-import sys  # Import sys module for system-specific parameters and functions
-import os  # Import os module for interacting with the operating system
-import ffmpegcv  # Import ffmpegcv module for video writing
-import tqdm  # Import tqdm module for progress bars
+# Created by Sarka Kadava and Wim Pouw 
 
 
-## PARAMETERS 
+import cv2
+import datetime
+from pylsl import StreamInfo, StreamOutlet, local_clock
+import threading
+import time
+import ctypes
+import sys
+import os
+import ffmpegcv
+# import signal
+import tqdm
+
 cams = [3, 2, 0] # change if cameras don't work
 
 #LABSTREAMLAYER:
@@ -218,3 +201,65 @@ sendLSLFrames(camera_thread)
 
 # Notify when program has concluded
 print("Stop")
+
+
+# def signal_handler(sig, frame):
+#     print('Interrupt received. Stopping threads and releasing resources.')
+#     camera_thread.join()
+#     sys.exit(0)
+
+# if __name__ == "__main__":
+#     # Set up a signal handler to gracefully handle interrupt (Ctrl+C)
+#     signal.signal(signal.SIGINT, signal_handler)
+
+#     # Initialize the LSL threads
+#     camera_thread = threading.Thread(target=getWebcamData, args=(cap1, cap2, cap3, video_writer))
+#     camera_thread.start()
+
+#     try:
+#         sendLSLFrames(camera_thread)
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#     finally:
+#         # Release the webcam resources
+#         cap1.release()
+#         cap2.release()
+#         cap3.release()
+
+#         # Close the display window
+#         cv2.destroyAllWindows()
+
+
+# recompress
+
+
+# # Read the written video
+# cap = cv2.VideoCapture(vidloc)
+
+# # Get video information
+# fps = cap.get(cv2.CAP_PROP_FPS)
+# frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+# frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+# total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+
+# # Specify the codec and create VideoWriter object for compressed video
+# fourcc = cv2.VideoWriter_fourcc(*'XVID')  # You can change the codec as needed
+# compressed_file_name = vidloc.replace('.avi', '_compr.avi')
+# compressed_video_writer = cv2.VideoWriter(compressed_file_name, fourcc, fps, (frame_width, frame_height))
+
+# # Display progress bar using tqdm
+# for _ in tqdm.tqdm(range(total_frames), desc="Compressing Video", unit="frames"):
+#     ret, frame = cap.read()
+#     if not ret:
+#         break
+#     # Compress the frame (you can apply additional compression settings if needed)
+#     compressed_frame = cv2.resize(frame, (frame_width, frame_height), interpolation=cv2.INTER_AREA)
+#     # Write the compressed frame to the VideoWriter
+#     compressed_video_writer.write(compressed_frame)
+
+# # Release the VideoCapture and VideoWriter resources
+# cap.release()
+# compressed_video_writer.release()
+
+# # Close the display window
+# cv2.destroyAllWindows()
