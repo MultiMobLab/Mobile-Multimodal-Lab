@@ -1,6 +1,0 @@
-pyxdf
-pandas
-numpy
-jupyter
-moviepy
-ipykernel
