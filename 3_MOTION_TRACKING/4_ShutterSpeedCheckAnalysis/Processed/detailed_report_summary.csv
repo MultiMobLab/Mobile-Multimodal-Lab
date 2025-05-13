@@ -1,0 +1,7 @@
+shutter_speed,camera,left_hand_visibility,right_hand_visibility,left_hand_confidence,right_hand_confidence,left_hand_jitter,right_hand_jitter
+1/250,cam1,100.0,99.59,,,0.0,0.0
+1/250,cam2,99.93,99.79,,,0.0,0.0
+1/250,cam3,98.55,98.76,,,0.0,0.0
+1/60,cam1,100.0,88.9,,,0.0,0.01
+1/60,cam2,99.92,90.7,,,0.0,0.01
+1/60,cam3,100.0,91.48,,,0.0,0.01
