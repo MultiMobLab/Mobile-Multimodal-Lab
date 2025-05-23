@@ -15,4 +15,6 @@ Scripts/XDF_PROCESSING/data_processed
 /3a_MT_OpenPose_pose2sim_alternative/openpose/bin
 /3a_MT_OpenPose_pose2sim_alternative/openpose
 /3a_MT_OpenPose_pose2sim_alternative/projectdata/T1_P1/p1data/opensim
-/3a_MT_OpenPose_pose2sim_alternative/projectdata
+
+/3a_MT_OpenPose_pose2sim_alternative/projectdata/T1_P1/p1data
+/3a_MT_OpenPose_pose2sim_alternative/projectdata/T1_P2/p2data/opensim
