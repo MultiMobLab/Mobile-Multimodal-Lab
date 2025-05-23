@@ -6,8 +6,13 @@ Scripts/XDF_PROCESSING/data_processed
 *.avi
 /.ipynb_checkpoints
 *.mp3
+*.avi
 *.mp4
 
 *.wav
 *.ddl
 
+/3a_MT_OpenPose_pose2sim_alternative/openpose/bin
+/3a_MT_OpenPose_pose2sim_alternative/openpose
+/3a_MT_OpenPose_pose2sim_alternative/projectdata/T1_P1/p1data/opensim
+/3a_MT_OpenPose_pose2sim_alternative/projectdata

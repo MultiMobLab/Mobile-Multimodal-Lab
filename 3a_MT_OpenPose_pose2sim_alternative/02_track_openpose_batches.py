@@ -2,8 +2,6 @@ import os
 import subprocess
 import glob
 
-#userfol = 'E:/IW_data/pose2sim/pose2sim/Pose2Sim/Chicago_project/User/'
-#calib_file = 'E:/IW_data\pose2sim/pose2sim/Pose2Sim/Chicago_project/calib-2d/calibration_anipose.toml'
 
 curfolder = os.getcwd()
 
@@ -14,14 +12,11 @@ openpose_demo_loc = openposefol + '/bin/OpenPoseDemo.exe'
 # this is the model to employ
 model_to_employ = 'BODY_135'
 
-
 # list folders in a main folder
 folderstotrack = glob.glob(curfolder +'/projectdata/*')
+# ignore txt files
+folderstotrack = [x for x in folderstotrack if '.txt' not in x]
 print(folderstotrack)
-
-
-# choose only first folder to test
-# folderstotrack = folderstotrack[0]
 
 def runcommand(command):
     # run the command using subprocess for OPENPOSE TRACKING
@@ -37,24 +32,17 @@ pcnfolders = []
 
 for i in folderstotrack:
     # get the data folder
-    pcnfolder = glob.glob(i + '/*data*')
+    folderstotrack = glob.glob(i + '/*data*/*', recursive=True)
     # append
-    pcnfolders.append(pcnfolder[0])
+    pcnfolders.append(folderstotrack)
 
+# make it just one list, not list of lists
+pcnfolders = [item for sublist in pcnfolders for item in sublist]
 print(pcnfolders)
 
-# keep in only folders that have Session_0_2 in them
-#pcnfolders = [i for i in pcnfolders if 'Session_0_2' in i]
-# keep only if P1 is in the folder name
-#pcnfolders = [i for i in pcnfolders if 'P1' in i]
 
 pcnfolders = [x for x in pcnfolders if 'Config' not in x]
 pcnfolders = [x for x in pcnfolders if 'opensim' not in x]
-# get rid of all potential folders/files that might be confusing
-# pcnfolders = [x for x in pcnfolders if 'xml' not in x]
-# pcnfolders = [x for x in pcnfolders if 'ResultsInverseDynamics' not in x]
-# pcnfolders = [x for x in pcnfolders if 'ResultsInverseKinematics' not in x]
-# pcnfolders = [x for x in pcnfolders if 'sto' not in x]
 pcnfolders = [x for x in pcnfolders if 'txt' not in x]
 
 for i in pcnfolders:
