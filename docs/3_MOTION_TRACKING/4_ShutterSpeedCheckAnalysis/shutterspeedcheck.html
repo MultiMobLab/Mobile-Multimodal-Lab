@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>shutterspeedcheck</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Lab Setup</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">xxx</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">xxx</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Preprocessing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobile Multimodal Lab (MML): XDF Preprocessing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Motion Tracking</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Donderrs MML: Splitting Multiple Videos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MMLAB PLOTS MULTIMODAL PLOT BONANZA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DONDERS MML: Multimodal Animations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<div id="f619ada4" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mediapipe <span class="im">as</span> mp</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob <span class="im">as</span> glob</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># files </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data_local <span class="op">=</span> <span class="st">'./Data_Local/'</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>slowSP <span class="op">=</span> glob.glob(data_local <span class="op">+</span> <span class="st">'*oneover60*'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>slowSP.sort()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fastSP <span class="op">=</span> glob.glob(data_local <span class="op">+</span> <span class="st">'*oneover250*'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fastSP.sort()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(slowSP)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fastSP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['./Data_Local\\oneover60_cam1.mp4', './Data_Local\\oneover60_cam2.mp4', './Data_Local\\oneover60_cam3.mp4']
+['./Data_Local\\oneover250_cam1.mp4', './Data_Local\\oneover250_cam2.mp4', './Data_Local\\oneover250_cam3.mp4']</code></pre>
+</div>
+</div>
+<div id="4b7b2db7" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mediapipe <span class="im">as</span> mp</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize MediaPipe</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>mp_holistic <span class="op">=</span> mp.solutions.holistic</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>mp_drawing <span class="op">=</span> mp.solutions.drawing_utils</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>mp_drawing_styles <span class="op">=</span> mp.solutions.drawing_styles</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ShutterSpeedDiagnostics:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data_dir):</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data_dir <span class="op">=</span> data_dir</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.slow_files <span class="op">=</span> <span class="bu">sorted</span>(glob(os.path.join(data_dir, <span class="st">'*oneover60*'</span>)))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fast_files <span class="op">=</span> <span class="bu">sorted</span>(glob(os.path.join(data_dir, <span class="st">'*oneover250*'</span>)))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.results <span class="op">=</span> {}</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_jitter(<span class="va">self</span>, positions, window<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Calculate jitter using second derivative (acceleration)"""</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(positions) <span class="op">&lt;</span> window:</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> np.nan</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate velocity (first derivative)</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        velocity <span class="op">=</span> np.diff(positions, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate acceleration (second derivative)</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        acceleration <span class="op">=</span> np.diff(velocity, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate jitter (magnitude of acceleration)</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        jitter <span class="op">=</span> np.linalg.norm(acceleration, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.mean(jitter)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> analyze_video(<span class="va">self</span>, video_path, shutter_speed):</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Analyze a single video file"""</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        cap <span class="op">=</span> cv2.VideoCapture(video_path)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        fps <span class="op">=</span> cap.get(cv2.CAP_PROP_FPS)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        total_frames <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        camera <span class="op">=</span> Path(video_path).stem.split(<span class="st">'_'</span>)[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        metrics <span class="op">=</span> {</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>            <span class="st">'shutter_speed'</span>: shutter_speed,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">'camera'</span>: camera,</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">'fps'</span>: fps,</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>            <span class="st">'total_frames'</span>: total_frames,</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>            <span class="st">'hand_visibility'</span>: {<span class="st">'left'</span>: [], <span class="st">'right'</span>: []},</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>            <span class="st">'hand_confidence'</span>: {<span class="st">'left'</span>: [], <span class="st">'right'</span>: []},</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">'pose_confidence'</span>: [],</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">'face_confidence'</span>: [],</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">'hand_positions'</span>: {<span class="st">'left'</span>: [], <span class="st">'right'</span>: []},</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>            <span class="st">'jitter'</span>: {<span class="st">'left'</span>: [], <span class="st">'right'</span>: []}</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> mp_holistic.Holistic(</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>            static_image_mode<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>            model_complexity<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>            enable_segmentation<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>            refine_face_landmarks<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>            min_detection_confidence<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>            min_tracking_confidence<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>        ) <span class="im">as</span> holistic:</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>            frame_idx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> cap.isOpened():</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>                ret, frame <span class="op">=</span> cap.read()</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> ret:</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">break</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Convert to RGB</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>                image <span class="op">=</span> cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Process frame</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>                results <span class="op">=</span> holistic.process(image)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Analyze hand visibility and confidence</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> hand_side <span class="kw">in</span> [<span class="st">'left'</span>, <span class="st">'right'</span>]:</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>                    hand_landmarks <span class="op">=</span> <span class="bu">getattr</span>(results, <span class="ss">f'</span><span class="sc">{</span>hand_side<span class="sc">}</span><span class="ss">_hand_landmarks'</span>)</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> hand_landmarks:</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'hand_visibility'</span>][hand_side].append(<span class="dv">1</span>)</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>                        <span class="co"># Calculate average confidence for hand landmarks</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>                        confidences <span class="op">=</span> []</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">for</span> landmark <span class="kw">in</span> hand_landmarks.landmark:</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> <span class="bu">hasattr</span>(landmark, <span class="st">'visibility'</span>):</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>                                confidences.append(landmark.visibility)</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> confidences:</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>                            metrics[<span class="st">'hand_confidence'</span>][hand_side].append(np.mean(confidences))</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">else</span>:</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>                            metrics[<span class="st">'hand_confidence'</span>][hand_side].append(<span class="fl">1.0</span>)</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>                        <span class="co"># Store hand position (using wrist as reference)</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>                        wrist_landmark <span class="op">=</span> hand_landmarks.landmark[<span class="dv">0</span>]</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'hand_positions'</span>][hand_side].append([</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>                            wrist_landmark.x,</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>                            wrist_landmark.y,</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>                            wrist_landmark.z</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>                        ])</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'hand_visibility'</span>][hand_side].append(<span class="dv">0</span>)</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'hand_confidence'</span>][hand_side].append(<span class="dv">0</span>)</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'hand_positions'</span>][hand_side].append([np.nan, np.nan, np.nan])</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Analyze pose confidence</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> results.pose_landmarks:</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>                    pose_confidences <span class="op">=</span> []</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> landmark <span class="kw">in</span> results.pose_landmarks.landmark:</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> <span class="bu">hasattr</span>(landmark, <span class="st">'visibility'</span>):</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>                            pose_confidences.append(landmark.visibility)</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> pose_confidences:</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'pose_confidence'</span>].append(np.mean(pose_confidences))</span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'pose_confidence'</span>].append(<span class="fl">1.0</span>)</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>                    metrics[<span class="st">'pose_confidence'</span>].append(<span class="dv">0</span>)</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Analyze face confidence</span></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> results.face_landmarks:</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># Calculate center face confidence (eyes, nose, mouth area)</span></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>                    center_landmarks <span class="op">=</span> [<span class="dv">33</span>, <span class="dv">133</span>, <span class="dv">362</span>, <span class="dv">263</span>, <span class="dv">1</span>, <span class="dv">61</span>, <span class="dv">291</span>]</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>                    face_confidences <span class="op">=</span> []</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> idx <span class="kw">in</span> center_landmarks:</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">if</span> idx <span class="op">&lt;</span> <span class="bu">len</span>(results.face_landmarks.landmark):</span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>                            landmark <span class="op">=</span> results.face_landmarks.landmark[idx]</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">if</span> <span class="bu">hasattr</span>(landmark, <span class="st">'visibility'</span>):</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>                                face_confidences.append(landmark.visibility)</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> face_confidences:</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'face_confidence'</span>].append(np.mean(face_confidences))</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>                        metrics[<span class="st">'face_confidence'</span>].append(<span class="fl">1.0</span>)</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>                    metrics[<span class="st">'face_confidence'</span>].append(<span class="dv">0</span>)</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>                frame_idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Print progress</span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> frame_idx <span class="op">%</span> <span class="dv">30</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"Processed </span><span class="sc">{</span>frame_idx<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span>total_frames<span class="sc">}</span><span class="ss"> frames for </span><span class="sc">{</span>video_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>        cap.release()</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate final metrics</span></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>        metrics[<span class="st">'hand_visibility_percentage'</span>] <span class="op">=</span> {</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>            <span class="st">'left'</span>: (np.mean(metrics[<span class="st">'hand_visibility'</span>][<span class="st">'left'</span>]) <span class="op">*</span> <span class="dv">100</span>),</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>            <span class="st">'right'</span>: (np.mean(metrics[<span class="st">'hand_visibility'</span>][<span class="st">'right'</span>]) <span class="op">*</span> <span class="dv">100</span>)</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>        <span class="co"># FIXED: Handle empty lists and NaN values properly</span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>        metrics[<span class="st">'average_hand_confidence'</span>] <span class="op">=</span> {</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>            <span class="st">'left'</span>: np.mean([c <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'hand_confidence'</span>][<span class="st">'left'</span>] <span class="cf">if</span> c <span class="op">&gt;</span> <span class="dv">0</span>]) <span class="cf">if</span> <span class="bu">any</span>(c <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'hand_confidence'</span>][<span class="st">'left'</span>]) <span class="cf">else</span> np.nan,</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>            <span class="st">'right'</span>: np.mean([c <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'hand_confidence'</span>][<span class="st">'right'</span>] <span class="cf">if</span> c <span class="op">&gt;</span> <span class="dv">0</span>]) <span class="cf">if</span> <span class="bu">any</span>(c <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'hand_confidence'</span>][<span class="st">'right'</span>]) <span class="cf">else</span> np.nan</span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate jitter for each hand</span></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> hand_side <span class="kw">in</span> [<span class="st">'left'</span>, <span class="st">'right'</span>]:</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>            positions <span class="op">=</span> np.array(metrics[<span class="st">'hand_positions'</span>][hand_side])</span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Remove NaN values</span></span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>            valid_positions <span class="op">=</span> positions[<span class="op">~</span>np.isnan(positions).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(valid_positions) <span class="op">&gt;</span> <span class="dv">10</span>:</span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>                jitter <span class="op">=</span> <span class="va">self</span>.calculate_jitter(valid_positions)</span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>                metrics[<span class="st">'jitter'</span>][hand_side] <span class="op">=</span> jitter</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>                metrics[<span class="st">'jitter'</span>][hand_side] <span class="op">=</span> np.nan</span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>        <span class="co"># FIXED: Handle empty lists properly</span></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a>        metrics[<span class="st">'average_pose_confidence'</span>] <span class="op">=</span> np.mean([c <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'pose_confidence'</span>] <span class="cf">if</span> c <span class="op">&gt;</span> <span class="dv">0</span>]) <span class="cf">if</span> <span class="bu">any</span>(c <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'pose_confidence'</span>]) <span class="cf">else</span> np.nan</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>        metrics[<span class="st">'average_face_confidence'</span>] <span class="op">=</span> np.mean([c <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'face_confidence'</span>] <span class="cf">if</span> c <span class="op">&gt;</span> <span class="dv">0</span>]) <span class="cf">if</span> <span class="bu">any</span>(c <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> c <span class="kw">in</span> metrics[<span class="st">'face_confidence'</span>]) <span class="cf">else</span> np.nan</span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> metrics</span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run_analysis(<span class="va">self</span>):</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Run analysis on all videos"""</span></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Analyzing slow shutter speed videos (1/60)..."</span>)</span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> video_path <span class="kw">in</span> <span class="va">self</span>.slow_files:</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.results[Path(video_path).stem] <span class="op">=</span> <span class="va">self</span>.analyze_video(video_path, <span class="st">"1/60"</span>)</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Analyzing fast shutter speed videos (1/250)..."</span>)</span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> video_path <span class="kw">in</span> <span class="va">self</span>.fast_files:</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.results[Path(video_path).stem] <span class="op">=</span> <span class="va">self</span>.analyze_video(video_path, <span class="st">"1/250"</span>)</span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> generate_visualizations(<span class="va">self</span>, output_dir<span class="op">=</span><span class="st">"analysis_output"</span>):</span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Generate the comprehensive visualization and save individual components separately"""</span></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>        os.makedirs(output_dir, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Prepare data for visualization</span></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> []</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> video_name, metrics <span class="kw">in</span> <span class="va">self</span>.results.items():</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> hand_side <span class="kw">in</span> [<span class="st">'left'</span>, <span class="st">'right'</span>]:</span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>                data.append({</span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'shutter_speed'</span>: metrics[<span class="st">'shutter_speed'</span>],</span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'camera'</span>: metrics[<span class="st">'camera'</span>],</span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'hand'</span>: hand_side,</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'visibility_percentage'</span>: metrics[<span class="st">'hand_visibility_percentage'</span>][hand_side],</span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'average_confidence'</span>: metrics[<span class="st">'average_hand_confidence'</span>][hand_side],</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'jitter'</span>: metrics[<span class="st">'jitter'</span>][hand_side],</span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'video'</span>: video_name</span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>                })</span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 1. Create Comprehensive Visualization (exactly as shown in your image)</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>        fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">16</span>))</span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>        gs <span class="op">=</span> fig.add_gridspec(<span class="dv">3</span>, <span class="dv">3</span>, height_ratios<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>], width_ratios<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>                             hspace<span class="op">=</span><span class="fl">0.3</span>, wspace<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>        fig.suptitle(<span class="st">'Shutter Speed Performance Analysis'</span>, fontsize<span class="op">=</span><span class="dv">24</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, y<span class="op">=</span><span class="fl">0.98</span>)</span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Top row - Hand Visibility Comparison</span></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>        ax1 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>, :])</span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>        visibility_pivot <span class="op">=</span> df.pivot_table(index<span class="op">=</span>[<span class="st">'camera'</span>, <span class="st">'hand'</span>], </span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>                                         columns<span class="op">=</span><span class="st">'shutter_speed'</span>, </span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a>                                         values<span class="op">=</span><span class="st">'visibility_percentage'</span>, </span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>                                         aggfunc<span class="op">=</span><span class="st">'mean'</span>)</span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>        visibility_pivot.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax1, width<span class="op">=</span><span class="fl">0.8</span>, alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>        ax1.set_title(<span class="st">'Hand Visibility by Camera and Shutter Speed'</span>, fontsize<span class="op">=</span><span class="dv">16</span>, pad<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a>        ax1.set_ylabel(<span class="st">'Visibility Percentage (%)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>        ax1.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>        ax1.legend(title<span class="op">=</span><span class="st">'Shutter Speed'</span>, fontsize<span class="op">=</span><span class="dv">11</span>, title_fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>        ax1.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>        ax1.set_ylim(<span class="dv">85</span>, <span class="dv">102</span>)</span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>        ax1.set_xticklabels(ax1.get_xticklabels(), rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Middle row visualizations</span></span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>        ax2 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>        df_jitter <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'jitter'</span>])</span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> df_jitter.empty:</span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>            camera_jitter <span class="op">=</span> df_jitter.groupby([<span class="st">'camera'</span>, <span class="st">'shutter_speed'</span>])[<span class="st">'jitter'</span>].mean().unstack()</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a>            camera_jitter.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax2, width<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>            ax2.set_title(<span class="st">'Average Jitter by Camera'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>            ax2.set_ylabel(<span class="st">'Jitter Value'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a>            ax2.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a>            ax2.legend(title<span class="op">=</span><span class="st">'Shutter Speed'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>            ax2.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>            ax2.set_xticklabels(ax2.get_xticklabels(), rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>        ax3 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> df_jitter.empty:</span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>            sns.boxplot(data<span class="op">=</span>df_jitter, x<span class="op">=</span><span class="st">'shutter_speed'</span>, y<span class="op">=</span><span class="st">'jitter'</span>, </span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a>                       hue<span class="op">=</span><span class="st">'hand'</span>, ax<span class="op">=</span>ax3, palette<span class="op">=</span>[<span class="st">'#3498db'</span>, <span class="st">'#e74c3c'</span>])</span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>            ax3.set_title(<span class="st">'Jitter Distribution by Hand'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a>            ax3.set_ylabel(<span class="st">'Jitter Value'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>            ax3.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>            ax3.legend(title<span class="op">=</span><span class="st">'Hand'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a>            ax3.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a>        ax4 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>        improvements <span class="op">=</span> []</span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> camera <span class="kw">in</span> df[<span class="st">'camera'</span>].unique():</span>
+<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> hand <span class="kw">in</span> [<span class="st">'left'</span>, <span class="st">'right'</span>]:</span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a>                slow <span class="op">=</span> df[(df[<span class="st">'camera'</span>] <span class="op">==</span> camera) <span class="op">&amp;</span> (df[<span class="st">'shutter_speed'</span>] <span class="op">==</span> <span class="st">'1/60'</span>) <span class="op">&amp;</span> (df[<span class="st">'hand'</span>] <span class="op">==</span> hand)]</span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>                fast <span class="op">=</span> df[(df[<span class="st">'camera'</span>] <span class="op">==</span> camera) <span class="op">&amp;</span> (df[<span class="st">'shutter_speed'</span>] <span class="op">==</span> <span class="st">'1/250'</span>) <span class="op">&amp;</span> (df[<span class="st">'hand'</span>] <span class="op">==</span> hand)]</span>
+<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> slow.empty <span class="kw">and</span> <span class="kw">not</span> fast.empty:</span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a>                    vis_improvement <span class="op">=</span> fast[<span class="st">'visibility_percentage'</span>].iloc[<span class="dv">0</span>] <span class="op">-</span> slow[<span class="st">'visibility_percentage'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a>                    improvements.append({</span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'camera'</span>: camera,</span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'hand'</span>: hand,</span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'vis_improvement'</span>: vis_improvement</span>
+<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>                    })</span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> improvements:</span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>            imp_df <span class="op">=</span> pd.DataFrame(improvements)</span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>            imp_pivot <span class="op">=</span> imp_df.pivot(index<span class="op">=</span><span class="st">'camera'</span>, columns<span class="op">=</span><span class="st">'hand'</span>, values<span class="op">=</span><span class="st">'vis_improvement'</span>)</span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a>            im <span class="op">=</span> ax4.imshow(imp_pivot, cmap<span class="op">=</span><span class="st">'RdYlGn'</span>, aspect<span class="op">=</span><span class="st">'auto'</span>, vmin<span class="op">=-</span><span class="dv">2</span>, vmax<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>            ax4.set_title(<span class="st">'Visibility Improvement (%)</span><span class="ch">\n</span><span class="st">(1/250 vs 1/60)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>            ax4.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.index)))</span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>            ax4.set_yticklabels(imp_pivot.index)</span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>            ax4.set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.columns)))</span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>            ax4.set_xticklabels(imp_pivot.columns)</span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.index)):</span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.columns)):</span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>                    text <span class="op">=</span> ax4.text(j, i, <span class="ss">f'</span><span class="sc">{</span>imp_pivot<span class="sc">.</span>iloc[i, j]<span class="sc">:.1f}</span><span class="ss">%'</span>,</span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>                                   ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'black'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>            plt.colorbar(im, ax<span class="op">=</span>ax4, label<span class="op">=</span><span class="st">'Improvement (%)'</span>)</span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Bottom row - Summary Table</span></span>
+<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>        ax5 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">2</span>, :])</span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>        ax5.axis(<span class="st">'tight'</span>)</span>
+<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>        ax5.axis(<span class="st">'off'</span>)</span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>        summary_data <span class="op">=</span> []</span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> camera <span class="kw">in</span> <span class="bu">sorted</span>(df[<span class="st">'camera'</span>].unique()):</span>
+<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> shutter <span class="kw">in</span> <span class="bu">sorted</span>(df[<span class="st">'shutter_speed'</span>].unique()):</span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>                camera_data <span class="op">=</span> df[(df[<span class="st">'camera'</span>] <span class="op">==</span> camera) <span class="op">&amp;</span> (df[<span class="st">'shutter_speed'</span>] <span class="op">==</span> shutter)]</span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> camera_data.empty:</span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>                    left_data <span class="op">=</span> camera_data[camera_data[<span class="st">'hand'</span>] <span class="op">==</span> <span class="st">'left'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>                    right_data <span class="op">=</span> camera_data[camera_data[<span class="st">'hand'</span>] <span class="op">==</span> <span class="st">'right'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>                    summary_data.append([</span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>                        camera,</span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>                        shutter,</span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>                        <span class="ss">f"</span><span class="sc">{</span>left_data[<span class="st">'visibility_percentage'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>,</span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>                        <span class="ss">f"</span><span class="sc">{</span>right_data[<span class="st">'visibility_percentage'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>,</span>
+<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>                        <span class="ss">f"</span><span class="sc">{</span>left_data[<span class="st">'jitter'</span>]<span class="sc">:.4f}</span><span class="ss">"</span> <span class="cf">if</span> <span class="kw">not</span> pd.isna(left_data[<span class="st">'jitter'</span>]) <span class="cf">else</span> <span class="st">"N/A"</span>,</span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>                        <span class="ss">f"</span><span class="sc">{</span>right_data[<span class="st">'jitter'</span>]<span class="sc">:.4f}</span><span class="ss">"</span> <span class="cf">if</span> <span class="kw">not</span> pd.isna(right_data[<span class="st">'jitter'</span>]) <span class="cf">else</span> <span class="st">"N/A"</span></span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a>                    ])</span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a>        table <span class="op">=</span> ax5.table(cellText<span class="op">=</span>summary_data,</span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>                         colLabels<span class="op">=</span>[<span class="st">'Camera'</span>, <span class="st">'Shutter Speed'</span>, <span class="st">'Left Visibility'</span>, <span class="st">'Right Visibility'</span>, </span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'Left Jitter'</span>, <span class="st">'Right Jitter'</span>],</span>
+<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a>                         cellLoc<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>                         loc<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>        table.auto_set_font_size(<span class="va">False</span>)</span>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>        table.set_fontsize(<span class="dv">11</span>)</span>
+<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a>        table.auto_set_column_width(col<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(summary_data[<span class="dv">0</span>]))))</span>
+<span id="cb3-315"><a href="#cb3-315" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(summary_data[<span class="dv">0</span>])):</span>
+<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a>            table[(<span class="dv">0</span>, i)].set_facecolor(<span class="st">'#4a86e8'</span>)</span>
+<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a>            table[(<span class="dv">0</span>, i)].set_text_props(weight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a>            table[(<span class="dv">0</span>, i)].set_height(<span class="fl">0.06</span>)</span>
+<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(summary_data) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(summary_data[<span class="dv">0</span>])):</span>
+<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>                    table[(i, j)].set_facecolor(<span class="st">'#f0f0f0'</span>)</span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>                table[(i, j)].set_height(<span class="fl">0.05</span>)</span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>        plt.savefig(os.path.join(output_dir, <span class="st">'comprehensive_performance_analysis.png'</span>), </span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>                    dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>        plt.close()</span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2. Save Individual Components</span></span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2.1 Hand Visibility by Camera and Shutter Speed</span></span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>        fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">8</span>))</span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>        visibility_pivot.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, width<span class="op">=</span><span class="fl">0.8</span>, alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>        ax.set_title(<span class="st">'Hand Visibility by Camera and Shutter Speed'</span>, fontsize<span class="op">=</span><span class="dv">16</span>, pad<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>        ax.set_ylabel(<span class="st">'Visibility Percentage (%)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>        ax.legend(title<span class="op">=</span><span class="st">'Shutter Speed'</span>, fontsize<span class="op">=</span><span class="dv">11</span>, title_fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>        ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a>        ax.set_ylim(<span class="dv">85</span>, <span class="dv">102</span>)</span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>        ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>        plt.savefig(os.path.join(output_dir, <span class="st">'hand_visibility_by_camera.png'</span>), dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>        plt.close()</span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2.2 Average Jitter by Camera</span></span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>        fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> df_jitter.empty:</span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>            camera_jitter.plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, width<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>            ax.set_title(<span class="st">'Average Jitter by Camera'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>            ax.set_ylabel(<span class="st">'Jitter Value'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>            ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>            ax.legend(title<span class="op">=</span><span class="st">'Shutter Speed'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>            ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>            ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>        plt.savefig(os.path.join(output_dir, <span class="st">'jitter_by_camera.png'</span>), dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>        plt.close()</span>
+<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2.3 Jitter Distribution by Hand</span></span>
+<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a>        fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> df_jitter.empty:</span>
+<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>            sns.boxplot(data<span class="op">=</span>df_jitter, x<span class="op">=</span><span class="st">'shutter_speed'</span>, y<span class="op">=</span><span class="st">'jitter'</span>, </span>
+<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>                       hue<span class="op">=</span><span class="st">'hand'</span>, ax<span class="op">=</span>ax, palette<span class="op">=</span>[<span class="st">'#3498db'</span>, <span class="st">'#e74c3c'</span>])</span>
+<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>            ax.set_title(<span class="st">'Jitter Distribution by Hand'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a>            ax.set_ylabel(<span class="st">'Jitter Value'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a>            ax.set_xlabel(<span class="st">''</span>)</span>
+<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a>            ax.legend(title<span class="op">=</span><span class="st">'Hand'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>            ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a>        plt.savefig(os.path.join(output_dir, <span class="st">'jitter_distribution.png'</span>), dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a>        plt.close()</span>
+<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2.4 Visibility Improvement</span></span>
+<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a>        fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> improvements:</span>
+<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a>            im <span class="op">=</span> ax.imshow(imp_pivot, cmap<span class="op">=</span><span class="st">'RdYlGn'</span>, aspect<span class="op">=</span><span class="st">'auto'</span>, vmin<span class="op">=-</span><span class="dv">2</span>, vmax<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a>            ax.set_title(<span class="st">'Visibility Improvement (%)</span><span class="ch">\n</span><span class="st">(1/250 vs 1/60)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a>            ax.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.index)))</span>
+<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a>            ax.set_yticklabels(imp_pivot.index)</span>
+<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a>            ax.set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.columns)))</span>
+<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a>            ax.set_xticklabels(imp_pivot.columns)</span>
+<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.index)):</span>
+<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(imp_pivot.columns)):</span>
+<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a>                    text <span class="op">=</span> ax.text(j, i, <span class="ss">f'</span><span class="sc">{</span>imp_pivot<span class="sc">.</span>iloc[i, j]<span class="sc">:.1f}</span><span class="ss">%'</span>,</span>
+<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a>                                   ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, color<span class="op">=</span><span class="st">'black'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb3-390"><a href="#cb3-390" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-391"><a href="#cb3-391" aria-hidden="true" tabindex="-1"></a>            plt.colorbar(im, ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">'Improvement (%)'</span>)</span>
+<span id="cb3-392"><a href="#cb3-392" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb3-393"><a href="#cb3-393" aria-hidden="true" tabindex="-1"></a>        plt.savefig(os.path.join(output_dir, <span class="st">'visibility_improvement.png'</span>), dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb3-394"><a href="#cb3-394" aria-hidden="true" tabindex="-1"></a>        plt.close()</span>
+<span id="cb3-395"><a href="#cb3-395" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-396"><a href="#cb3-396" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2.5 Summary Table</span></span>
+<span id="cb3-397"><a href="#cb3-397" aria-hidden="true" tabindex="-1"></a>        fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb3-398"><a href="#cb3-398" aria-hidden="true" tabindex="-1"></a>        ax.axis(<span class="st">'tight'</span>)</span>
+<span id="cb3-399"><a href="#cb3-399" aria-hidden="true" tabindex="-1"></a>        ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb3-400"><a href="#cb3-400" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-401"><a href="#cb3-401" aria-hidden="true" tabindex="-1"></a>        table <span class="op">=</span> ax.table(cellText<span class="op">=</span>summary_data,</span>
+<span id="cb3-402"><a href="#cb3-402" aria-hidden="true" tabindex="-1"></a>                         colLabels<span class="op">=</span>[<span class="st">'Camera'</span>, <span class="st">'Shutter Speed'</span>, <span class="st">'Left Visibility'</span>, <span class="st">'Right Visibility'</span>, </span>
+<span id="cb3-403"><a href="#cb3-403" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'Left Jitter'</span>, <span class="st">'Right Jitter'</span>],</span>
+<span id="cb3-404"><a href="#cb3-404" aria-hidden="true" tabindex="-1"></a>                         cellLoc<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb3-405"><a href="#cb3-405" aria-hidden="true" tabindex="-1"></a>                         loc<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb3-406"><a href="#cb3-406" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-407"><a href="#cb3-407" aria-hidden="true" tabindex="-1"></a>        table.auto_set_font_size(<span class="va">False</span>)</span>
+<span id="cb3-408"><a href="#cb3-408" aria-hidden="true" tabindex="-1"></a>        table.set_fontsize(<span class="dv">11</span>)</span>
+<span id="cb3-409"><a href="#cb3-409" aria-hidden="true" tabindex="-1"></a>        table.auto_set_column_width(col<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(summary_data[<span class="dv">0</span>]))))</span>
+<span id="cb3-410"><a href="#cb3-410" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-411"><a href="#cb3-411" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(summary_data[<span class="dv">0</span>])):</span>
+<span id="cb3-412"><a href="#cb3-412" aria-hidden="true" tabindex="-1"></a>            table[(<span class="dv">0</span>, i)].set_facecolor(<span class="st">'#4a86e8'</span>)</span>
+<span id="cb3-413"><a href="#cb3-413" aria-hidden="true" tabindex="-1"></a>            table[(<span class="dv">0</span>, i)].set_text_props(weight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb3-414"><a href="#cb3-414" aria-hidden="true" tabindex="-1"></a>            table[(<span class="dv">0</span>, i)].set_height(<span class="fl">0.06</span>)</span>
+<span id="cb3-415"><a href="#cb3-415" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-416"><a href="#cb3-416" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(summary_data) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb3-417"><a href="#cb3-417" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(summary_data[<span class="dv">0</span>])):</span>
+<span id="cb3-418"><a href="#cb3-418" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-419"><a href="#cb3-419" aria-hidden="true" tabindex="-1"></a>                    table[(i, j)].set_facecolor(<span class="st">'#f0f0f0'</span>)</span>
+<span id="cb3-420"><a href="#cb3-420" aria-hidden="true" tabindex="-1"></a>                table[(i, j)].set_height(<span class="fl">0.05</span>)</span>
+<span id="cb3-421"><a href="#cb3-421" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-422"><a href="#cb3-422" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()</span>
+<span id="cb3-423"><a href="#cb3-423" aria-hidden="true" tabindex="-1"></a>        plt.savefig(os.path.join(output_dir, <span class="st">'summary_table.png'</span>), dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb3-424"><a href="#cb3-424" aria-hidden="true" tabindex="-1"></a>        plt.close()</span>
+<span id="cb3-425"><a href="#cb3-425" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-426"><a href="#cb3-426" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Visualizations saved to </span><span class="sc">{</span>output_dir<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb3-427"><a href="#cb3-427" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Comprehensive:"</span>)</span>
+<span id="cb3-428"><a href="#cb3-428" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"1. comprehensive_performance_analysis.png - All metrics in one figure"</span>)</span>
+<span id="cb3-429"><a href="#cb3-429" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Individual Components:"</span>)</span>
+<span id="cb3-430"><a href="#cb3-430" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"2. hand_visibility_by_camera.png"</span>)</span>
+<span id="cb3-431"><a href="#cb3-431" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"3. jitter_by_camera.png"</span>)</span>
+<span id="cb3-432"><a href="#cb3-432" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"4. jitter_distribution.png"</span>)</span>
+<span id="cb3-433"><a href="#cb3-433" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"5. visibility_improvement.png"</span>)</span>
+<span id="cb3-434"><a href="#cb3-434" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"6. summary_table.png"</span>)</span>
+<span id="cb3-435"><a href="#cb3-435" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-436"><a href="#cb3-436" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save_detailed_report(<span class="va">self</span>, output_path<span class="op">=</span><span class="st">"./processed/detailed_report.csv"</span>):</span>
+<span id="cb3-437"><a href="#cb3-437" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Save detailed metrics to CSV"""</span></span>
+<span id="cb3-438"><a href="#cb3-438" aria-hidden="true" tabindex="-1"></a>        data_rows <span class="op">=</span> []</span>
+<span id="cb3-439"><a href="#cb3-439" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-440"><a href="#cb3-440" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> video_name, metrics <span class="kw">in</span> <span class="va">self</span>.results.items():</span>
+<span id="cb3-441"><a href="#cb3-441" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Summarize frame-by-frame data</span></span>
+<span id="cb3-442"><a href="#cb3-442" aria-hidden="true" tabindex="-1"></a>            frames_with_both_hands <span class="op">=</span> <span class="bu">sum</span>(<span class="dv">1</span> <span class="cf">for</span> l, r <span class="kw">in</span> <span class="bu">zip</span>(metrics[<span class="st">'hand_visibility'</span>][<span class="st">'left'</span>], </span>
+<span id="cb3-443"><a href="#cb3-443" aria-hidden="true" tabindex="-1"></a>                                                          metrics[<span class="st">'hand_visibility'</span>][<span class="st">'right'</span>]) </span>
+<span id="cb3-444"><a href="#cb3-444" aria-hidden="true" tabindex="-1"></a>                                        <span class="cf">if</span> l <span class="op">==</span> <span class="dv">1</span> <span class="kw">and</span> r <span class="op">==</span> <span class="dv">1</span>)</span>
+<span id="cb3-445"><a href="#cb3-445" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-446"><a href="#cb3-446" aria-hidden="true" tabindex="-1"></a>            total_frames <span class="op">=</span> metrics[<span class="st">'total_frames'</span>]</span>
+<span id="cb3-447"><a href="#cb3-447" aria-hidden="true" tabindex="-1"></a>            both_hands_percentage <span class="op">=</span> (frames_with_both_hands <span class="op">/</span> total_frames) <span class="op">*</span> <span class="dv">100</span> <span class="cf">if</span> total_frames <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb3-448"><a href="#cb3-448" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-449"><a href="#cb3-449" aria-hidden="true" tabindex="-1"></a>            row <span class="op">=</span> {</span>
+<span id="cb3-450"><a href="#cb3-450" aria-hidden="true" tabindex="-1"></a>                <span class="st">'video'</span>: video_name,</span>
+<span id="cb3-451"><a href="#cb3-451" aria-hidden="true" tabindex="-1"></a>                <span class="st">'shutter_speed'</span>: metrics[<span class="st">'shutter_speed'</span>],</span>
+<span id="cb3-452"><a href="#cb3-452" aria-hidden="true" tabindex="-1"></a>                <span class="st">'camera'</span>: metrics[<span class="st">'camera'</span>],</span>
+<span id="cb3-453"><a href="#cb3-453" aria-hidden="true" tabindex="-1"></a>                <span class="st">'fps'</span>: metrics[<span class="st">'fps'</span>],</span>
+<span id="cb3-454"><a href="#cb3-454" aria-hidden="true" tabindex="-1"></a>                <span class="st">'total_frames'</span>: total_frames,</span>
+<span id="cb3-455"><a href="#cb3-455" aria-hidden="true" tabindex="-1"></a>                <span class="st">'left_hand_visibility'</span>: metrics[<span class="st">'hand_visibility_percentage'</span>][<span class="st">'left'</span>],</span>
+<span id="cb3-456"><a href="#cb3-456" aria-hidden="true" tabindex="-1"></a>                <span class="st">'right_hand_visibility'</span>: metrics[<span class="st">'hand_visibility_percentage'</span>][<span class="st">'right'</span>],</span>
+<span id="cb3-457"><a href="#cb3-457" aria-hidden="true" tabindex="-1"></a>                <span class="st">'both_hands_visible'</span>: both_hands_percentage,</span>
+<span id="cb3-458"><a href="#cb3-458" aria-hidden="true" tabindex="-1"></a>                <span class="st">'left_hand_confidence'</span>: metrics[<span class="st">'average_hand_confidence'</span>][<span class="st">'left'</span>],</span>
+<span id="cb3-459"><a href="#cb3-459" aria-hidden="true" tabindex="-1"></a>                <span class="st">'right_hand_confidence'</span>: metrics[<span class="st">'average_hand_confidence'</span>][<span class="st">'right'</span>],</span>
+<span id="cb3-460"><a href="#cb3-460" aria-hidden="true" tabindex="-1"></a>                <span class="st">'left_hand_jitter'</span>: metrics[<span class="st">'jitter'</span>][<span class="st">'left'</span>],</span>
+<span id="cb3-461"><a href="#cb3-461" aria-hidden="true" tabindex="-1"></a>                <span class="st">'right_hand_jitter'</span>: metrics[<span class="st">'jitter'</span>][<span class="st">'right'</span>],</span>
+<span id="cb3-462"><a href="#cb3-462" aria-hidden="true" tabindex="-1"></a>                <span class="st">'average_pose_confidence'</span>: metrics[<span class="st">'average_pose_confidence'</span>],</span>
+<span id="cb3-463"><a href="#cb3-463" aria-hidden="true" tabindex="-1"></a>                <span class="co">#'average_face_confidence': metrics['average_face_confidence']</span></span>
+<span id="cb3-464"><a href="#cb3-464" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-465"><a href="#cb3-465" aria-hidden="true" tabindex="-1"></a>            data_rows.append(row)</span>
+<span id="cb3-466"><a href="#cb3-466" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-467"><a href="#cb3-467" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> pd.DataFrame(data_rows)</span>
+<span id="cb3-468"><a href="#cb3-468" aria-hidden="true" tabindex="-1"></a>        df.to_csv(output_path, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-469"><a href="#cb3-469" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-470"><a href="#cb3-470" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create summary statistics</span></span>
+<span id="cb3-471"><a href="#cb3-471" aria-hidden="true" tabindex="-1"></a>        summary <span class="op">=</span> df.groupby([<span class="st">'shutter_speed'</span>, <span class="st">'camera'</span>]).agg({</span>
+<span id="cb3-472"><a href="#cb3-472" aria-hidden="true" tabindex="-1"></a>            <span class="st">'left_hand_visibility'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb3-473"><a href="#cb3-473" aria-hidden="true" tabindex="-1"></a>            <span class="st">'right_hand_visibility'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb3-474"><a href="#cb3-474" aria-hidden="true" tabindex="-1"></a>            <span class="st">'left_hand_confidence'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb3-475"><a href="#cb3-475" aria-hidden="true" tabindex="-1"></a>            <span class="st">'right_hand_confidence'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb3-476"><a href="#cb3-476" aria-hidden="true" tabindex="-1"></a>            <span class="st">'left_hand_jitter'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb3-477"><a href="#cb3-477" aria-hidden="true" tabindex="-1"></a>            <span class="st">'right_hand_jitter'</span>: <span class="st">'mean'</span></span>
+<span id="cb3-478"><a href="#cb3-478" aria-hidden="true" tabindex="-1"></a>        }).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-479"><a href="#cb3-479" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-480"><a href="#cb3-480" aria-hidden="true" tabindex="-1"></a>        summary.to_csv(output_path.replace(<span class="st">'.csv'</span>, <span class="st">'_summary.csv'</span>))</span>
+<span id="cb3-481"><a href="#cb3-481" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-482"><a href="#cb3-482" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Detailed report saved to: </span><span class="sc">{</span>output_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-483"><a href="#cb3-483" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Summary report saved to: </span><span class="sc">{</span>output_path<span class="sc">.</span>replace(<span class="st">'.csv'</span>, <span class="st">'_summary.csv'</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-484"><a href="#cb3-484" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-485"><a href="#cb3-485" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> df, summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c5a61c74" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize diagnostics</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>diagnostics <span class="op">=</span> ShutterSpeedDiagnostics(<span class="st">'./Data_Local/'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run analysis</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>diagnostics.run_analysis()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate visualizations</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>diagnostics.generate_visualizations()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Save detailed report</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df, summary <span class="op">=</span> diagnostics.save_detailed_report()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># save</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./Processed/diagnostics_report.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">SUMMARY STATISTICS:"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Print comparative analysis</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">SHUTTER SPEED COMPARISON:"</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> metric <span class="kw">in</span> [<span class="st">'left_hand_visibility'</span>, <span class="st">'right_hand_visibility'</span>, <span class="st">'left_hand_jitter'</span>, <span class="st">'right_hand_jitter'</span>]:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>metric<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    comparison <span class="op">=</span> df.pivot_table(values<span class="op">=</span>metric, index<span class="op">=</span><span class="st">'camera'</span>, columns<span class="op">=</span><span class="st">'shutter_speed'</span>, aggfunc<span class="op">=</span><span class="st">'mean'</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    comparison[<span class="st">'difference'</span>] <span class="op">=</span> comparison[<span class="st">'1/250'</span>] <span class="op">-</span> comparison[<span class="st">'1/60'</span>]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    comparison[<span class="st">'percentage_improvement'</span>] <span class="op">=</span> (comparison[<span class="st">'difference'</span>] <span class="op">/</span> comparison[<span class="st">'1/60'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(comparison.<span class="bu">round</span>(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analyzing slow shutter speed videos (1/60)...
+Processed 30/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 60/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 90/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 120/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 150/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 180/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 210/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 240/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 270/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 300/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 330/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 360/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 390/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 420/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 450/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 480/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 510/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 540/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 570/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 600/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 630/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 660/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 690/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 720/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 750/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 780/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 810/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 840/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 870/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 900/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 930/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 960/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 990/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1020/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1050/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1080/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1110/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1140/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1170/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1200/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1230/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 1260/1279 frames for ./Data_Local\oneover60_cam1.mp4
+Processed 30/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 60/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 90/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 120/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 150/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 180/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 210/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 240/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 270/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 300/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 330/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 360/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 390/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 420/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 450/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 480/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 510/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 540/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 570/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 600/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 630/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 660/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 690/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 720/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 750/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 780/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 810/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 840/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 870/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 900/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 930/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 960/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 990/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1020/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1050/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1080/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1110/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1140/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1170/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1200/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1230/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 1260/1279 frames for ./Data_Local\oneover60_cam2.mp4
+Processed 30/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 60/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 90/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 120/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 150/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 180/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 210/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 240/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 270/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 300/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 330/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 360/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 390/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 420/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 450/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 480/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 510/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 540/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 570/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 600/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 630/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 660/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 690/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 720/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 750/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 780/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 810/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 840/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 870/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 900/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 930/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 960/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 990/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1020/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1050/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1080/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1110/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1140/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1170/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1200/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1230/1279 frames for ./Data_Local\oneover60_cam3.mp4
+Processed 1260/1279 frames for ./Data_Local\oneover60_cam3.mp4
+
+Analyzing fast shutter speed videos (1/250)...
+Processed 30/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 60/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 90/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 120/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 150/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 180/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 210/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 240/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 270/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 300/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 330/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 360/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 390/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 420/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 450/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 480/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 510/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 540/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 570/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 600/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 630/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 660/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 690/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 720/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 750/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 780/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 810/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 840/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 870/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 900/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 930/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 960/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 990/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1020/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1050/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1080/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1110/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1140/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1170/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1200/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1230/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1260/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1290/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1320/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1350/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1380/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1410/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 1440/1453 frames for ./Data_Local\oneover250_cam1.mp4
+Processed 30/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 60/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 90/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 120/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 150/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 180/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 210/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 240/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 270/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 300/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 330/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 360/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 390/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 420/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 450/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 480/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 510/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 540/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 570/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 600/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 630/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 660/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 690/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 720/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 750/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 780/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 810/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 840/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 870/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 900/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 930/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 960/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 990/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1020/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1050/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1080/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1110/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1140/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1170/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1200/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1230/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1260/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1290/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1320/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1350/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1380/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1410/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 1440/1453 frames for ./Data_Local\oneover250_cam2.mp4
+Processed 30/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 60/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 90/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 120/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 150/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 180/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 210/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 240/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 270/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 300/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 330/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 360/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 390/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 420/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 450/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 480/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 510/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 540/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 570/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 600/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 630/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 660/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 690/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 720/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 750/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 780/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 810/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 840/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 870/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 900/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 930/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 960/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 990/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1020/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1050/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1080/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1110/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1140/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1170/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1200/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1230/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1260/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1290/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1320/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1350/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1380/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1410/1453 frames for ./Data_Local\oneover250_cam3.mp4
+Processed 1440/1453 frames for ./Data_Local\oneover250_cam3.mp4
+
+Visualizations saved to analysis_output:
+
+Comprehensive:
+1. comprehensive_performance_analysis.png - All metrics in one figure
+
+Individual Components:
+2. hand_visibility_by_camera.png
+3. jitter_by_camera.png
+4. jitter_distribution.png
+5. visibility_improvement.png
+6. summary_table.png
+
+Detailed report saved to: ./processed/detailed_report.csv
+Summary report saved to: ./processed/detailed_report_summary.csv
+
+SUMMARY STATISTICS:
+                      left_hand_visibility  right_hand_visibility  \
+shutter_speed camera                                                
+1/250         cam1                  100.00                  99.59   
+              cam2                   99.93                  99.79   
+              cam3                   98.55                  98.76   
+1/60          cam1                  100.00                  88.90   
+              cam2                   99.92                  90.70   
+              cam3                  100.00                  91.48   
+
+                      left_hand_confidence  right_hand_confidence  \
+shutter_speed camera                                                
+1/250         cam1                     NaN                    NaN   
+              cam2                     NaN                    NaN   
+              cam3                     NaN                    NaN   
+1/60          cam1                     NaN                    NaN   
+              cam2                     NaN                    NaN   
+              cam3                     NaN                    NaN   
+
+                      left_hand_jitter  right_hand_jitter  
+shutter_speed camera                                       
+1/250         cam1                 0.0               0.00  
+              cam2                 0.0               0.00  
+              cam3                 0.0               0.00  
+1/60          cam1                 0.0               0.01  
+              cam2                 0.0               0.01  
+              cam3                 0.0               0.01  
+
+SHUTTER SPEED COMPARISON:
+
+left_hand_visibility:
+shutter_speed   1/250    1/60  difference  percentage_improvement
+camera                                                           
+cam1           100.00  100.00        0.00                    0.00
+cam2            99.93   99.92        0.01                    0.01
+cam3            98.55  100.00       -1.45                   -1.45
+
+right_hand_visibility:
+shutter_speed  1/250   1/60  difference  percentage_improvement
+camera                                                         
+cam1           99.59  88.90       10.69                   12.02
+cam2           99.79  90.70        9.10                   10.03
+cam3           98.76  91.48        7.28                    7.96
+
+left_hand_jitter:
+shutter_speed  1/250  1/60  difference  percentage_improvement
+camera                                                        
+cam1             0.0   0.0         0.0                   41.28
+cam2             0.0   0.0         0.0                   41.03
+cam3             0.0   0.0         0.0                   37.55
+
+right_hand_jitter:
+shutter_speed  1/250  1/60  difference  percentage_improvement
+camera                                                        
+cam1             0.0  0.01        -0.0                  -58.90
+cam2             0.0  0.01        -0.0                  -51.84
+cam3             0.0  0.01        -0.0                  -51.60</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>D:\Programs\temp\ipykernel_84792\3472539026.py:327: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  plt.tight_layout()</code></pre>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

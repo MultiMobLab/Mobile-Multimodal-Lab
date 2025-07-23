@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Donderrs MML: Splitting Multiple Videos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html">Motion Tracking</a></li><li class="breadcrumb-item"><a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html">Donderrs MML: Splitting Multiple Videos</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Lab Setup</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">xxx</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">xxx</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Preprocessing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobile Multimodal Lab (MML): XDF Preprocessing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Motion Tracking</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Donderrs MML: Splitting Multiple Videos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MMLAB PLOTS MULTIMODAL PLOT BONANZA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DONDERS MML: Multimodal Animations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html">Motion Tracking</a></li><li class="breadcrumb-item"><a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html">Donderrs MML: Splitting Multiple Videos</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Donderrs MML: Splitting Multiple Videos</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Donders MML_Video Split_files/figure-html/b1083ca2-3e16-43bf-841d-deba02258dc7-1-9a1eaeed-d456-4152-9938-e31efd3c44d4.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<section id="info-documents" class="level2">
+<h2 class="anchored" data-anchor-id="info-documents">Info documents</h2>
+<p>location Repositor :https://github.com/DavAhm/Mobile-Multimodal-Lab/tree/main/2_PREPROCESSING/2_MOTION_TRACKIN</p>
+<p>location Jupyter Noteboo<br>
+## Requirements Please install the necessary packages in requirements. ## OVERVIEWE This Python script splits single videos containing multiple cameras views into individual videos of each separate view using OpenCV. It outputs the split video files into a specific folder structure, making them ready for further processing, such as motion tracking with tools like OpenPose or Pose2Sim. Below is an overview of the key steps in the code:</p>
+<ol start="0" type="1">
+<li><p>Importing Necessary Packages: see requirements.txt for all necessary packages</p></li>
+<li><p>Defining Relevant Directories, Variables, and Functions: Working with relative paths, the scripts defines input and output folders. Video extension (e.g., *.avi) and corresponding codec extension (e.g., XVID) can be ajusted by the user accordingly. The current script assumes 3 cameras for each vidoe, each of them with an euqal height and width. The split_camera_views function is defined to handle the core task of splitting a video file into separate camera views. This function processes each video file, extracting frames and dividing them into distinct sections corresponding to different camera views. The split videos are then saved to specified output files.</p></li>
+<li><p>and 2a. In <strong>2</strong> the script automatically scans a specified directory to identify and collect all video files with a specific extension (e.g., .avi). This allows for batch processing of multiple videos without requiring manual file selection. In <strong>2a</strong>, the the script provides an option for the user to manually select one or more video files through a graphical file dialog. This feature offers flexibility for the user to choose specific videos from any directory for processing.</p></li>
+<li><p>The scripts loops through the selected or identified video files and splitting each one into separate camera views: For each video file, the script extracts the filename and generates output file paths for each camera view (e.g., _cam1.avi, _cam2.avi, _cam3.avi). The split_camera_views function is called to process the video, splitting it into three separate camera views and saving them in a structured folder, such as a raw-2d subfolder within the output directory.</p></li>
+</ol>
+</section>
+<section id="importing-necessary-packages" class="level2">
+<h2 class="anchored" data-anchor-id="importing-necessary-packages">0. Importing Necessary Packages</h2>
+<div id="85430158-afc2-46de-919d-f44825208426" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os                                 <span class="co"># Importing the os module which provides functions for interacting with the operating system</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> moviepy.editor <span class="im">import</span> (              <span class="co"># Importing functions from the MoviePy library, which is used for video editing.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                VideoFileClip,                <span class="co"># VideoFileClip allows you to load a video file and manipulate it as a clip object.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                concatenate_videoclips)       <span class="co"># concatenate_videoclips allows you to concatenate multiple video clips into one video.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2                                <span class="co"># Importing cv2 module from OpenCV library, used for computer vision tasks (provides various functions to process images and videos).</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess                         <span class="co"># Importing subprocess, commonly used for running external commands or scripts from within a Python script.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tkinter                            <span class="co"># Importning tkinter, whch crates graphical user interfaces (GUIs) and provides a variety of widgets and controls to build desktop applications.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> filedialog                <span class="co"># importing filedialog from tkinter, is a module in tkinter, which allows the user to select files or directories through a dialog window.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm                     <span class="co"># Importing tqdm for the progress bar</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Everything was imported succesfully"</span>) <span class="co">#as terminal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Everything was imported succesfully</code></pre>
+</div>
+</div>
+</section>
+<section id="defining-the-relevant-directories-variables-functions" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-relevant-directories-variables-functions">1. Defining the Relevant Directories, Variables &amp; Functions</h2>
+<div id="10ede56c-ebdb-470d-bc52-9caaacb2b735" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------ DIRECTORIES -----------------------------</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>input_folder  <span class="op">=</span> <span class="st">'../2_Video_Calibration/calibration_videos_raw/'</span>    <span class="co"># Relative path to the input folder with the raw video files</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> <span class="st">'./video_split/'</span>  <span class="co"># output folder where the split videos will be saved (relative path) </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Input folder ="</span>, os.path.abspath(input_folder))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Output folder ="</span>, os.path.abspath(output_folder))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------- VARIABLES --------------------------</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>video_extension <span class="op">=</span> <span class="st">'.avi'</span>  <span class="co"># Video format extension avi. Change as needed (e.g., .mp4)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>codec_extension  <span class="op">=</span> <span class="st">'mp4v'</span>  <span class="co"># Codec for avi. Consider other codecs for different extensions:</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># '.mp4': 'libx264',</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># '.avi': 'libxvid',</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># '.mov': 'libx264',</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># '.mkv': 'libx264',</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># '.flv': 'flv',</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>num_cameras <span class="op">=</span> <span class="dv">3</span>          <span class="co"># Number of cameras for each "raw video". Change accordingly. </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>condition_pattern_matching <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r'.(Vision|NoVision)_(Movement|NoMovement)'</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------- FUNCTIONS -------------------------</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split_camera_views(input_file, output_files, num_cameras<span class="op">=</span><span class="dv">3</span>, codec_extension<span class="op">=</span><span class="st">'mp4v'</span>):</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">    This split_camera_views function takes an input video file and splits it into three separate video files, </span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">    each corresponding to a different camera view. It assumes that the input video is composed </span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">    of three side-by-side camera views. The function outputs three video files, each containing </span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">    one of the camera views.</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">    input_file (str): The path to the input video file.</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">    output_files (list of str): A list containing the paths to the output video files for each camera view.</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">    num_cameras (int): The number of camera views in the input video. Default is 3.</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">    codec_extension (str): The codec extension to be used for the output videos. Default is 'mp4v'.</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    cap <span class="op">=</span> cv2.VideoCapture(input_file)  <span class="co"># Open the video file</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract relevant information from the video</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    width_per_camera <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) <span class="op">//</span> num_cameras  <span class="co"># Calculate width per camera</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    height <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  <span class="co"># Get the height of the video (same for all cameras)</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    frame_rate <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FPS))  <span class="co"># Get the frame rate of the video (same for all cameras)</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create VideoWriters for each camera</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    fourcc <span class="op">=</span> cv2.VideoWriter_fourcc(<span class="op">*</span>codec_extension)  <span class="co"># Define the codec for the output videos</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    out_cam1 <span class="op">=</span> cv2.VideoWriter(output_files[<span class="dv">0</span>], fourcc, frame_rate, (width_per_camera, height))  <span class="co"># Create VideoWriter for the first camera</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    out_cam2 <span class="op">=</span> cv2.VideoWriter(output_files[<span class="dv">1</span>], fourcc, frame_rate, (width_per_camera, height))  <span class="co"># Create VideoWriter for the second camera</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>    out_cam3 <span class="op">=</span> cv2.VideoWriter(output_files[<span class="dv">2</span>], fourcc, frame_rate, (width_per_camera, height))  <span class="co"># Create VideoWriter for the third camera</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:  <span class="co"># Loop to read frames from the video</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>        ret, frame <span class="op">=</span> cap.read()  <span class="co"># Read a frame from the video</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if the frame is None (end of video)</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> frame <span class="kw">is</span> <span class="va">None</span>:  <span class="co"># If no frame is returned, break the loop</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Break the frame into three parts</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        camera1_frame <span class="op">=</span> frame[:, :width_per_camera, :]                    <span class="co"># Extract the first camera view</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>        camera2_frame <span class="op">=</span> frame[:, width_per_camera:<span class="dv">2</span><span class="op">*</span>width_per_camera, :]  <span class="co"># Extract the second camera view</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>        camera3_frame <span class="op">=</span> frame[:, <span class="dv">2</span><span class="op">*</span>width_per_camera:, :]                  <span class="co"># Extract the third camera view</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Display each camera view separately (optional)</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>        cv2.imshow(<span class="st">'Camera 1'</span>, camera1_frame)  <span class="co"># Display the first camera view</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cv2.imshow('Camera 2', camera2_frame)  # Display the second camera view</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cv2.imshow('Camera 3', camera3_frame)  # Display the third camera view</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Write frames to video files</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>        out_cam1.write(camera1_frame)  <span class="co"># Write the first camera view to its file</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>        out_cam2.write(camera2_frame)  <span class="co"># Write the second camera view to its file</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>        out_cam3.write(camera3_frame)  <span class="co"># Write the third camera view to its file</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> cv2.waitKey(<span class="dv">1</span>) <span class="op">==</span> <span class="dv">27</span>:  <span class="co"># Break the loop if 'Esc' key is pressed</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Release VideoWriters and VideoCapture</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>    out_cam1.release()  <span class="co"># Release the VideoWriter for the first camera</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>    out_cam2.release()  <span class="co"># Release the VideoWriter for the second camera</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>    out_cam3.release()  <span class="co"># Release the VideoWriter for the third camera</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    cap.release()  <span class="co"># Release the VideoCapture</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>    cv2.destroyAllWindows()  <span class="co"># Close all OpenCV windows</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Function split_camera_views created successfully'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Input folder = f:\Mobile-Multimodal-Lab\3_MOTION_TRACKING\2_Video_Calibration\calibration_videos_raw
+Output folder = f:\Mobile-Multimodal-Lab\3_MOTION_TRACKING\1_Video_Segmentation\video_split
+Function split_camera_views created successfully</code></pre>
+</div>
+</div>
+</section>
+<section id="identifying-relevant-videos-in-the-input_folder" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-relevant-videos-in-the-input_folder">2. Identifying Relevant Videos in the input_folder</h2>
+<div id="9c83f58f-6d52-4895-ad23-f59980636a53" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>video_files <span class="op">=</span> [ ]    <span class="co"># Initialize an empty list to store paths of video files</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Traverse through the directory and its subdirectories to find XDF files</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, videos <span class="kw">in</span> os.walk(os.path.abspath(input_folder)):  <span class="co"># 1st loop iterating over the results returned by os.walk().</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(input_folder)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> video <span class="kw">in</span> videos:                               <span class="co"># 2nd loop iterating through each file in the current directory</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> video.endswith(video_extension):            <span class="co"># checking if the video has the specified video_extension (e.g., '.avi') </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             video_files.append(os.path.join(root, video))   <span class="co"># if the video is an .avi file, append its full path to the  list</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'We have idenified the following vides: '</span> <span class="op">+</span> <span class="bu">str</span>(video_files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>../2_Video_Calibration/calibration_videos_raw/
+We have idenified the following vides: ['f:\\Mobile-Multimodal-Lab\\3_MOTION_TRACKING\\2_Video_Calibration\\calibration_videos_raw\\Calibration_P1_T1_Charuco_2024-04-23_output_compr.avi', 'f:\\Mobile-Multimodal-Lab\\3_MOTION_TRACKING\\2_Video_Calibration\\calibration_videos_raw\\Calibration_P2_T1_Charuco_2024-04-23_output_compr.avi']</code></pre>
+</div>
+</div>
+<div id="8fbc0d72" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(input_folder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>../2_Video_Calibration/calibration_videos_raw/</code></pre>
+</div>
+</div>
+</section>
+<section id="a.-alternatively-the-user-can-select-their-own-videos-from-any-directory." class="level2">
+<h2 class="anchored" data-anchor-id="a.-alternatively-the-user-can-select-their-own-videos-from-any-directory.">2a. Alternatively, the user can select their own Videos from any directory.</h2>
+<div id="a5efcca4-8236-4ffe-a02c-e4ea33710d5c" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> tkinter.Tk()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>root.attributes(<span class="st">'-topmost'</span>,<span class="va">True</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>root.iconify()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>video_files <span class="op">=</span> filedialog.askopenfilename(title<span class="op">=</span><span class="st">"Select one or multiple Videos in the format"</span> <span class="op">+</span> <span class="bu">str</span>(video_extension), filetypes<span class="op">=</span>[(<span class="st">"Video Files"</span>, <span class="bu">str</span>(video_extension))], multiple <span class="op">=</span> <span class="st">'True'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>root.destroy()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the tuple returned by askopenfilenames() to a list</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>video_files <span class="op">=</span> <span class="bu">list</span>(video_files)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following Videos: '</span> <span class="op">+</span> <span class="bu">str</span>(video_files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>You have selected the following Videos: ['F:/Mobile-Multimodal-Lab/2_PREPROCESSING/3_MOTION_TRACKING/2_Video Calibration/calibration_videos_raw/Calibration_P1_T1_Charuco_2024-04-23_output_compr.avi', 'F:/Mobile-Multimodal-Lab/2_PREPROCESSING/3_MOTION_TRACKING/2_Video Calibration/calibration_videos_raw/Calibration_P2_T1_Charuco_2024-04-23_output_compr.avi']</code></pre>
+</div>
+</div>
+</section>
+<section id="splitting-videos-loop" class="level2">
+<h2 class="anchored" data-anchor-id="splitting-videos-loop">3. Splitting Videos (Loop)</h2>
+<div id="eba65685" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">## This is temporary for the calibration files (different naming format)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over files in folder and split them</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> tqdm(video_files, desc<span class="op">=</span><span class="st">"Splitting the videos: "</span>, unit<span class="op">=</span><span class="st">"file"</span>):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the name of the file without the extension</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> os.path.splitext(os.path.basename(<span class="bu">file</span>))[<span class="dv">0</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the participant, condition and trial from the filename</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    participant <span class="op">=</span> <span class="bu">str</span>(filename.split(<span class="st">'_'</span>)[<span class="dv">1</span>])</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(participant)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    subfolder_path <span class="op">=</span> os.path.join(output_folder, participant)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the subfolder exists, if not create it</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(subfolder_path):</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        os.makedirs(subfolder_path)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the subfolder exists, if not create it</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(subfolder_path):</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        os.makedirs(subfolder_path)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create output file names for each camera, and save the three videos into ouput_folder with their correspodning camera angle </span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    output_files <span class="op">=</span> [</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        os.path.join(subfolder_path, filename <span class="op">+</span> <span class="st">'_cam1.mp4'</span>),</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        os.path.join(subfolder_path, filename <span class="op">+</span> <span class="st">'_cam2.mp4'</span>),</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        os.path.join(subfolder_path, filename <span class="op">+</span> <span class="st">'_cam3.mp4'</span>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make sure the output folder exists</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    os.makedirs(output_folder, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"saving Split Videos as: "</span> <span class="op">+</span> <span class="bu">str</span>(output_files))</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Splitting the videos using the function split_camera view</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    split_camera_views(<span class="bu">file</span>, output_files)</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Done, you can now look into the folder: '</span> <span class="op">+</span> output_folder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Splitting the videos:   0%|          | 0/2 [00:00&lt;?, ?file/s]Splitting the videos:  50%|█████     | 1/2 [00:42&lt;00:42, 42.58s/file]Splitting the videos: 100%|██████████| 2/2 [01:30&lt;00:00, 45.00s/file]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P1
+saving Split Videos as: ['./video_split/P1\\Calibration_P1_T1_Charuco_2024-04-23_output_compr_cam1.mp4', './video_split/P1\\Calibration_P1_T1_Charuco_2024-04-23_output_compr_cam2.mp4', './video_split/P1\\Calibration_P1_T1_Charuco_2024-04-23_output_compr_cam3.mp4']
+P2
+saving Split Videos as: ['./video_split/P2\\Calibration_P2_T1_Charuco_2024-04-23_output_compr_cam1.mp4', './video_split/P2\\Calibration_P2_T1_Charuco_2024-04-23_output_compr_cam2.mp4', './video_split/P2\\Calibration_P2_T1_Charuco_2024-04-23_output_compr_cam3.mp4']
+Done, you can now look into the folder: ./video_split/</code></pre>
+</div>
+</div>
+<div id="fd1238f5-afb0-425a-aeed-8299ecb7d67e" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop over files in folder and split them</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> tqdm(video_files, desc<span class="op">=</span><span class="st">"Splitting the videos: "</span>, unit<span class="op">=</span><span class="st">"file"</span>):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the name of the file without the extension</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> os.path.splitext(os.path.basename(<span class="bu">file</span>))[<span class="dv">0</span>]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the participant, condition and trial from the filename</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    participant <span class="op">=</span> <span class="bu">str</span>(filename.split(<span class="st">'_'</span>)[<span class="dv">3</span>])</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    condition <span class="op">=</span> <span class="bu">str</span>(filename.split(<span class="st">'_'</span>)[<span class="dv">4</span>] <span class="op">+</span> <span class="st">'_'</span> <span class="op">+</span> filename.split(<span class="st">'_'</span>)[<span class="dv">5</span>])</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    trial    <span class="op">=</span> <span class="st">'trial_'</span> <span class="op">+</span> <span class="bu">str</span>(filename.split(<span class="st">'_'</span>)[<span class="dv">6</span>])</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Participant: '</span> <span class="op">+</span> participant)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Condition: '</span> <span class="op">+</span> condition)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Trial: '</span> <span class="op">+</span> trial)    </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    subfolder_path <span class="op">=</span> os.path.join(output_folder, participant, condition, trial)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the subfolder exists, if not create it</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(subfolder_path):</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        os.makedirs(subfolder_path)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># create output file names for each camera, and save the three videos into ouput_folder with their correspodning camera angle </span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    output_files <span class="op">=</span> [</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        os.path.join(subfolder_path, filename <span class="op">+</span> <span class="st">'_cam1.avi'</span>),</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        os.path.join(subfolder_path, filename <span class="op">+</span> <span class="st">'_cam2.avi'</span>),</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>        os.path.join(subfolder_path, filename <span class="op">+</span> <span class="st">'_cam3.avi'</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make sure the output folder exists</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    os.makedirs(output_folder, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"saving Split Videos as: "</span> <span class="op">+</span> <span class="bu">str</span>(output_files))</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Splitting the videos using the function split_camera view</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    split_camera_views(<span class="bu">file</span>, output_files)</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Done, you can now look into the folder: '</span> <span class="op">+</span> output_folder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Splitting the videos:   0%|          | 0/40 [00:00&lt;?, ?file/s]Splitting the videos:   2%|▎         | 1/40 [00:12&lt;07:58, 12.27s/file]Splitting the videos:   5%|▌         | 2/40 [00:24&lt;07:51, 12.42s/file]Splitting the videos:   8%|▊         | 3/40 [00:37&lt;07:41, 12.48s/file]Splitting the videos:  10%|█         | 4/40 [00:49&lt;07:29, 12.50s/file]Splitting the videos:  12%|█▎        | 5/40 [01:02&lt;07:17, 12.51s/file]Splitting the videos:  15%|█▌        | 6/40 [01:14&lt;06:58, 12.30s/file]Splitting the videos:  18%|█▊        | 7/40 [01:26&lt;06:41, 12.17s/file]Splitting the videos:  20%|██        | 8/40 [01:38&lt;06:28, 12.13s/file]Splitting the videos:  22%|██▎       | 9/40 [01:49&lt;06:11, 11.99s/file]Splitting the videos:  25%|██▌       | 10/40 [02:01&lt;05:53, 11.79s/file]Splitting the videos:  28%|██▊       | 11/40 [02:13&lt;05:50, 12.08s/file]Splitting the videos:  30%|███       | 12/40 [02:26&lt;05:42, 12.22s/file]Splitting the videos:  32%|███▎      | 13/40 [02:39&lt;05:32, 12.33s/file]Splitting the videos:  35%|███▌      | 14/40 [02:51&lt;05:19, 12.29s/file]Splitting the videos:  38%|███▊      | 15/40 [03:03&lt;05:05, 12.23s/file]Splitting the videos:  40%|████      | 16/40 [03:15&lt;04:55, 12.31s/file]Splitting the videos:  42%|████▎     | 17/40 [03:27&lt;04:40, 12.20s/file]Splitting the videos:  45%|████▌     | 18/40 [03:40&lt;04:30, 12.29s/file]Splitting the videos:  48%|████▊     | 19/40 [03:52&lt;04:19, 12.37s/file]Splitting the videos:  50%|█████     | 20/40 [04:05&lt;04:07, 12.38s/file]Splitting the videos:  52%|█████▎    | 21/40 [04:18&lt;03:59, 12.59s/file]Splitting the videos:  55%|█████▌    | 22/40 [04:31&lt;03:48, 12.72s/file]Splitting the videos:  57%|█████▊    | 23/40 [04:44&lt;03:38, 12.83s/file]Splitting the videos:  60%|██████    | 24/40 [04:57&lt;03:26, 12.90s/file]Splitting the videos:  62%|██████▎   | 25/40 [05:10&lt;03:14, 12.95s/file]Splitting the videos:  65%|██████▌   | 26/40 [05:23&lt;03:01, 12.93s/file]Splitting the videos:  68%|██████▊   | 27/40 [05:36&lt;02:48, 12.96s/file]Splitting the videos:  70%|███████   | 28/40 [05:49&lt;02:35, 12.99s/file]Splitting the videos:  72%|███████▎  | 29/40 [06:02&lt;02:23, 13.01s/file]Splitting the videos:  75%|███████▌  | 30/40 [06:15&lt;02:10, 13.02s/file]Splitting the videos:  78%|███████▊  | 31/40 [06:28&lt;01:58, 13.11s/file]Splitting the videos:  80%|████████  | 32/40 [06:42&lt;01:45, 13.16s/file]Splitting the videos:  82%|████████▎ | 33/40 [06:55&lt;01:32, 13.17s/file]Splitting the videos:  85%|████████▌ | 34/40 [07:08&lt;01:19, 13.18s/file]Splitting the videos:  88%|████████▊ | 35/40 [07:21&lt;01:05, 13.16s/file]Splitting the videos:  90%|█████████ | 36/40 [07:34&lt;00:52, 13.15s/file]Splitting the videos:  92%|█████████▎| 37/40 [07:48&lt;00:39, 13.14s/file]Splitting the videos:  95%|█████████▌| 38/40 [08:01&lt;00:26, 13.11s/file]Splitting the videos:  98%|█████████▊| 39/40 [08:14&lt;00:13, 13.11s/file]Splitting the videos: 100%|██████████| 40/40 [08:27&lt;00:00, 12.68s/file]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Participant: P1
+Condition: NoVision_Movement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P1\\NoVision_Movement\\trial_0\\T1_experiment_Video_P1_NoVision_Movement_0_StartParticipantSinging_NoVision_Movement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_Movement\\trial_0\\T1_experiment_Video_P1_NoVision_Movement_0_StartParticipantSinging_NoVision_Movement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_Movement\\trial_0\\T1_experiment_Video_P1_NoVision_Movement_0_StartParticipantSinging_NoVision_Movement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_Movement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P1\\NoVision_Movement\\trial_1\\T1_experiment_Video_P1_NoVision_Movement_1_StartParticipantSinging_NoVision_Movement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_Movement\\trial_1\\T1_experiment_Video_P1_NoVision_Movement_1_StartParticipantSinging_NoVision_Movement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_Movement\\trial_1\\T1_experiment_Video_P1_NoVision_Movement_1_StartParticipantSinging_NoVision_Movement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_Movement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P1\\NoVision_Movement\\trial_2\\T1_experiment_Video_P1_NoVision_Movement_2_StartParticipantSinging_NoVision_Movement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_Movement\\trial_2\\T1_experiment_Video_P1_NoVision_Movement_2_StartParticipantSinging_NoVision_Movement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_Movement\\trial_2\\T1_experiment_Video_P1_NoVision_Movement_2_StartParticipantSinging_NoVision_Movement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_Movement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P1\\NoVision_Movement\\trial_3\\T1_experiment_Video_P1_NoVision_Movement_3_StartParticipantSinging_NoVision_Movement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_Movement\\trial_3\\T1_experiment_Video_P1_NoVision_Movement_3_StartParticipantSinging_NoVision_Movement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_Movement\\trial_3\\T1_experiment_Video_P1_NoVision_Movement_3_StartParticipantSinging_NoVision_Movement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_Movement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P1\\NoVision_Movement\\trial_4\\T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_Movement\\trial_4\\T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_Movement\\trial_4\\T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_NoMovement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P1\\NoVision_NoMovement\\trial_0\\T1_experiment_Video_P1_NoVision_NoMovement_0_StartParticipantSinging_NoVision_NoMovement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_NoMovement\\trial_0\\T1_experiment_Video_P1_NoVision_NoMovement_0_StartParticipantSinging_NoVision_NoMovement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_NoMovement\\trial_0\\T1_experiment_Video_P1_NoVision_NoMovement_0_StartParticipantSinging_NoVision_NoMovement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_NoMovement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P1\\NoVision_NoMovement\\trial_1\\T1_experiment_Video_P1_NoVision_NoMovement_1_StartParticipantSinging_NoVision_NoMovement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_NoMovement\\trial_1\\T1_experiment_Video_P1_NoVision_NoMovement_1_StartParticipantSinging_NoVision_NoMovement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_NoMovement\\trial_1\\T1_experiment_Video_P1_NoVision_NoMovement_1_StartParticipantSinging_NoVision_NoMovement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_NoMovement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P1\\NoVision_NoMovement\\trial_2\\T1_experiment_Video_P1_NoVision_NoMovement_2_StartParticipantSinging_NoVision_NoMovement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_NoMovement\\trial_2\\T1_experiment_Video_P1_NoVision_NoMovement_2_StartParticipantSinging_NoVision_NoMovement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_NoMovement\\trial_2\\T1_experiment_Video_P1_NoVision_NoMovement_2_StartParticipantSinging_NoVision_NoMovement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_NoMovement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P1\\NoVision_NoMovement\\trial_3\\T1_experiment_Video_P1_NoVision_NoMovement_3_StartParticipantSinging_NoVision_NoMovement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_NoMovement\\trial_3\\T1_experiment_Video_P1_NoVision_NoMovement_3_StartParticipantSinging_NoVision_NoMovement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_NoMovement\\trial_3\\T1_experiment_Video_P1_NoVision_NoMovement_3_StartParticipantSinging_NoVision_NoMovement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: NoVision_NoMovement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P1\\NoVision_NoMovement\\trial_4\\T1_experiment_Video_P1_NoVision_NoMovement_4_StartParticipantSinging_NoVision_NoMovement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\NoVision_NoMovement\\trial_4\\T1_experiment_Video_P1_NoVision_NoMovement_4_StartParticipantSinging_NoVision_NoMovement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\NoVision_NoMovement\\trial_4\\T1_experiment_Video_P1_NoVision_NoMovement_4_StartParticipantSinging_NoVision_NoMovement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_Movement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P1\\Vision_Movement\\trial_0\\T1_experiment_Video_P1_Vision_Movement_0_StartParticipantSinging_Vision_Movement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_Movement\\trial_0\\T1_experiment_Video_P1_Vision_Movement_0_StartParticipantSinging_Vision_Movement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_Movement\\trial_0\\T1_experiment_Video_P1_Vision_Movement_0_StartParticipantSinging_Vision_Movement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_Movement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P1\\Vision_Movement\\trial_1\\T1_experiment_Video_P1_Vision_Movement_1_StartParticipantSinging_Vision_Movement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_Movement\\trial_1\\T1_experiment_Video_P1_Vision_Movement_1_StartParticipantSinging_Vision_Movement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_Movement\\trial_1\\T1_experiment_Video_P1_Vision_Movement_1_StartParticipantSinging_Vision_Movement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_Movement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P1\\Vision_Movement\\trial_2\\T1_experiment_Video_P1_Vision_Movement_2_StartParticipantSinging_Vision_Movement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_Movement\\trial_2\\T1_experiment_Video_P1_Vision_Movement_2_StartParticipantSinging_Vision_Movement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_Movement\\trial_2\\T1_experiment_Video_P1_Vision_Movement_2_StartParticipantSinging_Vision_Movement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_Movement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P1\\Vision_Movement\\trial_3\\T1_experiment_Video_P1_Vision_Movement_3_StartParticipantSinging_Vision_Movement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_Movement\\trial_3\\T1_experiment_Video_P1_Vision_Movement_3_StartParticipantSinging_Vision_Movement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_Movement\\trial_3\\T1_experiment_Video_P1_Vision_Movement_3_StartParticipantSinging_Vision_Movement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_Movement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P1\\Vision_Movement\\trial_4\\T1_experiment_Video_P1_Vision_Movement_4_StartParticipantSinging_Vision_Movement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_Movement\\trial_4\\T1_experiment_Video_P1_Vision_Movement_4_StartParticipantSinging_Vision_Movement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_Movement\\trial_4\\T1_experiment_Video_P1_Vision_Movement_4_StartParticipantSinging_Vision_Movement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_NoMovement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P1\\Vision_NoMovement\\trial_0\\T1_experiment_Video_P1_Vision_NoMovement_0_StartParticipantSinging_Vision_NoMovement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_NoMovement\\trial_0\\T1_experiment_Video_P1_Vision_NoMovement_0_StartParticipantSinging_Vision_NoMovement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_NoMovement\\trial_0\\T1_experiment_Video_P1_Vision_NoMovement_0_StartParticipantSinging_Vision_NoMovement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_NoMovement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P1\\Vision_NoMovement\\trial_1\\T1_experiment_Video_P1_Vision_NoMovement_1_StartParticipantSinging_Vision_NoMovement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_NoMovement\\trial_1\\T1_experiment_Video_P1_Vision_NoMovement_1_StartParticipantSinging_Vision_NoMovement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_NoMovement\\trial_1\\T1_experiment_Video_P1_Vision_NoMovement_1_StartParticipantSinging_Vision_NoMovement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_NoMovement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P1\\Vision_NoMovement\\trial_2\\T1_experiment_Video_P1_Vision_NoMovement_2_StartParticipantSinging_Vision_NoMovement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_NoMovement\\trial_2\\T1_experiment_Video_P1_Vision_NoMovement_2_StartParticipantSinging_Vision_NoMovement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_NoMovement\\trial_2\\T1_experiment_Video_P1_Vision_NoMovement_2_StartParticipantSinging_Vision_NoMovement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_NoMovement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P1\\Vision_NoMovement\\trial_3\\T1_experiment_Video_P1_Vision_NoMovement_3_StartParticipantSinging_Vision_NoMovement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_NoMovement\\trial_3\\T1_experiment_Video_P1_Vision_NoMovement_3_StartParticipantSinging_Vision_NoMovement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_NoMovement\\trial_3\\T1_experiment_Video_P1_Vision_NoMovement_3_StartParticipantSinging_Vision_NoMovement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P1
+Condition: Vision_NoMovement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P1\\Vision_NoMovement\\trial_4\\T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P1\\Vision_NoMovement\\trial_4\\T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P1\\Vision_NoMovement\\trial_4\\T1_experiment_Video_P1_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_Movement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P2\\NoVision_Movement\\trial_0\\T1_experiment_Video_P2_NoVision_Movement_0_StartParticipantSinging_NoVision_Movement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_Movement\\trial_0\\T1_experiment_Video_P2_NoVision_Movement_0_StartParticipantSinging_NoVision_Movement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_Movement\\trial_0\\T1_experiment_Video_P2_NoVision_Movement_0_StartParticipantSinging_NoVision_Movement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_Movement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P2\\NoVision_Movement\\trial_1\\T1_experiment_Video_P2_NoVision_Movement_1_StartParticipantSinging_NoVision_Movement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_Movement\\trial_1\\T1_experiment_Video_P2_NoVision_Movement_1_StartParticipantSinging_NoVision_Movement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_Movement\\trial_1\\T1_experiment_Video_P2_NoVision_Movement_1_StartParticipantSinging_NoVision_Movement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_Movement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P2\\NoVision_Movement\\trial_2\\T1_experiment_Video_P2_NoVision_Movement_2_StartParticipantSinging_NoVision_Movement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_Movement\\trial_2\\T1_experiment_Video_P2_NoVision_Movement_2_StartParticipantSinging_NoVision_Movement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_Movement\\trial_2\\T1_experiment_Video_P2_NoVision_Movement_2_StartParticipantSinging_NoVision_Movement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_Movement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P2\\NoVision_Movement\\trial_3\\T1_experiment_Video_P2_NoVision_Movement_3_StartParticipantSinging_NoVision_Movement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_Movement\\trial_3\\T1_experiment_Video_P2_NoVision_Movement_3_StartParticipantSinging_NoVision_Movement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_Movement\\trial_3\\T1_experiment_Video_P2_NoVision_Movement_3_StartParticipantSinging_NoVision_Movement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_Movement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P2\\NoVision_Movement\\trial_4\\T1_experiment_Video_P2_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_Movement\\trial_4\\T1_experiment_Video_P2_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_Movement\\trial_4\\T1_experiment_Video_P2_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_NoMovement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P2\\NoVision_NoMovement\\trial_0\\T1_experiment_Video_P2_NoVision_NoMovement_0_StartParticipantSinging_NoVision_NoMovement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_NoMovement\\trial_0\\T1_experiment_Video_P2_NoVision_NoMovement_0_StartParticipantSinging_NoVision_NoMovement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_NoMovement\\trial_0\\T1_experiment_Video_P2_NoVision_NoMovement_0_StartParticipantSinging_NoVision_NoMovement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_NoMovement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P2\\NoVision_NoMovement\\trial_1\\T1_experiment_Video_P2_NoVision_NoMovement_1_StartParticipantSinging_NoVision_NoMovement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_NoMovement\\trial_1\\T1_experiment_Video_P2_NoVision_NoMovement_1_StartParticipantSinging_NoVision_NoMovement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_NoMovement\\trial_1\\T1_experiment_Video_P2_NoVision_NoMovement_1_StartParticipantSinging_NoVision_NoMovement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_NoMovement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P2\\NoVision_NoMovement\\trial_2\\T1_experiment_Video_P2_NoVision_NoMovement_2_StartParticipantSinging_NoVision_NoMovement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_NoMovement\\trial_2\\T1_experiment_Video_P2_NoVision_NoMovement_2_StartParticipantSinging_NoVision_NoMovement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_NoMovement\\trial_2\\T1_experiment_Video_P2_NoVision_NoMovement_2_StartParticipantSinging_NoVision_NoMovement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_NoMovement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P2\\NoVision_NoMovement\\trial_3\\T1_experiment_Video_P2_NoVision_NoMovement_3_StartParticipantSinging_NoVision_NoMovement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_NoMovement\\trial_3\\T1_experiment_Video_P2_NoVision_NoMovement_3_StartParticipantSinging_NoVision_NoMovement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_NoMovement\\trial_3\\T1_experiment_Video_P2_NoVision_NoMovement_3_StartParticipantSinging_NoVision_NoMovement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: NoVision_NoMovement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P2\\NoVision_NoMovement\\trial_4\\T1_experiment_Video_P2_NoVision_NoMovement_4_StartParticipantSinging_NoVision_NoMovement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\NoVision_NoMovement\\trial_4\\T1_experiment_Video_P2_NoVision_NoMovement_4_StartParticipantSinging_NoVision_NoMovement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\NoVision_NoMovement\\trial_4\\T1_experiment_Video_P2_NoVision_NoMovement_4_StartParticipantSinging_NoVision_NoMovement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_Movement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P2\\Vision_Movement\\trial_0\\T1_experiment_Video_P2_Vision_Movement_0_StartParticipantSinging_Vision_Movement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_Movement\\trial_0\\T1_experiment_Video_P2_Vision_Movement_0_StartParticipantSinging_Vision_Movement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_Movement\\trial_0\\T1_experiment_Video_P2_Vision_Movement_0_StartParticipantSinging_Vision_Movement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_Movement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P2\\Vision_Movement\\trial_1\\T1_experiment_Video_P2_Vision_Movement_1_StartParticipantSinging_Vision_Movement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_Movement\\trial_1\\T1_experiment_Video_P2_Vision_Movement_1_StartParticipantSinging_Vision_Movement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_Movement\\trial_1\\T1_experiment_Video_P2_Vision_Movement_1_StartParticipantSinging_Vision_Movement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_Movement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P2\\Vision_Movement\\trial_2\\T1_experiment_Video_P2_Vision_Movement_2_StartParticipantSinging_Vision_Movement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_Movement\\trial_2\\T1_experiment_Video_P2_Vision_Movement_2_StartParticipantSinging_Vision_Movement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_Movement\\trial_2\\T1_experiment_Video_P2_Vision_Movement_2_StartParticipantSinging_Vision_Movement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_Movement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P2\\Vision_Movement\\trial_3\\T1_experiment_Video_P2_Vision_Movement_3_StartParticipantSinging_Vision_Movement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_Movement\\trial_3\\T1_experiment_Video_P2_Vision_Movement_3_StartParticipantSinging_Vision_Movement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_Movement\\trial_3\\T1_experiment_Video_P2_Vision_Movement_3_StartParticipantSinging_Vision_Movement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_Movement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P2\\Vision_Movement\\trial_4\\T1_experiment_Video_P2_Vision_Movement_4_StartParticipantSinging_Vision_Movement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_Movement\\trial_4\\T1_experiment_Video_P2_Vision_Movement_4_StartParticipantSinging_Vision_Movement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_Movement\\trial_4\\T1_experiment_Video_P2_Vision_Movement_4_StartParticipantSinging_Vision_Movement_4_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_NoMovement
+Trial: trial_0
+saving Split Videos as: ['./video_split/P2\\Vision_NoMovement\\trial_0\\T1_experiment_Video_P2_Vision_NoMovement_0_StartParticipantSinging_Vision_NoMovement_0_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_NoMovement\\trial_0\\T1_experiment_Video_P2_Vision_NoMovement_0_StartParticipantSinging_Vision_NoMovement_0_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_NoMovement\\trial_0\\T1_experiment_Video_P2_Vision_NoMovement_0_StartParticipantSinging_Vision_NoMovement_0_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_NoMovement
+Trial: trial_1
+saving Split Videos as: ['./video_split/P2\\Vision_NoMovement\\trial_1\\T1_experiment_Video_P2_Vision_NoMovement_1_StartParticipantSinging_Vision_NoMovement_1_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_NoMovement\\trial_1\\T1_experiment_Video_P2_Vision_NoMovement_1_StartParticipantSinging_Vision_NoMovement_1_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_NoMovement\\trial_1\\T1_experiment_Video_P2_Vision_NoMovement_1_StartParticipantSinging_Vision_NoMovement_1_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_NoMovement
+Trial: trial_2
+saving Split Videos as: ['./video_split/P2\\Vision_NoMovement\\trial_2\\T1_experiment_Video_P2_Vision_NoMovement_2_StartParticipantSinging_Vision_NoMovement_2_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_NoMovement\\trial_2\\T1_experiment_Video_P2_Vision_NoMovement_2_StartParticipantSinging_Vision_NoMovement_2_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_NoMovement\\trial_2\\T1_experiment_Video_P2_Vision_NoMovement_2_StartParticipantSinging_Vision_NoMovement_2_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_NoMovement
+Trial: trial_3
+saving Split Videos as: ['./video_split/P2\\Vision_NoMovement\\trial_3\\T1_experiment_Video_P2_Vision_NoMovement_3_StartParticipantSinging_Vision_NoMovement_3_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_NoMovement\\trial_3\\T1_experiment_Video_P2_Vision_NoMovement_3_StartParticipantSinging_Vision_NoMovement_3_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_NoMovement\\trial_3\\T1_experiment_Video_P2_Vision_NoMovement_3_StartParticipantSinging_Vision_NoMovement_3_EndParticipantSinging_clipped_cam3.avi']
+Participant: P2
+Condition: Vision_NoMovement
+Trial: trial_4
+saving Split Videos as: ['./video_split/P2\\Vision_NoMovement\\trial_4\\T1_experiment_Video_P2_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam1.avi', './video_split/P2\\Vision_NoMovement\\trial_4\\T1_experiment_Video_P2_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam2.avi', './video_split/P2\\Vision_NoMovement\\trial_4\\T1_experiment_Video_P2_Vision_NoMovement_4_StartParticipantSinging_Vision_NoMovement_4_EndParticipantSinging_clipped_cam3.avi']
+Done, you can now look into the folder: ./video_split/</code></pre>
+</div>
+</div>
+</section>
+<section id="mp4-conversion-if-necessary" class="level2">
+<h2 class="anchored" data-anchor-id="mp4-conversion-if-necessary">4. MP4 Conversion (if necessary)</h2>
+<p>Note that you can also use online tools to convert videos like https://cloudconvert.com/</p>
+<div id="04e65926-21b6-429b-b55e-5d01457b9f4d" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>input_folder  <span class="op">=</span> <span class="st">'./videos_split/'</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> r <span class="st">"C:\Users</span><span class="ch">\a</span><span class="st">hmar\OneDrive\Documents\GitHub\Mobile-Multimodal-Lab</span><span class="ch">\2</span><span class="st">_PREPROCESSING</span><span class="ch">\2</span><span class="st">_MOTION_TRACKING</span><span class="ch">\3</span><span class="st">_freemocap</span><span class="ch">\"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="er">#Should we add this step? </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Yes, should write some easy code with moviepy that converts whatever format into MP4. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>SyntaxError: unterminated string literal (detected at line 2) (1093415785.py, line 2)</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,74 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "*.ipynb"
+    - "!/00_RAWDATA"
+    - "!/Miscellaneous"
+    - "!/shign"
+
+website:
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - text: "Home"
+        href: index.qmd
+
+      - section: "Lab Setup"
+        contents:
+          - xxx
+          - xxx
+
+      - section: "Preprocessing"
+        contents:
+          - 2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.ipynb
+          - 2_PREPROCESSING/2_AudioVideo_Sync.ipynb
+
+
+      - section: "Motion Tracking"
+        contents:
+          - 3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.ipynb
+          - 3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.ipynb
+          - Alternative 1: FreeMoCap
+          - How to run FreeMoCap
+          - 3_MOTION_TRACKING/shutterspeedcheck.ipynb
+          - Alternative 2: Pose2sim
+          - How to run Pose2sim
+
+      - section: "Example of Analysis"
+        contents:
+          - 4b_SynchronyAnalyses/processing_and_visualization.ipynb
+      
+      - section: "Visualization"
+        contents:
+          - 5_ANIMATIONS/Donders_MML_Multimodal_Animations.ipynb
+
+
+
+  navbar:
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/MultiMobLab/Mobile-Multimodal-Lab
+          - text: Report a Bug
+            href: https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues
+
+metadata:
+  crossref:
+    chapters: true
+
+
+format:
+  html:
+    theme: cosmo
+    highlight-style: github
+    css: style.css
+
+
+
+
+
+

@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>DONDERS MML: Multimodal Animations</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html">Visualization</a></li><li class="breadcrumb-item"><a href="../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html">DONDERS MML: Multimodal Animations</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Lab Setup</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">xxx</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">xxx</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Preprocessing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mobile Multimodal Lab (MML): XDF Preprocessing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Motion Tracking</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Donderrs MML: Splitting Multiple Videos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MMLAB PLOTS MULTIMODAL PLOT BONANZA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">DONDERS MML: Multimodal Animations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html">Visualization</a></li><li class="breadcrumb-item"><a href="../5_ANIMATIONS/Donders_MML_Multimodal_Animations.html">DONDERS MML: Multimodal Animations</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">DONDERS MML: Multimodal Animations</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="import-necessary-packages" class="level3">
+<h3 class="anchored" data-anchor-id="import-necessary-packages">0. Import Necessary Packages</h3>
+<div id="cell-3" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2 <span class="co">#opencv</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="co">#basic operations</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co">#basic operations</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co">#data wrangling</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv <span class="co">#csv saving</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os <span class="co">#some basic functions for inspecting folder structure etc.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> listdir</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os.path <span class="im">import</span> isfile, join</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob <span class="im">as</span> glob</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> moviepy.editor <span class="im">as</span> mop</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> FuncAnimation</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tkinter <span class="co"># GUI toolkit to open and save files</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> filedialog, messagebox  <span class="co"># GUI toolkit to open and save files</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> butter, filtfilt, iirnotch</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> librosa</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> librosa.display</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tempfile</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tqdm</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Everything imported successfully"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Everything imported successfully</code></pre>
+</div>
+</div>
+</section>
+<section id="the-user-selects-their-own-files-with-a-gui-pop-up" class="level3">
+<h3 class="anchored" data-anchor-id="the-user-selects-their-own-files-with-a-gui-pop-up">1. The User Selects their Own Files with a GUI pop-up</h3>
+<div id="cell-5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tkinter <span class="im">as</span> tk</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> filedialog, messagebox</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the GUI window</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> tk.Tk()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>root.attributes(<span class="st">'-topmost'</span>, <span class="va">True</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>root.iconify()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pre-announcement message box with bigger font</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>messagebox.showinfo(<span class="st">"File Selection"</span>, <span class="st">"Please select your 2D Videos with annotated 2D tracking. Here we are working with 3 videos in the .mp4 format "</span>, icon<span class="op">=</span><span class="st">'info'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ask the user to select the Files that will be part of the Multimodal Animation</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>videos_input_2D <span class="op">=</span> filedialog.askopenfilename(title<span class="op">=</span><span class="st">"Select your 2D Videos with the annotated 2D tracking"</span>, filetypes<span class="op">=</span>[(<span class="st">"Video Files"</span>, <span class="st">"*.mp4"</span>)], multiple<span class="op">=</span><span class="st">'True'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the tuple returned by askopenfilenames() to a list because we have multipe files </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>videos_input_2D <span class="op">=</span> <span class="bu">list</span>(videos_input_2D)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following 2D Videos: '</span> <span class="op">+</span> <span class="bu">str</span>(videos_input_2D))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>messagebox.showinfo(<span class="st">"File Selection"</span>, <span class="st">"Please select your 3D Motion Tracking file. This is .csv file with xyz coordinates for each landmark"</span>, icon<span class="op">=</span><span class="st">'info'</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>MT_3D_input <span class="op">=</span> filedialog.askopenfilename(title<span class="op">=</span><span class="st">"Select your 3D Motion Tracking file (xyz)"</span>, filetypes<span class="op">=</span>[(<span class="st">"CSV Files"</span>, <span class="st">"*.csv"</span>)])</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following 3D Motion Tracking file: '</span> <span class="op">+</span> <span class="bu">str</span>(MT_3D_input))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>messagebox.showinfo(<span class="st">"File Selection"</span>, <span class="st">"Please select your audio file. This is a .wav file"</span>, icon<span class="op">=</span><span class="st">'info'</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>audio_input <span class="op">=</span> filedialog.askopenfilename(title<span class="op">=</span><span class="st">"Select your audio file corresponding to the video"</span>, filetypes<span class="op">=</span>[(<span class="st">"Audio Files"</span>, <span class="st">"*.wav"</span>)])</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following audio file: '</span> <span class="op">+</span> <span class="bu">str</span>(audio_input))</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>messagebox.showinfo(<span class="st">"File Selection"</span>, <span class="st">"Please select your PLUX file. This is a .csv file extracted from LSL"</span>, icon<span class="op">=</span><span class="st">'info'</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>PLUX_input <span class="op">=</span> filedialog.askopenfilename(title<span class="op">=</span><span class="st">"Select your PLUX file containing physiological data"</span>, filetypes<span class="op">=</span>[(<span class="st">"CSV Files"</span>, <span class="st">"*.csv"</span>)])</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following PLUX file: '</span> <span class="op">+</span> <span class="bu">str</span>(PLUX_input))</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>root.destroy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>You have selected the following 2D Videos: ['F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/annotated_videos/T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam1_mediapipe.mp4', 'F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/annotated_videos/T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam2_mediapipe.mp4', 'F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/annotated_videos/T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam3_mediapipe.mp4']
+You have selected the following 3D Motion Tracking file: F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/output_data/mediapipe_body_3d_xyz.csv
+You have selected the following audio file: F:/Mobile-Multimodal-Lab/2_PREPROCESSING/1_XDF_PROCESSING/data_processed/T1/marker_MULTIPLEpairs/T1_experiment_Mic_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_denoised.wav
+You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESSING/1_XDF_PROCESSING/data_processed/T1/marker_MULTIPLEpairs/T1_experiment_PLUX_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging.csv</code></pre>
+</div>
+</div>
+</section>
+<section id="create-a-3d-animation-from-the-mt_3d_input" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-3d-animation-from-the-mt_3d_input">2. Create a 3D Animation from the MT_3D_input</h3>
+<div id="cell-7" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>MT_tracking <span class="op">=</span> pd.read_csv(MT_3D_input)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the number of frames</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>num_frames <span class="op">=</span> <span class="bu">len</span>(MT_tracking)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the scatter plot</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>scatter <span class="op">=</span> ax.scatter([], [], [], marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the FPS and frame count of your 2D video to ensure that the 3D animation has the same duration</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>cap <span class="op">=</span> cv2.VideoCapture(videos_input_2D[<span class="dv">0</span>])  <span class="co"># here only using the first one because all videos have the same duration</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> cap.get(cv2.CAP_PROP_FPS)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>frame_count_2D <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>duration_2D <span class="op">=</span> frame_count_2D <span class="op">/</span> fps</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>cap.release()</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure your 3D data matches the duration of the 2D videos</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>num_frames <span class="op">=</span> <span class="bu">int</span>(duration_2D <span class="op">*</span> fps)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>MT_tracking <span class="op">=</span> MT_tracking.iloc[:num_frames]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Defyining Connectsion between landmarks to draw lines fro Example . #Change according to the landmarks in your data</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>connections <span class="op">=</span> [</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Head and torso</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'nose'</span>, <span class="st">'left_eye_inner'</span>), </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'nose'</span>, <span class="st">'right_eye_inner'</span>),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_eye_inner'</span>, <span class="st">'left_eye'</span>), </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_eye'</span>, <span class="st">'left_eye_outer'</span>),</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_eye_inner'</span>, <span class="st">'right_eye'</span>), </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_eye'</span>, <span class="st">'right_eye_outer'</span>),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'nose'</span>, <span class="st">'left_ear'</span>),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'nose'</span>, <span class="st">'right_ear'</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Upper body (shoulders, arms)</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_shoulder'</span>, <span class="st">'right_shoulder'</span>),</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_shoulder'</span>, <span class="st">'left_elbow'</span>),</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_elbow'</span>, <span class="st">'left_wrist'</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_shoulder'</span>, <span class="st">'right_elbow'</span>),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_elbow'</span>, <span class="st">'right_wrist'</span>),</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lower body (hips, legs)</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_shoulder'</span>, <span class="st">'left_hip'</span>),</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_shoulder'</span>, <span class="st">'right_hip'</span>),</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_hip'</span>, <span class="st">'right_hip'</span>),</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_hip'</span>, <span class="st">'left_knee'</span>),</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_knee'</span>, <span class="st">'left_ankle'</span>),</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_hip'</span>, <span class="st">'right_knee'</span>),</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_knee'</span>, <span class="st">'right_ankle'</span>),</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Feet (toes and heel)</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_ankle'</span>, <span class="st">'left_heel'</span>),</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_ankle'</span>, <span class="st">'right_heel'</span>),</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_heel'</span>, <span class="st">'left_foot_index'</span>),</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_heel'</span>, <span class="st">'right_foot_index'</span>),</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Optional: Left and right wrists to fingers (if available)</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_wrist'</span>, <span class="st">'left_pinky'</span>),</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_wrist'</span>, <span class="st">'left_index'</span>),</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'left_wrist'</span>, <span class="st">'left_thumb'</span>),</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_wrist'</span>, <span class="st">'right_pinky'</span>),</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_wrist'</span>, <span class="st">'right_index'</span>),</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'right_wrist'</span>, <span class="st">'right_thumb'</span>)</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate dynamic axis limits based on actual data ranges</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>x_min, x_max <span class="op">=</span> MT_tracking.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_x'</span>).<span class="bu">min</span>().<span class="bu">min</span>(), MT_tracking.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_x'</span>).<span class="bu">max</span>().<span class="bu">max</span>()</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>y_min, y_max <span class="op">=</span> MT_tracking.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_y'</span>).<span class="bu">min</span>().<span class="bu">min</span>(), MT_tracking.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_y'</span>).<span class="bu">max</span>().<span class="bu">max</span>()</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>z_min, z_max <span class="op">=</span> MT_tracking.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_z'</span>).<span class="bu">min</span>().<span class="bu">min</span>(), MT_tracking.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_z'</span>).<span class="bu">max</span>().<span class="bu">max</span>()</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Enhanced Update function for animation</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update(frame):</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    ax.clear()</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'X Label'</span>)</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Y Label'</span>)</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    ax.set_zlabel(<span class="st">'Z Label'</span>)</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">'3D Body Animation'</span>)</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the limits dynamically</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim3d(x_min, x_max)</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim3d(y_min, y_max)</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    ax.set_zlim3d(z_min, z_max)</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the X, Y, and Z coordinates for the current frame</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    frame_data <span class="op">=</span> MT_tracking.iloc[frame]</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> frame_data.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_x'</span>)</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> frame_data.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_y'</span>)</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> frame_data.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'_z'</span>)</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot the dots (landmarks)</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    scatter <span class="op">=</span> ax.scatter(x, y, z, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'blue'</span>, s<span class="op">=</span><span class="dv">30</span>, edgecolor<span class="op">=</span><span class="st">'k'</span>)  <span class="co"># s=30 for larger dots</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw lines to connect the landmarks</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> part1, part2 <span class="kw">in</span> connections:</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the coordinates for each pair of landmarks to connect</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>        x_line <span class="op">=</span> [frame_data[part1 <span class="op">+</span> <span class="st">'_x'</span>], frame_data[part2 <span class="op">+</span> <span class="st">'_x'</span>]]</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>        y_line <span class="op">=</span> [frame_data[part1 <span class="op">+</span> <span class="st">'_y'</span>], frame_data[part2 <span class="op">+</span> <span class="st">'_y'</span>]]</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>        z_line <span class="op">=</span> [frame_data[part1 <span class="op">+</span> <span class="st">'_z'</span>], frame_data[part2 <span class="op">+</span> <span class="st">'_z'</span>]]</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>        ax.plot(x_line, y_line, z_line, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)  <span class="co"># Black lines with thickness 2</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> scatter,</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the animation</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>ani <span class="op">=</span> FuncAnimation(fig, update, frames<span class="op">=</span>num_frames, interval<span class="op">=</span><span class="dv">1000</span> <span class="op">/</span> fps)</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the animation</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> os.path.abspath(<span class="st">'./animation_videos_temp_3'</span>)</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> os.path.join(output_folder, <span class="st">'3d_animation.mp4'</span>)</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>os.makedirs(output_folder, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>ani.save(output_file, writer<span class="op">=</span><span class="st">'ffmpeg'</span>, fps<span class="op">=</span>fps)</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Saved the enhanced 3D animation!'</span>)</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="co">#This will be our 3D input vido for the multimodal animation</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>animation_input_3D <span class="op">=</span> output_file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Saved the enhanced 3D animation!</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Donders_MML_Multimodal_Animations_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="extract-amplitude-envelope-and-plot-audio-signal" class="level2">
+<h2 class="anchored" data-anchor-id="extract-amplitude-envelope-and-plot-audio-signal">4. Extract Amplitude Envelope and Plot Audio Signal</h2>
+<div id="cell-9" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the bandpass filter</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> butter_bandpass(lowcut, highcut, fs, order<span class="op">=</span><span class="dv">2</span>):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    nyquist <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> fs</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    low <span class="op">=</span> lowcut <span class="op">/</span> nyquist</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    high <span class="op">=</span> highcut <span class="op">/</span> nyquist</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> butter(order, [low, high], btype<span class="op">=</span><span class="st">'band'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b, a</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> butter_bandpass_filtfilt(data, lowcut, highcut, fs, order<span class="op">=</span><span class="dv">2</span>):</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> butter_bandpass(lowcut, highcut, fs, order<span class="op">=</span>order)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> filtfilt(b, a, data)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the lowpass filter</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> butter_lowpass(cutoff, fs, order<span class="op">=</span><span class="dv">2</span>):</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    nyquist <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> fs</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    normal_cutoff <span class="op">=</span> cutoff <span class="op">/</span> nyquist</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> butter(order, normal_cutoff, btype<span class="op">=</span><span class="st">'low'</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b, a</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> butter_lowpass_filtfilt(data, cutoff, fs, order<span class="op">=</span><span class="dv">2</span>):</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> butter_lowpass(cutoff, fs, order<span class="op">=</span>order)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> filtfilt(b, a, data)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to extract amplitude envelope</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> amp_envelope(audiofilename):</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load audio with librosa</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    audio, sr <span class="op">=</span> librosa.load(audiofilename, sr<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Bandpass filter 400-4000Hz</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> butter_bandpass_filtfilt(audio, <span class="dv">400</span>, <span class="dv">4000</span>, sr, order<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lowpass filter 10Hz</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> butter_lowpass_filtfilt(np.<span class="bu">abs</span>(data), <span class="dv">10</span>, sr, order<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scale from 0 to 1</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> (data <span class="op">-</span> np.<span class="bu">min</span>(data)) <span class="op">/</span> (np.<span class="bu">max</span>(data) <span class="op">-</span> np.<span class="bu">min</span>(data))</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data, sr</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the amplitude envelope</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>ampv, sr <span class="op">=</span> amp_envelope(audio_input)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the filtered signal and the original signal</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>plt.plot(ampv)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Vocalic energy envelope'</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and plot the original signal with the amplitude envelope</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>rawaudio, sr <span class="op">=</span> librosa.load(audio_input, sr<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>plt.plot(rawaudio, label <span class="op">=</span> <span class="st">'Original Signal'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>plt.plot(ampv, label<span class="op">=</span><span class="st">'Amplitude Envelope'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Original Signal with Vocalic Energy Envelope'</span>)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(hspace<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Increase the space between subplots to move title down</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Audio DataFrame with time (in secs, starting from 0) raw audio and amplitude envelope for later use</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>audio_df <span class="op">=</span> pd.DataFrame({<span class="st">'time'</span>: np.arange(<span class="bu">len</span>(ampv)) <span class="op">/</span> sr, <span class="st">'audio'</span>: rawaudio, <span class="st">'envelope'</span>: ampv})</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>audio_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Donders_MML_Multimodal_Animations_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">time</th>
+<th data-quarto-table-cell-role="th">audio</th>
+<th data-quarto-table-cell-role="th">envelope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.000000</td>
+<td>-0.000031</td>
+<td>0.003748</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.000063</td>
+<td>-0.000031</td>
+<td>0.003749</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.000125</td>
+<td>-0.000031</td>
+<td>0.003749</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.000188</td>
+<td>-0.000031</td>
+<td>0.003749</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.000250</td>
+<td>-0.000031</td>
+<td>0.003749</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="filter-and-plot-physiological-signal-emg-ecg-and-resp" class="level2">
+<h2 class="anchored" data-anchor-id="filter-and-plot-physiological-signal-emg-ecg-and-resp">5. Filter and Plot Physiological Signal: EMG, ECG and RESP</h2>
+<div id="cell-11" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>PLUX_data <span class="op">=</span> pd.read_csv(PLUX_input)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(PLUX_data.head())  <span class="co"># To see the first few rows of the DataFrame</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(PLUX_data.columns)  <span class="co"># To list the column names</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>sampling_rate <span class="op">=</span> <span class="dv">1000</span> <span class="co"># Sampling rate of 1000 Hz for our PLUX stream </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">## ----------------  1. EMG DATA PROCESSING ---------------- ## </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Butterworth filter function</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> butter_filter(data, cutoff, fs, order<span class="op">=</span><span class="dv">4</span>, filter_type<span class="op">=</span><span class="st">'low'</span>):</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    nyquist <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> fs  <span class="co"># Nyquist frequency</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    normal_cutoff <span class="op">=</span> cutoff <span class="op">/</span> nyquist</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> butter(order, normal_cutoff, btype<span class="op">=</span>filter_type, analog<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply zero-phase filtering with padding to prevent edge effects</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    padded_data <span class="op">=</span> np.pad(data, (<span class="dv">1000</span>, <span class="dv">1000</span>), <span class="st">'edge'</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    filtered_data <span class="op">=</span> filtfilt(b, a, padded_data)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filtered_data[<span class="dv">1000</span>:<span class="op">-</span><span class="dv">1000</span>]  <span class="co"># Remove padding</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># High-pass filter, rectify, and then low-pass filter EMG signals</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_emg(emg_signal, fs, cutoff_high, cutoff_low):</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply high-pass filter</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    high_passed <span class="op">=</span> butter_filter(emg_signal, cutoff_high, fs, order<span class="op">=</span><span class="dv">4</span>, filter_type<span class="op">=</span><span class="st">'high'</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rectify (full-wave rectification)</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    rectified <span class="op">=</span> np.<span class="bu">abs</span>(high_passed)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply low-pass filter</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    low_passed <span class="op">=</span> butter_filter(rectified, cutoff_low, fs, order<span class="op">=</span><span class="dv">4</span>, filter_type<span class="op">=</span><span class="st">'low'</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> low_passed</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Your EMG data and sampling rate</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>EMG_bicep <span class="op">=</span> PLUX_data.iloc[:, <span class="dv">3</span>].values</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>EMG_tricep <span class="op">=</span> PLUX_data.iloc[:, <span class="dv">4</span>].values</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>sampling_rate <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># Replace with your actual sampling rate</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Process the EMG data for each muscle</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>EMG_bicep_processed <span class="op">=</span> process_emg(EMG_bicep, sampling_rate, <span class="dv">2</span>, <span class="dv">20</span>)     <span class="co"># 2 Hz high-pass, 20 Hz low-pass</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>EMG_tricep_processed <span class="op">=</span> process_emg(EMG_tricep, sampling_rate, <span class="dv">2</span>, <span class="dv">20</span>)   <span class="co"># 2 Hz high-pass, 20 Hz low-pass</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute frequency spectra for EMG bicep</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>freqs_bicep <span class="op">=</span> np.fft.rfftfreq(<span class="bu">len</span>(EMG_bicep), d<span class="op">=</span><span class="dv">1</span><span class="op">/</span>sampling_rate)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>fft_bicep <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(EMG_bicep))</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>fft_bicep_processed <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(EMG_bicep_processed))</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute frequency spectra for EMG tricep</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>freqs_tricep <span class="op">=</span> np.fft.rfftfreq(<span class="bu">len</span>(EMG_tricep), d<span class="op">=</span><span class="dv">1</span><span class="op">/</span>sampling_rate)</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>fft_tricep <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(EMG_tricep))</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>fft_tricep_processed <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(EMG_tricep_processed))</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization: Create a figure with 4 subplots</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>))</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Subplot 1: Time-domain EMG data before filtering</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], EMG_bicep, label<span class="op">=</span><span class="st">'Bicep (Unfiltered)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], EMG_tricep, label<span class="op">=</span><span class="st">'Tricep (Unfiltered)'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'LSL Time (ms)'</span>)</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'EMG Data Unfiltered: Bicep and Tricep'</span>)</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Subplot 2: Time-domain EMG data after filtering</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], EMG_bicep_processed, label<span class="op">=</span><span class="st">'Bicep (Filtered)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], EMG_tricep_processed, label<span class="op">=</span><span class="st">'Tricep (Filtered)'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'LSL Time (ms)'</span>)</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'EMG Data Filtered: Bicep and Tricep'</span>)</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Subplot 3: Frequency spectrum for Bicep EMG</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs_bicep, fft_bicep, label<span class="op">=</span><span class="st">'Bicep Unfiltered'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs_bicep, fft_bicep_processed, label<span class="op">=</span><span class="st">'Bicep Filtered'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">250</span>)  <span class="co"># Adjust frequency range as needed</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="bu">max</span>(fft_bicep))  <span class="co"># Adjust y-axis limits as needed</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency (Hz)'</span>)</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Magnitude'</span>)</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Frequency Spectrum before and after Filtering - Bicep EMG'</span>)</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Subplot 4: Frequency spectrum for Tricep EMG</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs_tricep, fft_tricep, label<span class="op">=</span><span class="st">'Tricep Unfiltered'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs_tricep, fft_tricep_processed, label<span class="op">=</span><span class="st">'Tricep Filtered'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">250</span>)</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="bu">max</span>(fft_tricep))  <span class="co"># Adjust y-axis limits as needed</span></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency (Hz)'</span>)</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Magnitude'</span>)</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Frequency Spectrum before and after Filtering- Tricep EMG'</span>)</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new ECG DataFrame with time (in secs) and the processed EMG signal for Bicep and Tricep</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>EMG_df <span class="op">=</span> pd.DataFrame({<span class="st">'time'</span>: np.arange(<span class="bu">len</span>(EMG_bicep)) <span class="op">/</span> sampling_rate, <span class="st">'emg_bicep'</span>: EMG_bicep_processed, <span class="st">'emg_tricep'</span>: EMG_tricep_processed})</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="co">## ----------------  2. ECG DATA PROCESSING ---------------- ##</span></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the notch filter function to remove powerline interference</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> notch_filter(signal, fs, notch_freq<span class="op">=</span><span class="dv">50</span>, quality_factor<span class="op">=</span><span class="dv">30</span>):</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> iirnotch(notch_freq <span class="op">/</span> (fs <span class="op">/</span> <span class="dv">2</span>), quality_factor)</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>    filtered_signal <span class="op">=</span> filtfilt(b, a, signal)</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filtered_signal</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Updated ECG processing function with notch filter</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_ecg(ecg_signal, fs, cutoff_high, cutoff_low, notch_freq, quality_factor):</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply high-pass filter</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>    high_passed <span class="op">=</span> butter_filter(ecg_signal, cutoff_high, fs, order<span class="op">=</span><span class="dv">4</span>, filter_type<span class="op">=</span><span class="st">'high'</span>)</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply low-pass filter</span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>    low_passed <span class="op">=</span> butter_filter(high_passed, cutoff_low, fs, order<span class="op">=</span><span class="dv">4</span>, filter_type<span class="op">=</span><span class="st">'low'</span>)</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply notch filter</span></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>    filtered <span class="op">=</span> notch_filter(low_passed, fs, notch_freq, quality_factor)</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filtered</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Your ECG data and sampling rate</span></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>ECG <span class="op">=</span> PLUX_data.iloc[:,<span class="dv">2</span>]</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Process the ECG signal with the notch filter</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>ECG_processed <span class="op">=</span> process_ecg(ECG, sampling_rate, <span class="fl">0.5</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">30</span>)  <span class="co"># 0.5 Hz high-pass, 40 Hz low-pass, 50 Hz notch, 30 Q-factor</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualtiation with matplotlib: ECG data before and after filtering + Furier Transform frequency (3 subplots)</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], ECG, label<span class="op">=</span><span class="st">'ECG (unfiltered)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'LSL Time (ms)'</span>)</span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ECG Data Unfiltered'</span>)</span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], ECG_processed, label<span class="op">=</span><span class="st">'ECG (filtered with Notch)'</span>, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'LSL Time (ms)'</span>)</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ECG Data Filtered with Notch Filter'</span>)</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: Plot frequency spectrum to visualize the effect of the notch filter</span></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> np.fft.rfftfreq(<span class="bu">len</span>(ECG), d<span class="op">=</span><span class="dv">1</span><span class="op">/</span>sampling_rate)</span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>fft_ecg <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(ECG))</span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>fft_ecg_processed <span class="op">=</span> np.<span class="bu">abs</span>(np.fft.rfft(ECG_processed))</span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs, fft_ecg, label<span class="op">=</span><span class="st">'Original ECG Spectrum'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a>plt.plot(freqs, fft_ecg_processed, label<span class="op">=</span><span class="st">'Filtered ECG Spectrum'</span>, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">100</span>)  <span class="co"># Focus on frequencies up to 100 Hz</span></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency (Hz)'</span>)</span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Frequency Spectrum Before and After Bandpass + Notch Filter'</span>)</span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a><span class="co">## Create a new ECG DataFrame with time (in secs) and the processed ECG signal</span></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>ECG_df <span class="op">=</span> pd.DataFrame({<span class="st">'time'</span>: np.arange(<span class="bu">len</span>(ECG_processed))<span class="op">/</span> sampling_rate, <span class="st">'ecg'</span>: ECG_processed})</span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a><span class="co">## ----------------  3. RESPIRATION DATA PROCESSING ---------------- ##</span></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>RSP <span class="op">=</span> PLUX_data.iloc[:,<span class="dv">5</span>]</span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a><span class="co"># visualtiation with matplotlib: Unfiltered respiration data</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>plt.plot(PLUX_data[<span class="st">'LSL_Time'</span>], RSP, label<span class="op">=</span><span class="st">'Respiration (unfiltered)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'LSL Time (ms seconds)'</span>)</span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Respiration Data Unfiltered'</span>)</span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new Respiration DataFrame with time (in secs) and the raw respiration signal</span></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>RESP_df <span class="op">=</span> pd.DataFrame({<span class="st">'time'</span>: np.arange(<span class="bu">len</span>(RSP)) <span class="op">/</span> sampling_rate, <span class="st">'resp'</span>: RSP})</span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.head())</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      LSL_Time  PLUX_P1_nSeq  PLUX_P1_ECG0  PLUX_P1_EMG1  PLUX_P1_EMG2  \
+0  6700.956065     1383405.0       0.04393       0.00477      -0.00291   
+1  6700.957064     1383406.0       0.04236       0.00118      -0.00259   
+2  6700.958064     1383407.0       0.04142       0.00095       0.00195   
+3  6700.959064     1383408.0       0.03994       0.00009       0.00254   
+4  6700.960064     1383409.0       0.03306       0.00722       0.00023   
+
+   PLUX_P1_RESPIRATION3  
+0               0.28427  
+1               0.28230  
+2               0.28038  
+3               0.28725  
+4               0.29068  
+Index(['LSL_Time', 'PLUX_P1_nSeq', 'PLUX_P1_ECG0', 'PLUX_P1_EMG1',
+       'PLUX_P1_EMG2', 'PLUX_P1_RESPIRATION3'],
+      dtype='object')
+    time     resp
+0  0.000  0.28427
+1  0.001  0.28230
+2  0.002  0.28038
+3  0.003  0.28725
+4  0.004  0.29068</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Donders_MML_Multimodal_Animations_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Donders_MML_Multimodal_Animations_files/figure-html/cell-6-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Donders_MML_Multimodal_Animations_files/figure-html/cell-6-output-4.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="create-the-multimodal-animation" class="level2">
+<h2 class="anchored" data-anchor-id="create-the-multimodal-animation">5. Create the Multimodal Animation</h2>
+<div id="cell-13" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what is the window size in seconds</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>window <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_multimodal(audio, emg, ecg, resp, midpoint, window<span class="op">=</span><span class="dv">4</span>):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Temporary folder for saving the plot</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    tempfolder <span class="op">=</span> tempfile.mkdtemp()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create 4 subplots for the different data streams</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(<span class="dv">4</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">16</span>))  <span class="co"># 4 rows (Audio, EMG, ECG, RESP)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the time window for all plots</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> <span class="op">-</span>window <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    end <span class="op">=</span> window <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create local time variables adjusted for the current midpoint</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    audio_time <span class="op">=</span> audio[<span class="st">'time'</span>] <span class="op">-</span> midpoint</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    emg_time <span class="op">=</span> emg[<span class="st">'time'</span>] <span class="op">-</span> midpoint</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    ecg_time <span class="op">=</span> ecg[<span class="st">'time'</span>] <span class="op">-</span> midpoint</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    resp_time <span class="op">=</span> resp[<span class="st">'time'</span>] <span class="op">-</span> midpoint</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Filter the data to the time window</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    audio_mask <span class="op">=</span> (audio_time <span class="op">&gt;=</span> start) <span class="op">&amp;</span> (audio_time <span class="op">&lt;=</span> end)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    emg_mask <span class="op">=</span> (emg_time <span class="op">&gt;=</span> start) <span class="op">&amp;</span> (emg_time <span class="op">&lt;=</span> end)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    ecg_mask <span class="op">=</span> (ecg_time <span class="op">&gt;=</span> start) <span class="op">&amp;</span> (ecg_time <span class="op">&lt;=</span> end)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    resp_mask <span class="op">=</span> (resp_time <span class="op">&gt;=</span> start) <span class="op">&amp;</span> (resp_time <span class="op">&lt;=</span> end)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot 1: Audio envelope</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].plot(audio_time.loc[audio_mask], audio[<span class="st">'audio'</span>].loc[audio_mask], label<span class="op">=</span><span class="st">'Raw Audio'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].plot(audio_time.loc[audio_mask], audio[<span class="st">'envelope'</span>].loc[audio_mask], label<span class="op">=</span><span class="st">'Envelope'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].set_xlim(start, end)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].set_ylim(<span class="bu">min</span>(audio[<span class="st">'audio'</span>]), <span class="bu">max</span>(audio[<span class="st">'envelope'</span>]))  <span class="co"># Adjust as needed based on your signal</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].legend(prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">18</span>})</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].set_ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot 2: Filtered EMG signal</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].plot(emg_time.loc[emg_mask], emg[<span class="st">'emg_bicep'</span>].loc[emg_mask], label<span class="op">=</span><span class="st">'EMG Bicep'</span>, color<span class="op">=</span><span class="st">'green'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].plot(emg_time.loc[emg_mask], emg[<span class="st">'emg_tricep'</span>].loc[emg_mask], label<span class="op">=</span><span class="st">'EMG Tricep'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].set_xlim(start, end)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].set_ylim(<span class="bu">min</span>(<span class="bu">min</span>(emg[<span class="st">'emg_bicep'</span>]), <span class="bu">min</span>(emg[<span class="st">'emg_tricep'</span>])), <span class="bu">max</span>(<span class="bu">max</span>(emg[<span class="st">'emg_bicep'</span>]), <span class="bu">max</span>(emg[<span class="st">'emg_tricep'</span>])))</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].legend(prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">18</span>})</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].set_ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot 3: Filtered ECG signal</span></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">2</span>].plot(ecg_time.loc[ecg_mask], ecg[<span class="st">'ecg'</span>].loc[ecg_mask], label<span class="op">=</span><span class="st">'ECG Signal'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">2</span>].set_xlim(start, end)</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">2</span>].set_ylim(<span class="bu">min</span>(ecg[<span class="st">'ecg'</span>]), <span class="bu">max</span>(ecg[<span class="st">'ecg'</span>]))  <span class="co"># Adjust as needed based on your signal</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">2</span>].legend(prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">18</span>})</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">2</span>].set_ylabel(<span class="st">'Amplitude'</span>)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot 4: Respiratory signal</span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].plot(resp_time.loc[resp_mask], resp[<span class="st">'resp'</span>].loc[resp_mask], label<span class="op">=</span><span class="st">'Respiration'</span>, color<span class="op">=</span><span class="st">'orange'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].set_xlim(start, end)</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].set_ylim(<span class="bu">min</span>(resp[<span class="st">'resp'</span>]), <span class="bu">max</span>(resp[<span class="st">'resp'</span>]))  <span class="co"># Adjust as needed based on your signal</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].legend(prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">18</span>})</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].set_ylabel(<span class="st">'Respiration'</span>)</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].set_xlabel(<span class="st">'Time (s)'</span>)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Apply a vertical line at time 0 for all subplots</span></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">2</span>].axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">3</span>].axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply tight layout and save plot</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>    tpf <span class="op">=</span> tempfolder <span class="op">+</span> <span class="st">'/tempfig.png'</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    plt.savefig(tpf)</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>    plt.close()</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load and return the image as a frame for the video</span></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> cv2.imread(tpf)</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>    shutil.rmtree(tempfolder)</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a>    <span class="co">#show image in the terminal</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> img</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_video_with_multimodal(videos_2D, animation_3D, audio, emg, ecg, resp, output_filename):</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Open the three 2D videos</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>    captures_2D <span class="op">=</span> [cv2.VideoCapture(vf) <span class="cf">for</span> vf <span class="kw">in</span> videos_2D]</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Open the 3D animation video</span></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>    capture_3D <span class="op">=</span> cv2.VideoCapture(animation_3D)</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if all videos opened successfully</span></span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">all</span>([cap.isOpened() <span class="cf">for</span> cap <span class="kw">in</span> captures_2D]) <span class="kw">or</span> <span class="kw">not</span> capture_3D.isOpened():</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Error opening one or more video files."</span>)</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get video properties of 2D videos (assuming all videos have the same properties)</span></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>    fps <span class="op">=</span> captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FPS)</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>    frame_count <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>    frame_width <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_WIDTH))</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    frame_height <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_HEIGHT))</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get properties of the 3D animation video</span></span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>    frame_width_3D <span class="op">=</span> <span class="bu">int</span>(capture_3D.get(cv2.CAP_PROP_FRAME_WIDTH))</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>    frame_height_3D <span class="op">=</span> <span class="bu">int</span>(capture_3D.get(cv2.CAP_PROP_FRAME_HEIGHT))</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>    fps_3D <span class="op">=</span> capture_3D.get(cv2.CAP_PROP_FPS)</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>    frame_count_3D <span class="op">=</span> <span class="bu">int</span>(capture_3D.get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ensure synchronization (assuming same fps and frame count)</span></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> fps <span class="op">!=</span> fps_3D <span class="kw">or</span> frame_count <span class="op">!=</span> frame_count_3D:</span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Mismatch in FPS or frame count between videos."</span>)</span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate dimensions for the video grid</span></span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Top: 3 videos (side by side)</span></span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a>    video_top_width <span class="op">=</span> frame_width <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># video_top_height = frame_height - (frame_height // 3) # Reduce height by 1/3</span></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>    video_top_height <span class="op">=</span> frame_height  <span class="co"># Keep the same height</span></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the desired width of the 3D animation (e.g., half of video_top_width)</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>    animation_width <span class="op">=</span> <span class="bu">int</span>(video_top_width)  <span class="co"># Half the width of the top videos</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Maintain aspect ratio</span></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>    scale_factor <span class="op">=</span> animation_width <span class="op">/</span> frame_width_3D</span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>    animation_height <span class="op">=</span> <span class="bu">int</span>(frame_height_3D <span class="op">*</span> scale_factor)</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Video combined height</span></span>
+<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>    video_height <span class="op">=</span> video_top_height <span class="op">+</span> animation_height  <span class="co"># Top videos + 3D animation</span></span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a sample plot to determine plot height</span></span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>    tempfolder <span class="op">=</span> tempfile.mkdtemp()</span>
+<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(<span class="dv">4</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">16</span>))</span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>    tpf <span class="op">=</span> tempfolder <span class="op">+</span> <span class="st">'/tempfig.png'</span></span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a>    plt.savefig(tpf)</span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a>    plt.close()</span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>    plot_img <span class="op">=</span> cv2.imread(tpf)</span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>    plot_height, plot_width, _ <span class="op">=</span> plot_img.shape</span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>    shutil.rmtree(tempfolder)</span>
+<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Total output frame dimensions</span></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>    total_width <span class="op">=</span> video_top_width</span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a>    total_height <span class="op">=</span> video_height <span class="op">+</span> plot_height</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total video dimensions: </span><span class="sc">{</span>total_width<span class="sc">}</span><span class="ss">x</span><span class="sc">{</span>total_height<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set up video writer for the output video</span></span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>    fourcc <span class="op">=</span> cv2.VideoWriter_fourcc(<span class="op">*</span><span class="st">'mp4v'</span>)</span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> cv2.VideoWriter(output_filename, fourcc, fps, (total_width, total_height))</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> out.isOpened():</span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Error: VideoWriter not initialized correctly."</span>)</span>
+<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
+<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>    frame_number <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> tqdm.tqdm(<span class="bu">range</span>(frame_count)):</span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Read frames from the three 2D videos</span></span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>        frames_2D <span class="op">=</span> []</span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> cap <span class="kw">in</span> captures_2D:</span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>            ret, frame <span class="op">=</span> cap.read()</span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> ret:</span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>            frames_2D.append(frame)</span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(frames_2D) <span class="op">!=</span> <span class="bu">len</span>(captures_2D):</span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span>  <span class="co"># Not enough frames</span></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Read frame from the 3D animation video</span></span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>        ret_3D, frame_3D <span class="op">=</span> capture_3D.read()</span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> ret_3D:</span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Resize 2D frames if needed</span></span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a>        resized_frames_2D <span class="op">=</span> [cv2.resize(f, (frame_width, frame_height)) <span class="cf">for</span> f <span class="kw">in</span> frames_2D]</span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Arrange the 3 2D videos side by side (top)</span></span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a>        video_top <span class="op">=</span> np.hstack(resized_frames_2D)</span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Resize the 3D animation frame</span></span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a>        frame_3D_resized <span class="op">=</span> cv2.resize(frame_3D, (animation_width, animation_height))</span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create a blank image for the bottom part (same width as video_top)</span></span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>        bottom_image <span class="op">=</span> np.zeros((animation_height, video_top_width, <span class="dv">3</span>), dtype<span class="op">=</span>np.uint8)</span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Center the 3D animation in the bottom_image</span></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>        x_offset <span class="op">=</span> (video_top_width <span class="op">-</span> animation_width) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a>        y_offset <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Top of bottom_image</span></span>
+<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>        bottom_image[y_offset:y_offset<span class="op">+</span>animation_height, x_offset:x_offset<span class="op">+</span>animation_width] <span class="op">=</span> frame_3D_resized</span>
+<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Combine top and bottom images vertically</span></span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a>        video_combined <span class="op">=</span> np.vstack((video_top, bottom_image))</span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Generate the multimodal plot for the current window</span></span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a>        midpoint <span class="op">=</span> frame_number <span class="op">/</span> fps</span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a>        multimodal_img <span class="op">=</span> plot_multimodal(audio, emg, ecg, resp, midpoint)</span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Resize the plot to match the width of the video_combined</span></span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a>        multimodal_img <span class="op">=</span> cv2.resize(multimodal_img, (total_width, plot_height))</span>
+<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Combine the video_combined and the plot vertically</span></span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>        combined_frame <span class="op">=</span> np.vstack((video_combined, multimodal_img))</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Write the combined frame to the output video</span></span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a>        out.write(combined_frame.astype(np.uint8))</span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>        frame_number <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a>        <span class="co">##show the frame (otpional)</span></span>
+<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a>        <span class="co">#cv2.imshow('Frame', combined_frame)</span></span>
+<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Release video objects</span></span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cap <span class="kw">in</span> captures_2D:</span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a>        cap.release()</span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a>    capture_3D.release()</span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a>    out.release()</span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a>    cv2.destroyAllWindows()</span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>animation_input_3D <span class="op">=</span> output_file</span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> os.path.abspath(<span class="st">'./animation_videos_temp_x'</span>)</span>
+<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a>output_filename <span class="op">=</span> os.path.join(output_folder, <span class="st">'multimodal_video_5.mp4'</span>)</span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a><span class="co">#make sure the folder exists</span></span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a>os.makedirs(output_folder, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a>process_video_with_multimodal(videos_input_2D, animation_input_3D, audio_df, EMG_df, ECG_df, RESP_df, output_filename)</span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total video dimensions: 1620x3532</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 681/681 [07:31&lt;00:00,  1.51it/s]</code></pre>
+</div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio start'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(audio_df.head())</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio end'</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(audio_df.tail())</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'emg start'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(EMG_df.head())</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'emg end'</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(EMG_df.tail())</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ecg start'</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ECG_df.head())</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ecg end'</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ECG_df.tail())</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'resp start'</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.head())</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'resp end'</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.tail())</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Open one of your videos</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>cap <span class="op">=</span> cv2.VideoCapture(videos_input_2D[<span class="dv">0</span>])</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> cap.get(cv2.CAP_PROP_FPS)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>frame_count <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>video_duration <span class="op">=</span> frame_count <span class="op">/</span> fps</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>cap.release()</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Video Duration: </span><span class="sc">{</span>video_duration<span class="sc">}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>audio start
+       time     audio  envelope
+0  0.000000 -0.000031  0.002007
+1  0.000063 -0.000031  0.002008
+2  0.000125 -0.000031  0.002008
+3  0.000188 -0.000031  0.002008
+4  0.000250 -0.000031  0.002009
+audio end
+             time     audio  envelope
+195400  12.212500  0.000153  0.002122
+195401  12.212563  0.000153  0.002122
+195402  12.212625  0.000153  0.002122
+195403  12.212687  0.000122  0.002122
+195404  12.212750  0.000122  0.002122
+emg start
+    time  emg_bicep  emg_tricep
+0  0.000   0.004012    0.004489
+1  0.001   0.004397    0.005017
+2  0.002   0.004785    0.005577
+3  0.003   0.005170    0.006165
+4  0.004   0.005551    0.006778
+emg end
+         time  emg_bicep  emg_tricep
+12210  12.210   0.003504    0.005443
+12211  12.211   0.003353    0.005263
+12212  12.212   0.003198    0.005067
+12213  12.213   0.003040    0.004857
+12214  12.214   0.002881    0.004635
+ecg start
+    time       ecg
+0  0.000 -0.037212
+1  0.001 -0.036089
+2  0.002 -0.034548
+3  0.003 -0.032619
+4  0.004 -0.030350
+ecg end
+         time       ecg
+12210  12.210 -0.051759
+12211  12.211 -0.050409
+12212  12.212 -0.048846
+12213  12.213 -0.047064
+12214  12.214 -0.045072
+resp start
+    time     resp
+0  0.000  0.49232
+1  0.001  0.49690
+2  0.002  0.49072
+3  0.003  0.48798
+4  0.004  0.49489
+resp end
+         time     resp
+12210  12.210 -0.09320
+12211  12.211 -0.09096
+12212  12.212 -0.09201
+12213  12.213 -0.09467
+12214  12.214 -0.09050
+Video Duration: 12.25925925925926 seconds</code></pre>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">min</span>(audio_df[<span class="st">'audio'</span>]), <span class="bu">max</span>(audio_df[<span class="st">'envelope'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>(-0.1820068359375, 1.0)</code></pre>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get video properties of 2D videos (assuming all videos have the same properties)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>captures_2D <span class="op">=</span> [cv2.VideoCapture(vf) <span class="cf">for</span> vf <span class="kw">in</span> videos_input_2D]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FPS)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>frame_count <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>frame_width <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_WIDTH))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>frame_height <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_HEIGHT))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(frame_height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>960</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
