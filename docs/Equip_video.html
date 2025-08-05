@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Labsetup_overview.html">Lab Setup</a></li><li class="breadcrumb-item"><a href="./Equip_video.html">Video Recordings</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Equip_video.html" class="sidebar-item-text sidebar-link">
+  <a href="./Equip_video.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Video Recordings</span></a>
   </div>
 </li>
@@ -300,10 +300,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Labsetup_overview.html">Lab Setup</a></li><li class="breadcrumb-item"><a href="./Equip_video.html">Video Recordings</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Mobile Multimodal Lab</h1>
-<p class="subtitle lead">Reproducible manual for setting up interactive laboratory setup with multimodal signal collection</p>
+<p class="subtitle lead">Lab Setup: Video Recordings</p>
 </div>
 
 
@@ -326,52 +326,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about-project" class="level2">
-<h2 class="anchored" data-anchor-id="about-project">About project</h2>
-<p>MobileMultimodalLab (MMLab) is a project initiated by researchers at Donders Center for Cognition. It aims to provide a lab setup for anyone interested in studying multimodal interactive behaviour - including acoustics, body movement, muscle activity, eye movements, and so on.</p>
-<p>To achieve this, we are working on a comprehensive coding library, accompanied by a practical manual, that shall help researchers to build their own MobileMultimodalLab. Our guiding principles are:</p>
-<ul>
-<li>Open-source resources - All code and documentation is freely available to everyone</li>
-<li>Low-cost equipment - We want to build the setup with as little monetary cost as possible (i.e., less than 10K)</li>
-<li>Portable setup - The setup should be easily transportable across locations</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="MMLAB.gif" class="img-fluid figure-img"></p>
-<figcaption>MobileMultimodalLab</figcaption>
-</figure>
-</div>
-<p>The MML setup originally consists of</p>
-<ul>
-<li>multiple frame-synced 2D cameras that allow for 3D motion tracking</li>
-<li>multiple microphones for acoustic analysis</li>
-<li>multiple physiological sensors for measuring heart rate, muscle activity, and respiration</li>
-</ul>
-<p>To ensure that all the signals are synchronized, we use the Lab streaming layer (https://github.com/sccn/labstreaminglayer), a software that synchronizes different data streams with sub-millisecond precision, crucially simplifying the data collection process and subsequent processing.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Setup_scheme.png" class="img-fluid figure-img"></p>
-<figcaption>Setup</figcaption>
-</figure>
-</div>
-<p>Additionally, the setup is build in a modular way, so that anyone can add or remove equipment and recording from the default setup as long as these devices are LSL compatible</p>
+<p>Here we say that we optimize video recording specifically for motion tracking purposes</p>
+<section id="choosing-the-motion-tracking-system" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-the-motion-tracking-system">Choosing the Motion Tracking System</h2>
+<p>Thanks to rapid advancements in motion analysis technologies and fueled by growing interest across research and clinical domains, there are many motion-tracking (MT) systems available on the market nowadays, each offering distinct strengths and trade-offs. To help readers navigate the available options, Table X (below) provides a high-level overview of the most widely used MT systems, summarizing their key features in light of their respective accessibility, affordability, and portability - three core principles behind our research approach.</p>
+<p>Broadly speaking, most MT systems can be categorized into two types: device-based systems, which use dedicated sensors or markers to capture movement, and video-based systems, which extract motion data directly from standard video recordings using either pixel-based differentiation or machine learning based on computer vision models. For our MML setup, we opted for a video-based MT system (with computer vision models for pose-estimations) since it best aligns with our four core principlesrequirements of accessibility, affordability, and portability, whilst maintaining high levels of precision compared to state-of-the-art device-based MT (for performance comparisons between video-based and device-based systems, see Koul &amp; Novembre, 2025; Martini et al., 2022; Ota et al., 2020; Pouw et al., 2020). WhileIn fact, while device-based systems such as Vicon or Qualysis offer sub-millimeter accuracy, they come at a steep financial cost, typically ranging between €150,000 and €250,000 (source?). In contrast, video-based systems using consumer-grade cameras can be implemented for under €1,000, making them orders of magnitude more affordable with minimal costs on precision for most behavioral studies. Additionally, the free and open source nature of most computer vision models that are used to extract full-body pose estimates from standard RGB video recordings - such as OpenPose (Cao et al., 2019) or Mediapipe (Lugaresi et al., 2019) - has dramatically improved the accessibility of MT research for many researches that do not have access to proprietary software or specialized hardware (and their black-boxed software). Finally, in contrast to the the bulky equipment and complex, expensive-to-insure, and sometimes bulky nature of installations of MT devicesdevice-based motion tracking systems, video-based setups in contrast can consist of lightweight, portable components (e.g., USB-cameras, foldable tripods, and a laptop), making them ideal for mobile research settings and, notably, particularly suitable for studying diverse populations like human infants and non-human animals, as they do not require wearable sensors or body markers.</p>
 </section>
-<section id="how-to-read" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-read">How to read</h2>
-<p>Here we write something about how it should be read and used…</p>
+<section id="video-based-mt-equipment" class="level2">
+<h2 class="anchored" data-anchor-id="video-based-mt-equipment">Video-Based MT Equipment</h2>
+<p>As shown in Figure 1 C, our video-based MT system comprised six USB cameras mounted on two movable arches, with three cameras assigned to each participant. Each three-camera arch was connected to a dedicated recording computer to manage the video streams independently. Although a single front-facing camera is sufficient for basic 2D body pose estimation, using three simultaneous viewpoints allows for more robust pose extraction and, importantly, triangulation in 3D space (see Section X – Motion Capture Analysis). To improve portability, the camera arches could be replaced with foldable tripodss provided that each camera remains fixed during recording and positioned approximately at the participants’ head height across all sessions.</p>
+<p>For the cameras, here chose the “Elgato Facecam” (link?) as they best aligned with our MML principles. In fact, each unit is relatively inexpensive (~€120), lightweight (96 g), capable of recording in full-HD resolution (1080p) at 60 Hz, and comes with a free software (Elgato Hub, link?) to adjust thethat allows for adjusting camera settings. Crucially, it also has adjustable shutter speed (up to 1/250s), which is an important component for motion tracking, as lower shutter speeds (below 1/100s) tend to introduce motion blur and, therefore, can impair pose estimation accuracy (see evidence for this in Box 1 – Motion Tracking &amp; Shutter Speed). Naturally, other camera models can be substituted, as long as they allow for adjustable shutter speeds reaching above 1/100s. Each trio of cameras was fed to a Windows PC equipped with a multi-core processor (e.g., Intel i7 or equivalent) capable of encoding and processing the three video streams in parallel. To prevent bandwidth overload and reduce the risk of dropped frames, the camera-to-PC connections were mediated by a powered USB hub and, importantly, distributed across separate USB buses wherever possible (e.g., by allocating one camera to a USB 3.0 port and the remaining cameras to separate USB 2.0 controllers).</p>
+<p>Text Box 2, Textbox</p>
 </section>
-<section id="acknowledgements" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
-<p>We would like to thank …</p>
+<section id="video-recording-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="video-recording-procedures">Video Recording Procedures</h2>
+<p>Before recordings, each camera setting was manually configured through the Elgato Camera Hub software to ensure optimal conditions for MT. Specifically, we set the shutter speed to 1/200s to reduce motion bur, downsampled the image resolution to qHD (960 × 540) to minimize data storage demands, and fixed the ISO at 354 to stabilize image brightness and contrast under short exposure times. To simultaneously capture the three frame-synced video from each camera trios in the two recordings PC and stream the corresponding time-stamped frames to the LSL, we used a custom Python script by Kadavá and Pouw (2024; see full script here). This script leverages the OpenCV (Bradski, 2000) and FFmpegCV (ref?) libraries to feed the combined side-by-side videos from the three cameras into a single compositive video using multithreading, which ensured that all frames were synchronized for each sampling timepoint. The video was recorded at 60 Hz in an uncompressed format to preserve image fidelity during acquisition. After each session, the raw videos were compressed using the XVID codec at a 2.5x reduction ratio to ease data transfer and storage space (see full script here). Importantly, the script also integrated the videos with the LSL using the PyLSL library (Kothe, 2014), which generates a an LSL stream containing a running frame index value f(t) paired with the a common LSL timestamp t aligned with all the others recording modalities.</p>
+<p>[here can be the code chunk]</p>
 </section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-</section>
-<section id="how-to-cite" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-cite">How to cite</h2>
-</section>
-<section id="funding-and-support" class="level2">
-<h2 class="anchored" data-anchor-id="funding-and-support">Funding and support</h2>
+<section id="camera-calibration-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="camera-calibration-procedures">Camera Calibration Procedures</h2>
+<p>To ensure 3D pose estimation from multi-angle recordings, video-based MT systems require prior information on the intrinsic parameters (e.g., focal length, distortion coefficients) and extrinsic parameters (i.e., spatial orientation and position relative to other cameras) of each device (for more information, see Karashchuk et al., 2021). Therefore, before each recording, we performed a calibration procedure for each trio of cameras assigned to a participant. Specifically, we recorded a short (∼1-minute) calibration video using a ChArUco calibration board (see Figure 1 C) that was moved systematically trhoughoutthroughout the full vertical and horizontal space later occupied by the participant during the experiment. These calibration videos were then used to compute the geometric parameters for 3D triangulation during MT (see Section X – Motion Capture Analysis).</p>
 
 
 </section>

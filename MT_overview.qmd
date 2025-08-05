@@ -1,0 +1,7 @@
+---
+title: "Mobile Multimodal Lab"
+subtitle: "Reproducible manual for setting up interactive laboratory setup with multimodal signal collection"
+authors: Davide Ahmar, Šárka Kadavá, Wim Pouw
+---
+
+Here is overview of labsetup

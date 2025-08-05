@@ -1,0 +1,23 @@
+---
+title: "Mobile Multimodal Lab"
+subtitle: "Lab Setup: Overview of the Mobile Multimodal Laboratory"
+authors: Davide Ahmar, Šárka Kadavá, Wim Pouw
+---
+
+This section provides a practical guide on how to assemble each component used in our MML default setup, along with the programming procedures for operating the recording systems during data acquisition. Our choices of equipment were guided by specific research needs and by oury our above-mentioned principles of (1) accessibility, (2) affordability, and (3) portability, and (4) Integration. Importantly, we do not endorse any particular manufacturer and, although we describe the exact brands models used in our setup, alternative components can be substituted provided they meet similar technical specifications. An overview of the full lab configuration, including a depiction of the experimental design, is provided in Figure 1. 
+
+[HERE IS A PICTURE OF THE SETUP]
+
+We introduce the MMLab setup using proof-of-concept experiment in which .......
+
+# Overview of recorded signals
+
+Currently, the setup accounts for following signals:
+
+- XY
+- ZY
+
+All signals are recorded in an integrative way via LSL... XXX
+
+However, MMLab is built in a modular way such that ... XX
+

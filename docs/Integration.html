@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Labsetup_overview.html">Lab Setup</a></li><li class="breadcrumb-item"><a href="./Integration.html">Integration of Signals</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Integration.html" class="sidebar-item-text sidebar-link">
+  <a href="./Integration.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Integration of Signals</span></a>
   </div>
 </li>
@@ -300,10 +300,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Labsetup_overview.html">Lab Setup</a></li><li class="breadcrumb-item"><a href="./Integration.html">Integration of Signals</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Mobile Multimodal Lab</h1>
-<p class="subtitle lead">Reproducible manual for setting up interactive laboratory setup with multimodal signal collection</p>
+<p class="subtitle lead">Lab Setup: Integrating recordings via LabStreamLayer</p>
 </div>
 
 
@@ -326,52 +326,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about-project" class="level2">
-<h2 class="anchored" data-anchor-id="about-project">About project</h2>
-<p>MobileMultimodalLab (MMLab) is a project initiated by researchers at Donders Center for Cognition. It aims to provide a lab setup for anyone interested in studying multimodal interactive behaviour - including acoustics, body movement, muscle activity, eye movements, and so on.</p>
-<p>To achieve this, we are working on a comprehensive coding library, accompanied by a practical manual, that shall help researchers to build their own MobileMultimodalLab. Our guiding principles are:</p>
-<ul>
-<li>Open-source resources - All code and documentation is freely available to everyone</li>
-<li>Low-cost equipment - We want to build the setup with as little monetary cost as possible (i.e., less than 10K)</li>
-<li>Portable setup - The setup should be easily transportable across locations</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="MMLAB.gif" class="img-fluid figure-img"></p>
-<figcaption>MobileMultimodalLab</figcaption>
-</figure>
-</div>
-<p>The MML setup originally consists of</p>
-<ul>
-<li>multiple frame-synced 2D cameras that allow for 3D motion tracking</li>
-<li>multiple microphones for acoustic analysis</li>
-<li>multiple physiological sensors for measuring heart rate, muscle activity, and respiration</li>
-</ul>
-<p>To ensure that all the signals are synchronized, we use the Lab streaming layer (https://github.com/sccn/labstreaminglayer), a software that synchronizes different data streams with sub-millisecond precision, crucially simplifying the data collection process and subsequent processing.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Setup_scheme.png" class="img-fluid figure-img"></p>
-<figcaption>Setup</figcaption>
-</figure>
-</div>
-<p>Additionally, the setup is build in a modular way, so that anyone can add or remove equipment and recording from the default setup as long as these devices are LSL compatible</p>
+<p>A major challenge in multimodal research relates to synchronization and integration of different recordings that operate on distinct hardware platforms, communicate via different software interfaces, rely on independent systems clocks, and sample at vastly different frequencies. A conventional approach to solve this challenge has typically relied on a host computer systematically broadcasting timestamped “marker events” to all recording systems associated with the various devices, which are then used to align the time series during post-processing. However, this method has several limitations: it requires extensive cabled connections, multiple independent recording computers, device-specific scripts for sending and receiving markers, decentralized data storage across systems, and time-consuming manual alignment of data streams after recording. Additionally, even minor issues like latency differences or hardware incompatibilities can introduce significant lags that can easily mis-align the time series, often without any explicit knowledge from the experimenters. For instance, video recordings are particularly prone to dropped frames during acquisition, which, unless properly accounted for by timestamping each frame, can result in de-synchronization that is difficult to detect and correct post hoc. To address these issues, in our MML we decided to implement the Lab Streaming Layer (Kothe et al., 2024), an open-sourced, cross-platform middleware system designed to enable real-time, sub-millisecond synchronization of heterogeneous data streams recorded from different devices. Unlike marker-based synchronization, the LSL creates a shared time base across all incoming data streams using each device’s local monotonic clock, allowing for built-in temporal alignment and centralized, integrated data collection. In addition to its accessible, affordable and portable nature, the LSL is also highly modular, supporting a wide range of recording devices - either through native compatibility or via custom-built LSL “outlet” scripts that stream data into the shared time framework.</p>
+<p>[A diagram of a video recording system]</p>
+<section id="lsl-equipment-and-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="lsl-equipment-and-assembly">LSL Equipment and Assembly</h2>
+<p>At a system level, the LSL consists of the core liblsl library (ref? documentation?) – a cross-platform API running on major operating systems including Windows, macOS, and Linux– and associated GUI applications such as the LabRecorder (ref? documentation?). Functionally, the LSL is built on a simple architecture of Outlets and Inlets. Each recording device broadcasts its stream (i.e., Outlet) – either through a built-in system or via custom-made scripts – in the form of descriptive metadata (e.g., stream name, content, type, number of channels, etc.). Receiving applications (i.e., Inlet), such as LabRecorder, automatically detect these advertised streams and record them in real time. To achieve multimodal synchronization, the LSL leverages each machine’s local monotonic clock and continuously performs clock offset estimation between the Outlet and Inlet trhough periodic pinging, which are then used to created a shared time based across all streams with sub-millisecond alignment. This software architecture must be physically implemented through a wired local network, that can span multiple PC’s. In our setup, we constructed a multi-PC setup this by connecting all recording computers via Ethernet cables to a shared 5-port Gigabit LAN hub (model: NETGEAR GS305v3), which was in turn connected via Ethernet to the LSL recording computer, as shown in Figure 1B–C.</p>
 </section>
-<section id="how-to-read" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-read">How to read</h2>
-<p>Here we write something about how it should be read and used…</p>
-</section>
-<section id="acknowledgements" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
-<p>We would like to thank …</p>
-</section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-</section>
-<section id="how-to-cite" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-cite">How to cite</h2>
-</section>
-<section id="funding-and-support" class="level2">
-<h2 class="anchored" data-anchor-id="funding-and-support">Funding and support</h2>
+<section id="lsl-recording-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="lsl-recording-procedures">LSL Recording Procedures</h2>
+<p>As shown in Figure 1B&amp;C, our MML setup comprised four recording computers, each configured as an LSL Outlet and assigned to a specific participant and modality. Two Windows machines were used to record thevideo and physiological data three video streams and Bluetooth-based physiological signals (EMG and respiration), each assigned to one participant.: the first handled three video streams and Bluetooth-based physiological signals (EMG and respiration) from P1, while the second did the same for P2. The two Linux machines were used to stream the audio data from each participant separately. P1 and P2, respectively. All Outlet streams were transmitted over the local LSL network to a fifth computer running the LabRecorder application (Inlet), which resolved and recorded the incoming streams into a single extendable data format (xdf) file with preserved metadata and a shared, sub-millisecond-accurate time base. Prior to each recording, the LabRecorder graphical interface allowed to verify the presence of and stability of all expected streams from both participants. Once confirmed, the interface allowed all streams to be recorded into a single .xdf file with a single button click.</p>
+<p>[here maybe screenshot of LabRecorder if we have]</p>
 
 
 </section>

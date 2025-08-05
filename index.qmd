@@ -28,6 +28,10 @@ To ensure that all the signals are synchronized, we use the Lab streaming layer 
 
 Additionally, the setup is build in a modular way, so that anyone can add or remove equipment and recording from the default setup as long as these devices are LSL compatible
 
+## How to read
+
+Here we write something about how it should be read and used...
+
 ## Acknowledgements
 
 We would like to thank ...
