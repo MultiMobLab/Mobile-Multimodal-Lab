@@ -85,7 +85,7 @@ metadata:
 
 format:
   html:
-    theme: cosmo
+    theme: lux
     highlight-style: github
     css: style.css
 
