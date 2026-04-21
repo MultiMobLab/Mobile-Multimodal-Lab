@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,15 +102,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
         <div class="quarto-navbar-tools tools-end">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -102,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Labsetup_overview.html">Lab Setup</a></li><li class="breadcrumb-item"><a href="./Equip_video.html">Video Recordings</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Mobile Multimodal Lab</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -124,61 +163,18 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutorial/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Lab Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Labsetup_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Equip_video.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Video Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Equip_audio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Equip_physiological.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Physiological Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Experiment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Experiment Administration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Integration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integration of Signals</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introduction</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Preprocessing</span></a>
+ <span class="menu-text">Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -186,20 +182,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Preprocessing_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/02_lab_setup.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">XDF Processing</span></a>
+  <a href="../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_PREPROCESSING/2_AudioVideo_Sync.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio-Video Synchronization</span></a>
+  <a href="../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
   </div>
 </li>
       </ul>
@@ -207,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Motion Tracking</span></a>
+ <span class="menu-text">Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -215,78 +223,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MT_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Segmentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Calibration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/Alternative_1_FreeMoCap.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 1: FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/Alternative_1_FreeMoCap_HowTo.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to run FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/Alternative_2_Pose2sim.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 2: Pose2sim</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Example of Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Example_Analysis.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synchrony Analyses</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5_ANIMATIONS/Donkers_MML_Multimodal_Animations.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating animations</span></a>
   </div>
 </li>
       </ul>
@@ -296,13 +234,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#choosing-the-motion-tracking-system" id="toc-choosing-the-motion-tracking-system" class="nav-link active" data-scroll-target="#choosing-the-motion-tracking-system"><span class="header-section-number">1</span> Choosing the Motion Tracking System</a></li>
+  <li><a href="#video-based-mt-equipment" id="toc-video-based-mt-equipment" class="nav-link" data-scroll-target="#video-based-mt-equipment"><span class="header-section-number">2</span> Video-Based MT Equipment</a></li>
+  <li><a href="#video-recording-procedures" id="toc-video-recording-procedures" class="nav-link" data-scroll-target="#video-recording-procedures"><span class="header-section-number">3</span> Video Recording Procedures</a></li>
+  <li><a href="#camera-calibration-procedures" id="toc-camera-calibration-procedures" class="nav-link" data-scroll-target="#camera-calibration-procedures"><span class="header-section-number">4</span> Camera Calibration Procedures</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Labsetup_overview.html">Lab Setup</a></li><li class="breadcrumb-item"><a href="./Equip_video.html">Video Recordings</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mobile Multimodal Lab</h1>
+<div class="quarto-title-block"><div><h1 class="title">Mobile Multimodal Lab</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Lab Setup: Video Recordings</p>
 </div>
 
@@ -327,26 +276,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Here we say that we optimize video recording specifically for motion tracking purposes</p>
-<section id="choosing-the-motion-tracking-system" class="level2">
-<h2 class="anchored" data-anchor-id="choosing-the-motion-tracking-system">Choosing the Motion Tracking System</h2>
+<section id="choosing-the-motion-tracking-system" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="choosing-the-motion-tracking-system"><span class="header-section-number">1</span> Choosing the Motion Tracking System</h2>
 <p>Thanks to rapid advancements in motion analysis technologies and fueled by growing interest across research and clinical domains, there are many motion-tracking (MT) systems available on the market nowadays, each offering distinct strengths and trade-offs. To help readers navigate the available options, Table X (below) provides a high-level overview of the most widely used MT systems, summarizing their key features in light of their respective accessibility, affordability, and portability - three core principles behind our research approach.</p>
 <p>Broadly speaking, most MT systems can be categorized into two types: device-based systems, which use dedicated sensors or markers to capture movement, and video-based systems, which extract motion data directly from standard video recordings using either pixel-based differentiation or machine learning based on computer vision models. For our MML setup, we opted for a video-based MT system (with computer vision models for pose-estimations) since it best aligns with our four core principlesrequirements of accessibility, affordability, and portability, whilst maintaining high levels of precision compared to state-of-the-art device-based MT (for performance comparisons between video-based and device-based systems, see Koul &amp; Novembre, 2025; Martini et al., 2022; Ota et al., 2020; Pouw et al., 2020). WhileIn fact, while device-based systems such as Vicon or Qualysis offer sub-millimeter accuracy, they come at a steep financial cost, typically ranging between €150,000 and €250,000 (source?). In contrast, video-based systems using consumer-grade cameras can be implemented for under €1,000, making them orders of magnitude more affordable with minimal costs on precision for most behavioral studies. Additionally, the free and open source nature of most computer vision models that are used to extract full-body pose estimates from standard RGB video recordings - such as OpenPose (Cao et al., 2019) or Mediapipe (Lugaresi et al., 2019) - has dramatically improved the accessibility of MT research for many researches that do not have access to proprietary software or specialized hardware (and their black-boxed software). Finally, in contrast to the the bulky equipment and complex, expensive-to-insure, and sometimes bulky nature of installations of MT devicesdevice-based motion tracking systems, video-based setups in contrast can consist of lightweight, portable components (e.g., USB-cameras, foldable tripods, and a laptop), making them ideal for mobile research settings and, notably, particularly suitable for studying diverse populations like human infants and non-human animals, as they do not require wearable sensors or body markers.</p>
 </section>
-<section id="video-based-mt-equipment" class="level2">
-<h2 class="anchored" data-anchor-id="video-based-mt-equipment">Video-Based MT Equipment</h2>
+<section id="video-based-mt-equipment" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="video-based-mt-equipment"><span class="header-section-number">2</span> Video-Based MT Equipment</h2>
 <p>As shown in Figure 1 C, our video-based MT system comprised six USB cameras mounted on two movable arches, with three cameras assigned to each participant. Each three-camera arch was connected to a dedicated recording computer to manage the video streams independently. Although a single front-facing camera is sufficient for basic 2D body pose estimation, using three simultaneous viewpoints allows for more robust pose extraction and, importantly, triangulation in 3D space (see Section X – Motion Capture Analysis). To improve portability, the camera arches could be replaced with foldable tripodss provided that each camera remains fixed during recording and positioned approximately at the participants’ head height across all sessions.</p>
 <p>For the cameras, here chose the “Elgato Facecam” (link?) as they best aligned with our MML principles. In fact, each unit is relatively inexpensive (~€120), lightweight (96 g), capable of recording in full-HD resolution (1080p) at 60 Hz, and comes with a free software (Elgato Hub, link?) to adjust thethat allows for adjusting camera settings. Crucially, it also has adjustable shutter speed (up to 1/250s), which is an important component for motion tracking, as lower shutter speeds (below 1/100s) tend to introduce motion blur and, therefore, can impair pose estimation accuracy (see evidence for this in Box 1 – Motion Tracking &amp; Shutter Speed). Naturally, other camera models can be substituted, as long as they allow for adjustable shutter speeds reaching above 1/100s. Each trio of cameras was fed to a Windows PC equipped with a multi-core processor (e.g., Intel i7 or equivalent) capable of encoding and processing the three video streams in parallel. To prevent bandwidth overload and reduce the risk of dropped frames, the camera-to-PC connections were mediated by a powered USB hub and, importantly, distributed across separate USB buses wherever possible (e.g., by allocating one camera to a USB 3.0 port and the remaining cameras to separate USB 2.0 controllers).</p>
 <p>Text Box 2, Textbox</p>
 </section>
-<section id="video-recording-procedures" class="level2">
-<h2 class="anchored" data-anchor-id="video-recording-procedures">Video Recording Procedures</h2>
+<section id="video-recording-procedures" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="video-recording-procedures"><span class="header-section-number">3</span> Video Recording Procedures</h2>
 <p>Before recordings, each camera setting was manually configured through the Elgato Camera Hub software to ensure optimal conditions for MT. Specifically, we set the shutter speed to 1/200s to reduce motion bur, downsampled the image resolution to qHD (960 × 540) to minimize data storage demands, and fixed the ISO at 354 to stabilize image brightness and contrast under short exposure times. To simultaneously capture the three frame-synced video from each camera trios in the two recordings PC and stream the corresponding time-stamped frames to the LSL, we used a custom Python script by Kadavá and Pouw (2024; see full script here). This script leverages the OpenCV (Bradski, 2000) and FFmpegCV (ref?) libraries to feed the combined side-by-side videos from the three cameras into a single compositive video using multithreading, which ensured that all frames were synchronized for each sampling timepoint. The video was recorded at 60 Hz in an uncompressed format to preserve image fidelity during acquisition. After each session, the raw videos were compressed using the XVID codec at a 2.5x reduction ratio to ease data transfer and storage space (see full script here). Importantly, the script also integrated the videos with the LSL using the PyLSL library (Kothe, 2014), which generates a an LSL stream containing a running frame index value f(t) paired with the a common LSL timestamp t aligned with all the others recording modalities.</p>
 <p>[here can be the code chunk]</p>
 </section>
-<section id="camera-calibration-procedures" class="level2">
-<h2 class="anchored" data-anchor-id="camera-calibration-procedures">Camera Calibration Procedures</h2>
+<section id="camera-calibration-procedures" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="camera-calibration-procedures"><span class="header-section-number">4</span> Camera Calibration Procedures</h2>
 <p>To ensure 3D pose estimation from multi-angle recordings, video-based MT systems require prior information on the intrinsic parameters (e.g., focal length, distortion coefficients) and extrinsic parameters (i.e., spatial orientation and position relative to other cameras) of each device (for more information, see Karashchuk et al., 2021). Therefore, before each recording, we performed a calibration procedure for each trio of cameras assigned to a participant. Specifically, we recorded a short (∼1-minute) calibration video using a ChArUco calibration board (see Figure 1 C) that was moved systematically trhoughoutthroughout the full vertical and horizontal space later occupied by the participant during the experiment. These calibration videos were then used to compute the geometric parameters for 3D triangulation during MT (see Section X – Motion Capture Analysis).</p>
 
+
+<!-- -->
 
 </section>
 
@@ -430,6 +381,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -759,7 +761,41 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Mobile Multimodal Lab"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Lab Setup: Video Recordings"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">authors:</span><span class="co"> Davide Ahmar, Šárka Kadavá, Wim Pouw</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Here we say that we optimize video recording specifically for motion tracking purposes</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Choosing the Motion Tracking System</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Thanks to rapid advancements in motion analysis technologies and fueled by growing interest across research and clinical domains, there are many motion-tracking (MT) systems available on the market nowadays, each offering distinct strengths and trade-offs. To help readers navigate the available options, Table X (below) provides a high-level overview of the most widely used MT systems, summarizing their key features in light of their respective accessibility, affordability, and portability - three core principles behind our research approach.  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Broadly speaking, most MT systems can be categorized into two types: device-based systems, which use dedicated sensors or markers to capture movement, and video-based systems, which extract motion data directly from standard video recordings using either pixel-based differentiation or machine learning based on computer vision models. For our MML setup, we opted for a video-based MT system (with computer vision models for pose-estimations) since it best aligns with our four core principlesrequirements of accessibility, affordability, and portability, whilst maintaining high levels of precision compared to state-of-the-art device-based MT (for performance comparisons between video-based and device-based systems, see Koul &amp; Novembre, 2025; Martini et al., 2022; Ota et al., 2020; Pouw et al., 2020). WhileIn fact, while device-based systems such as Vicon or Qualysis offer sub-millimeter accuracy, they come at a steep financial cost, typically ranging between €150,000 and €250,000 (source?). In contrast, video-based systems using consumer-grade cameras can be implemented for under €1,000, making them orders of magnitude more affordable with minimal costs on precision for most behavioral studies. Additionally, the free and open source nature of most computer vision models that are used to extract full-body pose estimates from standard RGB video recordings - such as OpenPose (Cao et al., 2019) or Mediapipe (Lugaresi et al., 2019) - has dramatically improved the accessibility of MT research for many researches that do not have access to proprietary  software or specialized hardware (and their black-boxed software). Finally, in contrast to the the bulky equipment and complex, expensive-to-insure, and sometimes bulky nature of installations of MT devicesdevice-based motion tracking systems, video-based setups in contrast can consist of lightweight, portable components (e.g., USB-cameras, foldable tripods, and a laptop), making them ideal for mobile research settings and, notably, particularly suitable for studying diverse populations like human infants and non-human animals, as they do not require wearable sensors or body markers.  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Video-Based MT Equipment</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>As shown in Figure 1 C, our video-based MT system comprised six USB cameras mounted on two movable arches, with three cameras assigned to each participant. Each three-camera arch was connected to a dedicated recording computer to manage the video streams independently. Although a single front-facing camera is sufficient for basic 2D body pose estimation, using three simultaneous viewpoints allows for more robust pose extraction and, importantly, triangulation in 3D space (see Section X – Motion Capture Analysis). To improve portability, the camera arches could be replaced with foldable tripodss provided that each camera remains fixed during recording and positioned approximately at the participants’ head height across all sessions. </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>For the cameras, here chose the “Elgato Facecam” (link?) as they best aligned with our MML principles. In fact, each unit is relatively inexpensive (~€120), lightweight (96 g), capable of recording in full-HD resolution (1080p) at 60 Hz, and comes with a free software (Elgato Hub, link?) to adjust thethat allows for adjusting camera settings. Crucially, it also has adjustable shutter speed (up to 1/250s), which is an important component for motion tracking, as lower shutter speeds (below 1/100s) tend to introduce motion blur and, therefore, can impair pose estimation accuracy (see evidence for this in Box 1 – Motion Tracking &amp; Shutter Speed). Naturally, other camera models can be substituted, as long as they allow for adjustable shutter speeds reaching above 1/100s. Each trio of cameras was fed to a Windows PC equipped with a multi-core processor (e.g., Intel i7 or equivalent) capable of encoding and processing the three video streams in parallel. To prevent bandwidth overload and reduce the risk of dropped frames, the camera-to-PC connections were mediated by a powered USB hub and, importantly, distributed across separate USB buses wherever possible (e.g., by allocating one camera to a USB 3.0 port and the remaining cameras to separate USB 2.0 controllers). </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Text Box 2, Textbox </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Video Recording Procedures</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Before recordings, each camera setting was manually configured through the Elgato Camera Hub software to ensure optimal conditions for MT. Specifically, we set the shutter speed to 1/200s to reduce motion bur, downsampled the image resolution to qHD (960 × 540) to minimize data storage demands, and fixed the ISO at 354 to stabilize image brightness and contrast under short exposure times. To simultaneously capture the three frame-synced video from each camera trios in the two recordings PC and stream the corresponding time-stamped frames to the LSL, we used a custom Python script by Kadavá and Pouw (2024; see full script here). This script leverages the OpenCV (Bradski, 2000) and FFmpegCV (ref?) libraries to feed the combined side-by-side videos from the three cameras into a single compositive video using multithreading, which ensured that all frames were synchronized for each sampling timepoint. The video was recorded at 60 Hz in an uncompressed format to preserve image fidelity during acquisition. After each session, the raw videos were compressed using the XVID codec at a 2.5x reduction ratio to ease data transfer and storage space (see full script here). Importantly, the script also integrated the videos with the LSL using the PyLSL library (Kothe, 2014), which generates a an LSL stream containing a running frame index value f(t) paired with the a common LSL timestamp t aligned with all the others recording modalities.  </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">here can be the code chunk</span><span class="co">]</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Camera Calibration Procedures</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>To ensure 3D pose estimation from multi-angle recordings, video-based MT systems require prior information on the intrinsic parameters (e.g., focal length, distortion coefficients) and extrinsic parameters (i.e., spatial orientation and position relative to other cameras) of each device (for more information, see Karashchuk et al., 2021). Therefore, before each recording, we performed a calibration procedure for each trio of cameras assigned to a participant. Specifically, we recorded a short (∼1-minute) calibration video using a ChArUco calibration board (see Figure 1 C) that was moved systematically trhoughoutthroughout the full vertical and horizontal space later occupied by the participant during the experiment. These calibration videos were then used to compute the geometric parameters for 3D triangulation during MT (see Section X – Motion Capture Analysis). </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

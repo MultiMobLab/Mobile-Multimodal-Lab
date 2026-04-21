@@ -1,73 +1,39 @@
 project:
   type: website
   output-dir: docs
-  render:
-    - "*.qmd"
-    - "*.ipynb"
-    - "!/00_RAWDATA"
-    - "!/Miscellaneous"
-    - "!/shign"
+  # Run: quarto render                  → HTML tutorial (default)
+  # Run: quarto render --profile manuscript → PDF manuscript
+  # Run: python sync_gdocs.py upload    → push all .qmd to Google Docs for review
+  # Run: python sync_gdocs.py download  → pull edits back
 
 website:
+  title: "Mobile Multimodal Lab"
   sidebar:
     style: "floating"
     search: true
     contents:
       - text: "Home"
-        href: index.qmd
+        href: Tutorial/index.qmd
+      - section: "Introduction"
+        href: Tutorial/Introduction.qmd
 
-      - section: "Lab Setup"
+      - section: "Methods"
         contents:
           - text: "Overview"
-            href: Labsetup_overview.qmd
-          - text: "Video Recordings"
-            href: Equip_video.qmd
-          - text: "Audio Recordings"
-            href: Equip_audio.qmd
-          - text: "Physiological Recordings"
-            href: Equip_physiological.qmd
-          - text: "Experiment Administration"
-            href: Experiment.qmd
-          - text: "Integration of Signals"
-            href: Integration.qmd
+            href: Tutorial/02_lab_setup.qmd
+          - text: "Experimental design"
+            href: Tutorial/Method-experiment.qmd # TODO add also relevant scripts to view
+          - text: "Lab Setup"
+            href: Tutorial/Method-labsetup.qmd
+          - text: "Processing"
+            href: Tutorial/Method-processing.qmd
+          - text: "Motion tracking"
+            href: Tutorial/Method-processing.qmd
 
-      - section: "Preprocessing"
+      - section: "Analysis"
         contents:
           - text: "Overview"
-            href: Preprocessing_overview.qmd
-          - text: "XDF Processing"
-            href: 2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.ipynb
-          - text: "Audio-Video Synchronization"
-            href: 2_PREPROCESSING/2_AudioVideo_Sync.ipynb
-
-      - section: "Motion Tracking"
-        contents:
-          - text: "Overview"
-            href: MT_overview.qmd
-          - text: "Video Segmentation"
-            href: 3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.ipynb
-          - text: "Video Calibration"
-            href: 3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.ipynb
-          - text: "Alternative 1: FreeMoCap"
-            href: 3_MOTION_TRACKING/Alternative_1_FreeMoCap.qmd
-          - text: "How to run FreeMoCap"
-            href: 3_MOTION_TRACKING/Alternative_1_FreeMoCap_HowTo.qmd
-          - text: "Alternative 2: Pose2sim"
-            href: 3_MOTION_TRACKING/Alternative_2_Pose2sim.qmd
-
-      - section: "Example of Analysis"
-        contents:
-          - text: "Overview"
-            href: Example_Analysis.qmd
-          - text: "Synchrony Analyses"
-            href: 4b_SynchronyAnalyses/processing_and_visualization.ipynb
-      
-      - section: "Visualization"
-        contents:
-          - text: "Creating animations"
-            href: 5_ANIMATIONS/Donkers_MML_Multimodal_Animations.ipynb
-
-
+            href: Tutorial/Analysis.qmd
 
   navbar:
     tools:
@@ -78,19 +44,22 @@ website:
           - text: Report a Bug
             href: https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues
 
-metadata:
-  crossref:
-    chapters: true
-
-
+# Default format: HTML tutorial (full code + all sections)
 format:
   html:
     theme: lux
     highlight-style: github
-    css: style.css
+    css: styles.css
+    toc: true
+    number-sections: true
+    code-fold: true          # code visible but collapsible by default
+    code-tools: true         # copy button, show/hide all
+    code-link: true
 
-
-
-
-
-
+# Default execution: run and show code in HTML
+execute:
+  echo: true
+  eval: true
+  warning: false
+  message: false
+  cache: true                # cache outputs so re-renders are fast

@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,15 +102,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
         <div class="quarto-navbar-tools tools-end">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -102,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Preprocessing_overview.html">Preprocessing</a></li><li class="breadcrumb-item"><a href="./Preprocessing_overview.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Mobile Multimodal Lab</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -124,61 +163,18 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutorial/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Lab Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Labsetup_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Equip_video.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Equip_audio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Equip_physiological.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Physiological Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Experiment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Experiment Administration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Integration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integration of Signals</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introduction</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Preprocessing</span></a>
+ <span class="menu-text">Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -186,20 +182,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Preprocessing_overview.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/02_lab_setup.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">XDF Processing</span></a>
+  <a href="../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_PREPROCESSING/2_AudioVideo_Sync.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio-Video Synchronization</span></a>
+  <a href="../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
   </div>
 </li>
       </ul>
@@ -207,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Motion Tracking</span></a>
+ <span class="menu-text">Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -215,78 +223,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MT_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Segmentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Calibration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/Alternative_1_FreeMoCap.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 1: FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/Alternative_1_FreeMoCap_HowTo.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to run FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_MOTION_TRACKING/Alternative_2_Pose2sim.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 2: Pose2sim</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Example of Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Example_Analysis.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synchrony Analyses</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5_ANIMATIONS/Donkers_MML_Multimodal_Animations.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating animations</span></a>
   </div>
 </li>
       </ul>
@@ -296,14 +234,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#choosing-the-physiological-setup" id="toc-choosing-the-physiological-setup" class="nav-link active" data-scroll-target="#choosing-the-physiological-setup"><span class="header-section-number">1</span> Choosing the Physiological Setup</a></li>
+  <li><a href="#physiological-recording-equipment" id="toc-physiological-recording-equipment" class="nav-link" data-scroll-target="#physiological-recording-equipment"><span class="header-section-number">2</span> Physiological Recording Equipment</a></li>
+  <li><a href="#physiological-recording-procedures" id="toc-physiological-recording-procedures" class="nav-link" data-scroll-target="#physiological-recording-procedures"><span class="header-section-number">3</span> Physiological Recording Procedures</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Preprocessing_overview.html">Preprocessing</a></li><li class="breadcrumb-item"><a href="./Preprocessing_overview.html">Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mobile Multimodal Lab</h1>
-<p class="subtitle lead">Reproducible manual for setting up interactive laboratory setup with multimodal signal collection</p>
+<div class="quarto-title-block"><div><h1 class="title">Mobile Multimodal Lab</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Lab Setup: Physiological Recordings</p>
 </div>
 
 
@@ -326,9 +274,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here is overview of preprocessing steps, perhaps even describing what is XDF</p>
+<p>Here we say some intro</p>
+<section id="choosing-the-physiological-setup" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="choosing-the-physiological-setup"><span class="header-section-number">1</span> Choosing the Physiological Setup</h2>
+<p>To complement the video and audio modalities in our MML setup, we also included physiological recordings of the EMG activity from participants’ biceps and triceps and thoracic respiration, with the goal of quantifying interpersonal physiological synchrony. Here, we wanted to prioritize a system that could support a modular sensor architecture, allowing researchers to buy only the biosensors relevant to their experimental goal. Additionally, we opted for a system that could transmit these signals wirelessly, thus granting participants free movements during the recordings. Finally, we needed something that could be easily integrated within the LSL system to ensure temporal synchronization with the other measures. Among all the avaliable proprietary options, we chose “PLUX Biosignals” recording system which, despite relying on proprietary hardware and (freely available) as it seemed to, meet all these requirements and offered a strong price/quality balance. We stress that the MML is not tied to any specific brand, and any LSL-compatible physiological system that meets these requirements can be incorporated into the setup.</p>
+</section>
+<section id="physiological-recording-equipment" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="physiological-recording-equipment"><span class="header-section-number">2</span> Physiological Recording Equipment</h2>
+<p>As shown in Figure 1C, the equipment consisted of two (one per participant) “biosignalplux Hub” (price: ~€2000), each supporting up to 4 input channels and capable of sampling at rates of up to 3000 Hz per channel with 16-bit resolution (Note that an 8-channel biosignalplux Hub is also avaliable, costing ~€4000). These devices transmitted data wirelessly via BTbluetooth in real time to their respective recording computers (the same used for video recordings) using a dedicated BT bluetooth dongle. To record participants’ muscle activity, we used two surface EMG sensors per participant (price ~€170), one placed over the biceps brachii and one over the triceps brachii of the right arm, allowing us to monitor the activation patterns of both flexor and extensor muscle groups. The EMG sensors used a bipolar configuration, with two adhesive electrodes (positive and negative) optimized for low-noise acquisition of muscular activity by detecting bioelectrical signals transmitted along the muscle fibers during contraction. There was one ground electrode attached to the xxx. To record participants respiratory patterns, we used two piezoelectric respiration sensors (PZT, price ~€170) secured around each participants’ upper thorax with an adjustable elastic strap. This sensor measured the displacement caused by inhalation and exhalation via a flexible strip with a centrally embedded sensing membrane.</p>
+</section>
+<section id="physiological-recording-procedures" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="physiological-recording-procedures"><span class="header-section-number">3</span> Physiological Recording Procedures</h2>
+<p>Before attaching the EMG sensors, participants’ skin was cleaned using an alcohol-based wipe and abrasive conductive gel (Nuprep) to reduce impedance and enhance signal quality. The two surface EMG electrodes were applied over the biceps brachii and triceps brachii of the dominant arm in a bipolar configuration, aligned along the longitudinal axis of each target muscle. The PZT belt was placed on the thorax at the level of the sternumaround the upper thorax, positioned so that the sensing element was centered over the chest. The elastic strap was adjusted to fit tightly without restricting breathing, ensuring that chest displacement was captured during inhalation and exhalation. Signal acquisition and LSL integration was managed using the OpenSignals (r)evolution software from biosignalsplux. Using the GUI of the software, we configured the EMGs and PZT channels to sample at 1000 Hz and visualized these signals in real time to verify signal-to-noise ratio and appropriate signal amplitude across both EMG and respiration channels.</p>
+<p>The data streams were then broadcasted directly to the LSL using the software’s built-in LSL integration (see documentation here), resulting in two streams (one per participant) each containing the two raw EMG and one PZT time series synchronized with the other data modalities.</p>
 
 
+<!-- -->
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -410,6 +373,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -739,7 +753,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Mobile Multimodal Lab"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Lab Setup: Physiological Recordings"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">authors:</span><span class="co"> Davide Ahmar, Šárka Kadavá, Wim Pouw</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Here we say some intro</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Choosing the Physiological Setup</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>To complement the video and audio modalities in our MML setup, we also included physiological recordings of the EMG activity from participants’ biceps and triceps and thoracic respiration, with the goal of quantifying interpersonal physiological synchrony. Here, we wanted to prioritize a system that could support a modular sensor architecture, allowing researchers to buy only the biosensors relevant to their experimental goal. Additionally, we opted for a system that could transmit these signals wirelessly, thus granting participants free movements during the recordings. Finally, we needed something that could be easily integrated within the LSL system to ensure temporal synchronization with the other measures. Among all the avaliable proprietary options, we chose “PLUX Biosignals” recording system which, despite relying on proprietary hardware and (freely available) as it seemed to, meet all these requirements and offered a strong price/quality balance. We stress that the MML is not tied to any specific brand, and any LSL-compatible physiological system that meets these requirements can be incorporated into the setup. </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Physiological Recording Equipment</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>As shown in Figure 1C, the equipment consisted of two (one per participant) “biosignalplux Hub” (price: ~€2000), each supporting up to 4 input channels and capable of sampling at rates of up to 3000 Hz per channel with 16-bit resolution (Note that an 8-channel biosignalplux Hub is also avaliable, costing ~€4000). These devices transmitted data wirelessly via BTbluetooth in real time to their respective recording computers (the same used for video recordings) using a dedicated BT bluetooth dongle. To record participants’ muscle activity, we used two surface EMG sensors per participant (price ~€170), one placed over the biceps brachii and one over the triceps brachii of the right arm, allowing us to monitor the activation patterns of both flexor and extensor muscle groups. The EMG sensors used a bipolar configuration, with two adhesive electrodes (positive and negative) optimized for low-noise acquisition of muscular activity by detecting bioelectrical signals transmitted along the muscle fibers during contraction. There was one ground electrode attached to the xxx. To record participants respiratory patterns, we used two piezoelectric respiration sensors (PZT, price ~€170) secured around each participants’ upper thorax with an adjustable elastic strap. This sensor measured the displacement caused by inhalation and exhalation via a flexible strip with a centrally embedded sensing membrane. </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Physiological Recording Procedures</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Before attaching the EMG sensors, participants’ skin was cleaned using an alcohol-based wipe and abrasive conductive gel (Nuprep) to reduce impedance and enhance signal quality. The two surface EMG electrodes were applied over the biceps brachii and triceps brachii of the dominant arm in a bipolar configuration, aligned along the longitudinal axis of each target muscle. The PZT belt was placed on the thorax at the level of the sternumaround the upper thorax, positioned so that the sensing element was centered over the chest. The elastic strap was adjusted to fit tightly without restricting breathing, ensuring that chest displacement was captured during inhalation and exhalation. Signal acquisition and LSL integration was managed using the OpenSignals (r)evolution software from biosignalsplux. Using the GUI of the software, we configured the EMGs and PZT channels to sample at 1000 Hz and visualized these signals in real time to verify  signal-to-noise ratio and appropriate signal amplitude across both EMG and respiration channels. </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>The data streams were then broadcasted directly to the LSL using the software’s built-in LSL integration (see documentation here), resulting in two streams (one per participant) each containing the two raw EMG and one PZT time series synchronized with the other data modalities.  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

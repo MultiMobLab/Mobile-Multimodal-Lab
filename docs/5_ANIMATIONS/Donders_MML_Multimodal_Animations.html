@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DONDERS MML: Multimodal Animations</title>
+<title>Mobile Multimodal Lab - DONDERS MML: Multimodal Animations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,15 +105,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
         <div class="quarto-navbar-tools tools-end">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -161,61 +166,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutorial/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Lab Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Labsetup_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Equip_video.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Equip_audio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Equip_physiological.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Physiological Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Experiment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Experiment Administration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Integration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integration of Signals</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introduction</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Preprocessing</span></a>
+ <span class="menu-text">Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -223,20 +185,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Preprocessing_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/02_lab_setup.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">XDF Processing</span></a>
+  <a href="../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_PREPROCESSING/2_AudioVideo_Sync.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio-Video Synchronization</span></a>
+  <a href="../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
   </div>
 </li>
       </ul>
@@ -244,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Motion Tracking</span></a>
+ <span class="menu-text">Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -252,78 +226,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../MT_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Segmentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Calibration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3_MOTION_TRACKING/Alternative_1_FreeMoCap.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 1: FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3_MOTION_TRACKING/Alternative_1_FreeMoCap_HowTo.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to run FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../3_MOTION_TRACKING/Alternative_2_Pose2sim.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 2: Pose2sim</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Example of Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Example_Analysis.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synchrony Analyses</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../5_ANIMATIONS/Donkers_MML_Multimodal_Animations.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating animations</span></a>
   </div>
 </li>
       </ul>
@@ -333,13 +237,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#import-necessary-packages" id="toc-import-necessary-packages" class="nav-link active" data-scroll-target="#import-necessary-packages"><span class="header-section-number">0.1</span> 0. Import Necessary Packages</a></li>
+  <li><a href="#the-user-selects-their-own-files-with-a-gui-pop-up" id="toc-the-user-selects-their-own-files-with-a-gui-pop-up" class="nav-link" data-scroll-target="#the-user-selects-their-own-files-with-a-gui-pop-up"><span class="header-section-number">0.2</span> 1. The User Selects their Own Files with a GUI pop-up</a></li>
+  <li><a href="#create-a-3d-animation-from-the-mt_3d_input" id="toc-create-a-3d-animation-from-the-mt_3d_input" class="nav-link" data-scroll-target="#create-a-3d-animation-from-the-mt_3d_input"><span class="header-section-number">0.3</span> 2. Create a 3D Animation from the MT_3D_input</a></li>
+  <li><a href="#extract-amplitude-envelope-and-plot-audio-signal" id="toc-extract-amplitude-envelope-and-plot-audio-signal" class="nav-link" data-scroll-target="#extract-amplitude-envelope-and-plot-audio-signal"><span class="header-section-number">1</span> 4. Extract Amplitude Envelope and Plot Audio Signal</a></li>
+  <li><a href="#filter-and-plot-physiological-signal-emg-ecg-and-resp" id="toc-filter-and-plot-physiological-signal-emg-ecg-and-resp" class="nav-link" data-scroll-target="#filter-and-plot-physiological-signal-emg-ecg-and-resp"><span class="header-section-number">2</span> 5. Filter and Plot Physiological Signal: EMG, ECG and RESP</a></li>
+  <li><a href="#create-the-multimodal-animation" id="toc-create-the-multimodal-animation" class="nav-link" data-scroll-target="#create-the-multimodal-animation"><span class="header-section-number">3</span> 5. Create the Multimodal Animation</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DONDERS MML: Multimodal Animations</h1>
+<div class="quarto-title-block"><div><h1 class="title">DONDERS MML: Multimodal Animations</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
 
@@ -356,9 +273,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="import-necessary-packages" class="level3">
-<h3 class="anchored" data-anchor-id="import-necessary-packages">0. Import Necessary Packages</h3>
+<section id="import-necessary-packages" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="import-necessary-packages"><span class="header-section-number">0.1</span> 0. Import Necessary Packages</h3>
 <div id="cell-3" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2 <span class="co">#opencv</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="co">#basic operations</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co">#basic operations</span></span>
@@ -383,14 +302,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Everything imported successfully"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Everything imported successfully</code></pre>
 </div>
 </div>
 </section>
-<section id="the-user-selects-their-own-files-with-a-gui-pop-up" class="level3">
-<h3 class="anchored" data-anchor-id="the-user-selects-their-own-files-with-a-gui-pop-up">1. The User Selects their Own Files with a GUI pop-up</h3>
+<section id="the-user-selects-their-own-files-with-a-gui-pop-up" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="the-user-selects-their-own-files-with-a-gui-pop-up"><span class="header-section-number">0.2</span> 1. The User Selects their Own Files with a GUI pop-up</h3>
 <div id="cell-5" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tkinter <span class="im">as</span> tk</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> filedialog, messagebox</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -424,6 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following PLUX file: '</span> <span class="op">+</span> <span class="bu">str</span>(PLUX_input))</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>root.destroy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>You have selected the following 2D Videos: ['F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/annotated_videos/T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam1_mediapipe.mp4', 'F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/annotated_videos/T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam2_mediapipe.mp4', 'F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/annotated_videos/T1_experiment_Video_P1_NoVision_Movement_4_StartParticipantSinging_NoVision_Movement_4_EndParticipantSinging_clipped_cam3_mediapipe.mp4']
 You have selected the following 3D Motion Tracking file: F:/Mobile-Multimodal-Lab/3_MOTION_TRACKING/3_freemocap/marker_MULTIPLEpairs/P1/NoVision_Movement/trial_4/output_data/mediapipe_body_3d_xyz.csv
@@ -432,9 +355,11 @@ You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESS
 </div>
 </div>
 </section>
-<section id="create-a-3d-animation-from-the-mt_3d_input" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-3d-animation-from-the-mt_3d_input">2. Create a 3D Animation from the MT_3D_input</h3>
+<section id="create-a-3d-animation-from-the-mt_3d_input" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="create-a-3d-animation-from-the-mt_3d_input"><span class="header-section-number">0.3</span> 2. Create a 3D Animation from the MT_3D_input</h3>
 <div id="cell-7" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>MT_tracking <span class="op">=</span> pd.read_csv(MT_3D_input)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis</span></span>
@@ -555,6 +480,7 @@ You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESS
 <span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="co">#This will be our 3D input vido for the multimodal animation</span></span>
 <span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>animation_input_3D <span class="op">=</span> output_file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Saved the enhanced 3D animation!</code></pre>
 </div>
@@ -567,9 +493,11 @@ You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESS
 </div>
 </div>
 </section>
-<section id="extract-amplitude-envelope-and-plot-audio-signal" class="level2">
-<h2 class="anchored" data-anchor-id="extract-amplitude-envelope-and-plot-audio-signal">4. Extract Amplitude Envelope and Plot Audio Signal</h2>
+<section id="extract-amplitude-envelope-and-plot-audio-signal" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="extract-amplitude-envelope-and-plot-audio-signal"><span class="header-section-number">1</span> 4. Extract Amplitude Envelope and Plot Audio Signal</h2>
 <div id="cell-9" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the bandpass filter</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> butter_bandpass(lowcut, highcut, fs, order<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    nyquist <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> fs</span>
@@ -629,6 +557,7 @@ You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESS
 <span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Audio DataFrame with time (in secs, starting from 0) raw audio and amplitude envelope for later use</span></span>
 <span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>audio_df <span class="op">=</span> pd.DataFrame({<span class="st">'time'</span>: np.arange(<span class="bu">len</span>(ampv)) <span class="op">/</span> sr, <span class="st">'audio'</span>: rawaudio, <span class="st">'envelope'</span>: ampv})</span>
 <span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>audio_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -689,9 +618,11 @@ You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESS
 </div>
 </div>
 </section>
-<section id="filter-and-plot-physiological-signal-emg-ecg-and-resp" class="level2">
-<h2 class="anchored" data-anchor-id="filter-and-plot-physiological-signal-emg-ecg-and-resp">5. Filter and Plot Physiological Signal: EMG, ECG and RESP</h2>
+<section id="filter-and-plot-physiological-signal-emg-ecg-and-resp" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="filter-and-plot-physiological-signal-emg-ecg-and-resp"><span class="header-section-number">2</span> 5. Filter and Plot Physiological Signal: EMG, ECG and RESP</h2>
 <div id="cell-11" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>PLUX_data <span class="op">=</span> pd.read_csv(PLUX_input)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(PLUX_data.head())  <span class="co"># To see the first few rows of the DataFrame</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(PLUX_data.columns)  <span class="co"># To list the column names</span></span>
@@ -872,6 +803,7 @@ You have selected the following PLUX file: F:/Mobile-Multimodal-Lab/2_PREPROCESS
 <span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>RESP_df <span class="op">=</span> pd.DataFrame({<span class="st">'time'</span>: np.arange(<span class="bu">len</span>(RSP)) <span class="op">/</span> sampling_rate, <span class="st">'resp'</span>: RSP})</span>
 <span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.head())</span>
 <span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>      LSL_Time  PLUX_P1_nSeq  PLUX_P1_ECG0  PLUX_P1_EMG1  PLUX_P1_EMG2  \
 0  6700.956065     1383405.0       0.04393       0.00477      -0.00291   
@@ -919,9 +851,11 @@ Index(['LSL_Time', 'PLUX_P1_nSeq', 'PLUX_P1_ECG0', 'PLUX_P1_EMG1',
 </div>
 </div>
 </section>
-<section id="create-the-multimodal-animation" class="level2">
-<h2 class="anchored" data-anchor-id="create-the-multimodal-animation">5. Create the Multimodal Animation</h2>
+<section id="create-the-multimodal-animation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="create-the-multimodal-animation"><span class="header-section-number">3</span> 5. Create the Multimodal Animation</h2>
 <div id="cell-13" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what is the window size in seconds</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>window <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1146,43 +1080,44 @@ Index(['LSL_Time', 'PLUX_P1_nSeq', 'PLUX_P1_ECG0', 'PLUX_P1_EMG1',
 <span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total video dimensions: 1620x3532</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>100%|██████████| 681/681 [07:31&lt;00:00,  1.51it/s]</code></pre>
-</div>
 </div>
 <div id="cell-14" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio start'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(audio_df.head())</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio end'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(audio_df.tail())</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'emg start'</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(EMG_df.head())</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'emg end'</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(EMG_df.tail())</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ecg start'</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ECG_df.head())</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ecg end'</span>)</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ECG_df.tail())</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'resp start'</span>)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.head())</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'resp end'</span>)</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.tail())</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Open one of your videos</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>cap <span class="op">=</span> cv2.VideoCapture(videos_input_2D[<span class="dv">0</span>])</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> cap.get(cv2.CAP_PROP_FPS)</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>frame_count <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_COUNT))</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>video_duration <span class="op">=</span> frame_count <span class="op">/</span> fps</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>cap.release()</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Video Duration: </span><span class="sc">{</span>video_duration<span class="sc">}</span><span class="ss"> seconds"</span>)</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio start'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(audio_df.head())</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'audio end'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(audio_df.tail())</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'emg start'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(EMG_df.head())</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'emg end'</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(EMG_df.tail())</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ecg start'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ECG_df.head())</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ecg end'</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ECG_df.tail())</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'resp start'</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.head())</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'resp end'</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(RESP_df.tail())</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Open one of your videos</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>cap <span class="op">=</span> cv2.VideoCapture(videos_input_2D[<span class="dv">0</span>])</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> cap.get(cv2.CAP_PROP_FPS)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>frame_count <span class="op">=</span> <span class="bu">int</span>(cap.get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>video_duration <span class="op">=</span> frame_count <span class="op">/</span> fps</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>cap.release()</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Video Duration: </span><span class="sc">{</span>video_duration<span class="sc">}</span><span class="ss"> seconds"</span>)</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>audio start
        time     audio  envelope
@@ -1244,20 +1179,26 @@ Video Duration: 12.25925925925926 seconds</code></pre>
 </div>
 </div>
 <div id="cell-15" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">min</span>(audio_df[<span class="st">'audio'</span>]), <span class="bu">max</span>(audio_df[<span class="st">'envelope'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">min</span>(audio_df[<span class="st">'audio'</span>]), <span class="bu">max</span>(audio_df[<span class="st">'envelope'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>(-0.1820068359375, 1.0)</code></pre>
 </div>
 </div>
 <div id="cell-16" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get video properties of 2D videos (assuming all videos have the same properties)</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>captures_2D <span class="op">=</span> [cv2.VideoCapture(vf) <span class="cf">for</span> vf <span class="kw">in</span> videos_input_2D]</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FPS)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>frame_count <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_COUNT))</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>frame_width <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_WIDTH))</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>frame_height <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_HEIGHT))</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(frame_height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get video properties of 2D videos (assuming all videos have the same properties)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>captures_2D <span class="op">=</span> [cv2.VideoCapture(vf) <span class="cf">for</span> vf <span class="kw">in</span> videos_input_2D]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FPS)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>frame_count <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_COUNT))</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>frame_width <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_WIDTH))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>frame_height <span class="op">=</span> <span class="bu">int</span>(captures_2D[<span class="dv">0</span>].get(cv2.CAP_PROP_FRAME_HEIGHT))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(frame_height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>960</code></pre>
 </div>
@@ -1346,6 +1287,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');

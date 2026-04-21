@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mobile Multimodal Lab (MML): XDF Preprocessing</title>
+<title>Mobile Multimodal Lab - Mobile Multimodal Lab (MML): XDF Preprocessing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,15 +102,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
         <div class="quarto-navbar-tools tools-end">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -136,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Preprocessing_overview.html">Preprocessing</a></li><li class="breadcrumb-item"><a href="../../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html">XDF Processing</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Mobile Multimodal Lab (MML): XDF Preprocessing</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,61 +163,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Tutorial/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Lab Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Labsetup_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Equip_video.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Equip_audio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Equip_physiological.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Physiological Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Experiment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Experiment Administration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Integration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integration of Signals</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introduction</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Preprocessing</span></a>
+ <span class="menu-text">Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -220,20 +182,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Preprocessing_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_lab_setup.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">XDF Processing</span></a>
+  <a href="../../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_PREPROCESSING/2_AudioVideo_Sync.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio-Video Synchronization</span></a>
+  <a href="../../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
   </div>
 </li>
       </ul>
@@ -241,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Motion Tracking</span></a>
+ <span class="menu-text">Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -249,78 +223,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../MT_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Segmentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Calibration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/Alternative_1_FreeMoCap.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 1: FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/Alternative_1_FreeMoCap_HowTo.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to run FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/Alternative_2_Pose2sim.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 2: Pose2sim</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Example of Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Example_Analysis.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synchrony Analyses</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../5_ANIMATIONS/Donkers_MML_Multimodal_Animations.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating animations</span></a>
   </div>
 </li>
       </ul>
@@ -330,13 +234,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#info-documents" id="toc-info-documents" class="nav-link active" data-scroll-target="#info-documents"><span class="header-section-number">0.0.1</span> Info Documents</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">0.0.2</span> Requirements</a></li>
+  <li><a href="#code-overview" id="toc-code-overview" class="nav-link" data-scroll-target="#code-overview"><span class="header-section-number">0.0.3</span> CODE OVERVIEW</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">0.0.4</span> Notes</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output"><span class="header-section-number">0.0.5</span> Output</a></li>
+  <li><a href="#import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files" id="toc-import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files" class="nav-link" data-scroll-target="#import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files"><span class="header-section-number">0.1</span> 0. Import all the necessary packages to work with XDF, Audio and Video files</a></li>
+  <li><a href="#define-the-relevant-paths-variables-functions" id="toc-define-the-relevant-paths-variables-functions" class="nav-link" data-scroll-target="#define-the-relevant-paths-variables-functions"><span class="header-section-number">0.2</span> 1. Define the Relevant Paths, Variables &amp; Functions</a></li>
+  <li><a href="#identifying-xdf-files-in-input-folder-or-any-subfolder" id="toc-identifying-xdf-files-in-input-folder-or-any-subfolder" class="nav-link" data-scroll-target="#identifying-xdf-files-in-input-folder-or-any-subfolder"><span class="header-section-number">0.3</span> 2. Identifying XDF files in Input Folder or any Subfolder</a></li>
+  <li><a href="#a.-alternatively-the-user-can-select-their-own-xdf-file" id="toc-a.-alternatively-the-user-can-select-their-own-xdf-file" class="nav-link" data-scroll-target="#a.-alternatively-the-user-can-select-their-own-xdf-file"><span class="header-section-number">0.4</span> 2a. Alternatively, the user can select their own XDF file</a></li>
+  <li><a href="#main-loop-that-i-extracts-ii-renames-and-iii-clips-each-data-stream-from-each-xdf-and-saves-them-as-cvs-or-wav-files" id="toc-main-loop-that-i-extracts-ii-renames-and-iii-clips-each-data-stream-from-each-xdf-and-saves-them-as-cvs-or-wav-files" class="nav-link" data-scroll-target="#main-loop-that-i-extracts-ii-renames-and-iii-clips-each-data-stream-from-each-xdf-and-saves-them-as-cvs-or-wav-files"><span class="header-section-number">1</span> 3. Main Loop that (i) Extracts (ii) Renames and (iii) Clips each data stream from each XDF and saves them as CVS or WAV files</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Preprocessing_overview.html">Preprocessing</a></li><li class="breadcrumb-item"><a href="../../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html">XDF Processing</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mobile Multimodal Lab (MML): XDF Preprocessing</h1>
+<div class="quarto-title-block"><div><h1 class="title">Mobile Multimodal Lab (MML): XDF Preprocessing</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
 
@@ -359,16 +280,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Donders MML LOGO.png</figcaption>
 </figure>
 </div>
-<section id="info-documents" class="level3">
-<h3 class="anchored" data-anchor-id="info-documents">Info Documents</h3>
+<section id="info-documents" class="level3" data-number="0.0.1">
+<h3 data-number="0.0.1" class="anchored" data-anchor-id="info-documents"><span class="header-section-number">0.0.1</span> Info Documents</h3>
 <p>Github Repository Jupyter Notebook Quarto Book</p>
 </section>
-<section id="requirements" class="level3">
-<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<section id="requirements" class="level3" data-number="0.0.2">
+<h3 data-number="0.0.2" class="anchored" data-anchor-id="requirements"><span class="header-section-number">0.0.2</span> Requirements</h3>
 <p>Please install the necessary packages in requirements.txt using pip install -r requirements.txt</p>
 </section>
-<section id="code-overview" class="level3">
-<h3 class="anchored" data-anchor-id="code-overview">CODE OVERVIEW</h3>
+<section id="code-overview" class="level3" data-number="0.0.3">
+<h3 data-number="0.0.3" class="anchored" data-anchor-id="code-overview"><span class="header-section-number">0.0.3</span> CODE OVERVIEW</h3>
 <p>A preprocessing pipeline for handling multimodal .xdf files collected with MML. This script is designed to process XDF files, extract data streams, perform renaming and clipping operations, and save the processed data in CSV and WAV formats, with built-in GUI prompts for stream segmentation.</p>
 <hr>
 <p><strong>Packages</strong><br>
@@ -397,8 +318,8 @@ For each <code>.xdf</code> file: 1. The file is loaded using <code>pyxdf.load_xd
 <p>Each stream’s data is saved to a subfolder structured by file name and clipping method (e.g., <code>data_processed/ParticipantX/manual_startend/</code>).</p>
 <hr>
 </section>
-<section id="notes" class="level3">
-<h3 class="anchored" data-anchor-id="notes">Notes</h3>
+<section id="notes" class="level3" data-number="0.0.4">
+<h3 data-number="0.0.4" class="anchored" data-anchor-id="notes"><span class="header-section-number">0.0.4</span> Notes</h3>
 <ul>
 <li>This script assumes all <code>.xdf</code> files are synchronized via LSL (set <code>synchronize_clocks=True</code> during loading)</li>
 <li>The GUI interactions (based on <code>tkinter</code>) require a desktop Python environment</li>
@@ -406,20 +327,22 @@ For each <code>.xdf</code> file: 1. The file is loaded using <code>pyxdf.load_xd
 <li>Output folders and filenames are automatically generated based on stream metadata</li>
 </ul>
 </section>
-<section id="output" class="level3">
-<h3 class="anchored" data-anchor-id="output">Output</h3>
+<section id="output" class="level3" data-number="0.0.5">
+<h3 data-number="0.0.5" class="anchored" data-anchor-id="output"><span class="header-section-number">0.0.5</span> Output</h3>
 <p>For each input <code>.xdf</code>, you will get: - Clipped CSV files for each stream - WAV and denoised WAV files for microphone data - Folder structure organized by participant and method</p>
 <hr>
-<section id="author-davide-ahmar" class="level4">
-<h4 class="anchored" data-anchor-id="author-davide-ahmar">Author: Davide Ahmar</h4>
+<section id="author-davide-ahmar" class="level4" data-number="0.0.5.1">
+<h4 data-number="0.0.5.1" class="anchored" data-anchor-id="author-davide-ahmar"><span class="header-section-number">0.0.5.1</span> Author: Davide Ahmar</h4>
 </section>
-<section id="last-modified-13052025-by-davide-ahmar" class="level4">
-<h4 class="anchored" data-anchor-id="last-modified-13052025-by-davide-ahmar">Last Modified: 13/05/2025 by Davide Ahmar</h4>
+<section id="last-modified-13052025-by-davide-ahmar" class="level4" data-number="0.0.5.2">
+<h4 data-number="0.0.5.2" class="anchored" data-anchor-id="last-modified-13052025-by-davide-ahmar"><span class="header-section-number">0.0.5.2</span> Last Modified: 13/05/2025 by Davide Ahmar</h4>
 </section>
 </section>
-<section id="import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files" class="level2">
-<h2 class="anchored" data-anchor-id="import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files">0. Import all the necessary packages to work with XDF, Audio and Video files</h2>
+<section id="import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="import-all-the-necessary-packages-to-work-with-xdf-audio-and-video-files"><span class="header-section-number">0.1</span> 0. Import all the necessary packages to work with XDF, Audio and Video files</h2>
 <div id="8f88e2cd" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os             <span class="co"># Importing the os module which provides functions for interacting with the operating system</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyxdf          <span class="co"># Importing pyxdf, a Python library for reading XDF files</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob           <span class="co"># Importing the glob module which helps in finding files/directories with specific patterns</span></span>
@@ -451,14 +374,17 @@ For each <code>.xdf</code> file: 1. The file is loaded using <code>pyxdf.load_xd
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess </span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Everything was imported succesfully"</span>) <span class="co">#as terminal</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Everything was imported succesfully</code></pre>
 </div>
 </div>
 </section>
-<section id="define-the-relevant-paths-variables-functions" class="level2">
-<h2 class="anchored" data-anchor-id="define-the-relevant-paths-variables-functions">1. Define the Relevant Paths, Variables &amp; Functions</h2>
+<section id="define-the-relevant-paths-variables-functions" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="define-the-relevant-paths-variables-functions"><span class="header-section-number">0.2</span> 1. Define the Relevant Paths, Variables &amp; Functions</h2>
 <div id="ecb3769c" class="cell" data-execution_count="36">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------ PATHS -----------------------------------------------------</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>input_folder <span class="op">=</span> <span class="st">'./data_raw/'</span>  <span class="co"># input folder with the raw XDF files (relative path) </span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> <span class="st">'./data_processed/'</span>  <span class="co"># output folder where the raw extracted data will be saved (relative path) </span></span>
@@ -771,6 +697,7 @@ For each <code>.xdf</code> file: 1. The file is loaded using <code>pyxdf.load_xd
 <span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(events)</span>
 <span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Function </span><span class="ch">\"</span><span class="st">get_events</span><span class="ch">\"</span><span class="st"> created sucesfully"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Input folder = f:\Mobile-Multimodal-Lab\2_PREPROCESSING\1_XDF_PROCESSING\data_raw
 Output folder = f:\Mobile-Multimodal-Lab\2_PREPROCESSING\1_XDF_PROCESSING\data_processed
@@ -781,9 +708,11 @@ Function "get_events" created sucesfully</code></pre>
 </div>
 </div>
 </section>
-<section id="identifying-xdf-files-in-input-folder-or-any-subfolder" class="level2">
-<h2 class="anchored" data-anchor-id="identifying-xdf-files-in-input-folder-or-any-subfolder">2. Identifying XDF files in Input Folder or any Subfolder</h2>
+<section id="identifying-xdf-files-in-input-folder-or-any-subfolder" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="identifying-xdf-files-in-input-folder-or-any-subfolder"><span class="header-section-number">0.3</span> 2. Identifying XDF files in Input Folder or any Subfolder</h2>
 <div id="a9fd9537" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>xdf_files <span class="op">=</span> []  <span class="co"># Initialize an empty list to store paths of XDF files</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Traverse through the directory and its subdirectories to find XDF files</span></span>
@@ -796,14 +725,17 @@ Function "get_events" created sucesfully</code></pre>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>             xdf_files.append(os.path.join(root, <span class="bu">file</span>))   <span class="co"># if the file is an XDF file, append its full path to the xdf_files list</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'We have idenified the following XDF files: '</span> <span class="op">+</span> <span class="bu">str</span>(xdf_files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>We have idenified the following XDF files: ['./data_raw/pilot_ming_02.xdf', './data_raw/T1_experiment.xdf']</code></pre>
 </div>
 </div>
 </section>
-<section id="a.-alternatively-the-user-can-select-their-own-xdf-file" class="level2">
-<h2 class="anchored" data-anchor-id="a.-alternatively-the-user-can-select-their-own-xdf-file">2a. Alternatively, the user can select their own XDF file</h2>
+<section id="a.-alternatively-the-user-can-select-their-own-xdf-file" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="a.-alternatively-the-user-can-select-their-own-xdf-file"><span class="header-section-number">0.4</span> 2a. Alternatively, the user can select their own XDF file</h2>
 <div id="1b4f83bf-1184-46c1-941f-accfe5dfbd91" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tkinter <span class="co"># GUI toolkit to open and save files</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> filedialog <span class="co"># GUI toolkit to open and save files</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -819,14 +751,17 @@ Function "get_events" created sucesfully</code></pre>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>xdf_files <span class="op">=</span> <span class="bu">list</span>(xdf_files)</span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'You have selected the following XDF files: '</span> <span class="op">+</span> <span class="bu">str</span>(xdf_files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>You have selected the following XDF files: ['F:/Mobile-Multimodal-Lab/2_PREPROCESSING/XDF_PROCESSING/data_raw/T1_experiment.xdf']</code></pre>
 </div>
 </div>
 </section>
-<section id="main-loop-that-i-extracts-ii-renames-and-iii-clips-each-data-stream-from-each-xdf-and-saves-them-as-cvs-or-wav-files" class="level1">
-<h1>3. Main Loop that (i) Extracts (ii) Renames and (iii) Clips each data stream from each XDF and saves them as CVS or WAV files</h1>
+<section id="main-loop-that-i-extracts-ii-renames-and-iii-clips-each-data-stream-from-each-xdf-and-saves-them-as-cvs-or-wav-files" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 3. Main Loop that (i) Extracts (ii) Renames and (iii) Clips each data stream from each XDF and saves them as CVS or WAV files</h1>
 <div id="6df87847-8651-4e9e-a681-a48534cdd25b" class="cell" data-execution_count="39">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> <span class="st">'./data_processed/'</span>  <span class="co"># output_folder for the CVS and WAV files </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Output folder ="</span>, os.path.abspath(output_folder))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -935,6 +870,7 @@ Function "get_events" created sucesfully</code></pre>
 <span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Done with extracting all the streams! You can now look into your folder: "</span> <span class="op">+</span> output_folder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Output folder = f:\Mobile-Multimodal-Lab\2_PREPROCESSING\1_XDF_PROCESSING\data_processed
 loading xdf file: F:/Mobile-Multimodal-Lab/2_PREPROCESSING/XDF_PROCESSING/data_raw/T1_experiment.xdf
@@ -1891,6 +1827,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');

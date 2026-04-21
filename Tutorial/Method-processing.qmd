@@ -1,0 +1,5 @@
+---
+title: "Mobile Multimodal Lab"
+subtitle: "Methods: Processing"
+authors: Davide Ahmar,  Wim Pouw, Šárka Kadavá
+---

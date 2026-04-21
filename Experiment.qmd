@@ -1,7 +1,0 @@
----
-title: "Mobile Multimodal Lab"
-subtitle: "Lab Setup: Administering experiment"
-authors: Davide Ahmar, Šárka Kadavá, Wim Pouw
----
-
-Here we write something about the experiment - using PsychoPy or whataever other software, showing here our chunk and what is in (important also because of the markers for LSL)

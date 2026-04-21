@@ -14,7 +14,10 @@ To achieve this, we are working on a comprehensive coding library, accompanied b
 - Low-cost equipment - We want to build the setup with as little monetary cost as possible (i.e., less than 10K)
 - Portable setup - The setup should be easily transportable across locations
 
+::: {.content-visible when-format="html"}
 ![MobileMultimodalLab](MMLAB.gif)
+:::
+
 
 The MML setup originally consists of
 

@@ -18,3 +18,7 @@ Scripts/XDF_PROCESSING/data_processed
 /3a_MT_OpenPose_pose2sim_alternative/projectdata/T1_P2/p2data/opensim
 
 /.quarto/
+/_manuscript
+/Doc-sync
+_quarto-manuscript.yml
+/old

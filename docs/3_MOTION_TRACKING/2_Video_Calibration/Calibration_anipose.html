@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Donders MML: Calibration with Anipose</title>
+<title>Mobile Multimodal Lab - Donders MML: Calibration with Anipose</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,15 +105,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
         <div class="quarto-navbar-tools tools-end">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
@@ -139,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../MT_overview.html">Motion Tracking</a></li><li class="breadcrumb-item"><a href="../../3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html">Video Calibration</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Donders MML: Calibration with Anipose</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -161,61 +166,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Tutorial/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Lab Setup</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Labsetup_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Equip_video.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Equip_audio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Equip_physiological.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Physiological Recordings</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Experiment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Experiment Administration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Integration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integration of Signals</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introduction</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Preprocessing</span></a>
+ <span class="menu-text">Methods</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -223,20 +185,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Preprocessing_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/02_lab_setup.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_PREPROCESSING/1_XDF_PROCESSING/MML_XDF_Preprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">XDF Processing</span></a>
+  <a href="../../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_PREPROCESSING/2_AudioVideo_Sync.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Audio-Video Synchronization</span></a>
+  <a href="../../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
   </div>
 </li>
       </ul>
@@ -244,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Motion Tracking</span></a>
+ <span class="menu-text">Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -252,78 +226,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../MT_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/1_Video_Segmentation/Donders MML_Video Split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video Segmentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Video Calibration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/Alternative_1_FreeMoCap.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 1: FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/Alternative_1_FreeMoCap_HowTo.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to run FreeMoCap</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../3_MOTION_TRACKING/Alternative_2_Pose2sim.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Alternative 2: Pose2sim</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Example of Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../Example_Analysis.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../4b_SynchronyAnalyses/processing_and_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synchrony Analyses</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../5_ANIMATIONS/Donkers_MML_Multimodal_Animations.ipynb" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Creating animations</span></a>
   </div>
 </li>
       </ul>
@@ -333,13 +237,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#info-documents" id="toc-info-documents" class="nav-link active" data-scroll-target="#info-documents"><span class="header-section-number">0.1</span> Info Documents</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">0.2</span> Requirements</a></li>
+  <li><a href="#code-overview" id="toc-code-overview" class="nav-link" data-scroll-target="#code-overview"><span class="header-section-number">0.3</span> CODE OVERVIEW</a></li>
+  <li><a href="#importing-necessary-packages" id="toc-importing-necessary-packages" class="nav-link" data-scroll-target="#importing-necessary-packages"><span class="header-section-number">1</span> 0. Importing Necessary Packages</a></li>
+  <li><a href="#defyining-relevant-directories-variables-functions" id="toc-defyining-relevant-directories-variables-functions" class="nav-link" data-scroll-target="#defyining-relevant-directories-variables-functions"><span class="header-section-number">2</span> 1. Defyining relevant Directories, Variables &amp; Functions</a></li>
+  <li><a href="#calibrating-videos-using-anipose-in-loop" id="toc-calibrating-videos-using-anipose-in-loop" class="nav-link" data-scroll-target="#calibrating-videos-using-anipose-in-loop"><span class="header-section-number">3</span> 2. Calibrating Videos using Anipose (in Loop)</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../MT_overview.html">Motion Tracking</a></li><li class="breadcrumb-item"><a href="../../3_MOTION_TRACKING/2_Video_Calibration/Calibration_anipose.html">Video Calibration</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Donders MML: Calibration with Anipose</h1>
+<div class="quarto-title-block"><div><h1 class="title">Donders MML: Calibration with Anipose</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li></ul></div></div>
 </div>
 
 
@@ -362,16 +279,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Donders MML LOGO.png</figcaption>
 </figure>
 </div>
-<section id="info-documents" class="level3">
-<h3 class="anchored" data-anchor-id="info-documents">Info Documents</h3>
+<section id="info-documents" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="info-documents"><span class="header-section-number">0.1</span> Info Documents</h3>
 <p>location repository: anipose documentation: https://anipose.readthedocs.io/en/latest/aniposelib-tutorial.html</p>
 </section>
-<section id="requirements" class="level3">
-<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<section id="requirements" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="requirements"><span class="header-section-number">0.2</span> Requirements</h3>
 <p>Please install the necessary packages in requirements.txt using pip install -r requirements.txt</p>
 </section>
-<section id="code-overview" class="level3">
-<h3 class="anchored" data-anchor-id="code-overview">CODE OVERVIEW</h3>
+<section id="code-overview" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="code-overview"><span class="header-section-number">0.3</span> CODE OVERVIEW</h3>
 <p>This script allows you to to calibrate your cameras, producing a toml file with the results of the cameras intrinsics and extrinsics angles that are needed to then further triangulate your 2D tracking. The script process multiple video files from different session, outputting the calibration results for each session.</p>
 <ol start="0" type="1">
 <li><p><strong>Packages</strong> The script imports essential Python libraries for file handling, video processing, and camera calibration. See requirements.txt for all necessary packages (pip install -r requirements.txt)</p></li>
@@ -406,9 +323,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>After calibration, the script automatically generates a filename for the results based on the input video characteristics. The calibration results, including camera intrinsics and extrinsics, are saved as a .toml file in the specified output folder. The saved file is structured for easy retrieval and further processing, ensuring that the calibration data is ready for use in subsequent 2D or 3D tracking tasks.</p>
 </section>
-<section id="importing-necessary-packages" class="level2">
-<h2 class="anchored" data-anchor-id="importing-necessary-packages">0. Importing Necessary Packages</h2>
+<section id="importing-necessary-packages" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="importing-necessary-packages"><span class="header-section-number">1</span> 0. Importing Necessary Packages</h2>
 <div id="1807dfd0-e50b-4f9c-a024-b33b11546402" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os                                <span class="co"># Importing the os module which provides functions for interacting with the operating system</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob                              <span class="co"># Importing glob module for finding files and directories matching a specified pattern</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2                               <span class="co"># Importing OpenCV library for computer vision tasks like image and video processing</span></span>
@@ -423,17 +342,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">## Check whether python 3.9 is necessary or the most recent version is also fine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Everything was imported succesfully</code></pre>
 </div>
 </div>
 <p>We use the following charucoboard, which when printed on a A1, gives the below dimensions you need to set for your anipose settings. <img src="Calibration_anipose_files/figure-html/5664b9e7-a4ca-4d5c-89fe-b9a8dee88d82-1-df76522f-3e16-45df-8628-fd1d9ce60c64.png" class="img-fluid" alt="Charuco_7x5.png"></p>
 <div id="90f55a8b-0e9b-450f-8326-849d4c8999d0" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Here is an example of the videos used for calibration</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Video</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>video_path <span class="op">=</span> <span class="vs">r"C:\Users\ahmar\OneDrive\Documents\GitHub\Mobile-Multimodal-Lab\2_PREPROCESSING\2_MOTION_TRACKING\2_Video Calibration\calibration_videos\charuco_calibration_oneover250s_high_quality_2024-04-23_output_compr - Trim_cam1.avi"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the video</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Video(video_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <video src="C:\Users\ahmar\OneDrive\Documents\GitHub\Mobile-Multimodal-Lab\2_PREPROCESSING\2_MOTION_TRACKING\2_Video Calibration\calibration_videos\charuco_calibration_oneover250s_high_quality_2024-04-23_output_compr - Trim_cam1.avi" controls="">
       Your browser does not support the <code>video</code> element.
@@ -441,9 +364,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="defyining-relevant-directories-variables-functions" class="level2">
-<h2 class="anchored" data-anchor-id="defyining-relevant-directories-variables-functions">1. Defyining relevant Directories, Variables &amp; Functions</h2>
+<section id="defyining-relevant-directories-variables-functions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="defyining-relevant-directories-variables-functions"><span class="header-section-number">2</span> 1. Defyining relevant Directories, Variables &amp; Functions</h2>
 <div id="efc4d42a-1bd6-4653-ad02-490d97a25ef1" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------- DIRECTORIES --------------------------</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>input_folder  <span class="op">=</span> <span class="st">'./calibration_videos_split/test/'</span>   <span class="co"># input folder with the raw video files to calibrate (relative path) </span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>output_folder <span class="op">=</span> <span class="st">'./calibration_results/P2/'</span>  <span class="co"># output folder to store the TOML results (relative path) </span></span>
@@ -467,21 +392,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                     marker_length<span class="op">=</span><span class="dv">85</span>,       <span class="co">#  dimensions of each marker within each square is 85 mm</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                     marker_bits<span class="op">=</span><span class="dv">4</span>,          <span class="co">#  each marker consists of 4x4 bits (default)   !!! WRITE IN INSTRUCTIONS. </span></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                     dict_size<span class="op">=</span><span class="dv">50</span>)           <span class="co">#  50 types of markers in the marker dictionary (default).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Input folder = e:\research_flesh\GtSTcollab\calibration_videos_split\test
 Output folder = e:\research_flesh\GtSTcollab\calibration_results\P2</code></pre>
 </div>
 </div>
 <div id="b0732055" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(video_files)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[]</code></pre>
 </div>
 </div>
 </section>
-<section id="calibrating-videos-using-anipose-in-loop" class="level2">
-<h2 class="anchored" data-anchor-id="calibrating-videos-using-anipose-in-loop">2. Calibrating Videos using Anipose (in Loop)</h2>
+<section id="calibrating-videos-using-anipose-in-loop" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="calibrating-videos-using-anipose-in-loop"><span class="header-section-number">3</span> 2. Calibrating Videos using Anipose (in Loop)</h2>
 <div id="ffb5b546-89b7-4471-a28f-3fd2a562aab8" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>video_files <span class="op">=</span> [ ]                                     <span class="co"># Initialize an empty list to store paths of video files</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, videos <span class="kw">in</span> os.walk(os.path.abspath(input_folder)):      <span class="co"># 1st loop iterating over the results returned by os.walk(). Traverse through the directory and its subdirectories to find video files</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -513,6 +444,7 @@ Output folder = e:\research_flesh\GtSTcollab\calibration_results\P2</code></pre>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">## SAVE THE OUTPUT OF THE CALIBRATION AS A TEXT FILE (SO WE SAVE THE ERROR)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Anipose will calibrate the following videos:  [['f:\\Mobile-Multimodal-Lab\\2_PREPROCESSING\\3_MOTION_TRACKING\\2_Video_Calibration\\calibration_videos_split\\test\\charuco_calibration_oneover250s_high_quality_2024-04-23_output_compr - Trim_cam1.avi'], ['f:\\Mobile-Multimodal-Lab\\2_PREPROCESSING\\3_MOTION_TRACKING\\2_Video_Calibration\\calibration_videos_split\\test\\charuco_calibration_oneover250s_high_quality_2024-04-23_output_compr - Trim_cam2.avi'], ['f:\\Mobile-Multimodal-Lab\\2_PREPROCESSING\\3_MOTION_TRACKING\\2_Video_Calibration\\calibration_videos_split\\test\\charuco_calibration_oneover250s_high_quality_2024-04-23_output_compr - Trim_cam3.avi']]
 
@@ -523,17 +455,15 @@ f:\Mobile-Multimodal-Lab\2_PREPROCESSING\3_MOTION_TRACKING\2_Video_Calibration\c
 f:\Mobile-Multimodal-Lab\2_PREPROCESSING\3_MOTION_TRACKING\2_Video_Calibration\calibration_videos_split\test\charuco_calibration_oneover250s_high_quality_2024-04-23_output_compr - Trim_cam3.avi
 0 boards detected</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>100%|████████████████████████████| 1001/1001 [00:02&lt;00:00, 335.54it/s]
-100%|████████████████████████████| 1001/1001 [00:02&lt;00:00, 344.61it/s]
-100%|████████████████████████████| 1001/1001 [00:02&lt;00:00, 357.94it/s]</code></pre>
-</div>
 <div class="cell-output cell-output-error">
 <pre><code>ValueError: not enough values to unpack (expected 2, got 0)</code></pre>
 </div>
 </div>
 <div id="bd8109a3-d20b-49b8-9d21-7a169dc01e70" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(videos))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(videos))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
 </div>
@@ -622,6 +552,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');

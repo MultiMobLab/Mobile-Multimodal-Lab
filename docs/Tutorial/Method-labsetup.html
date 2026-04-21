@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mobile Multimodal Lab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tutorial/02_lab_setup.qmd">Methods</a></li><li class="breadcrumb-item"><a href="../Tutorial/Method-labsetup.html">Lab Setup</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introduction</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/02_lab_setup.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lab-setup" id="toc-lab-setup" class="nav-link active" data-scroll-target="#lab-setup"><span class="header-section-number">1</span> Lab setup</a>
+  <ul class="collapse">
+  <li><a href="#video" id="toc-video" class="nav-link" data-scroll-target="#video"><span class="header-section-number">1.1</span> Video</a></li>
+  <li><a href="#audio-recordings" id="toc-audio-recordings" class="nav-link" data-scroll-target="#audio-recordings"><span class="header-section-number">1.2</span> Audio Recordings</a></li>
+  <li><a href="#physiological-recordings" id="toc-physiological-recordings" class="nav-link" data-scroll-target="#physiological-recordings"><span class="header-section-number">1.3</span> Physiological Recordings</a></li>
+  <li><a href="#integration-via-lab-streaming-layer-lsl" id="toc-integration-via-lab-streaming-layer-lsl" class="nav-link" data-scroll-target="#integration-via-lab-streaming-layer-lsl"><span class="header-section-number">1.4</span> Integration via Lab Streaming Layer (LSL)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tutorial/02_lab_setup.qmd">Methods</a></li><li class="breadcrumb-item"><a href="../Tutorial/Method-labsetup.html">Lab Setup</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Mobile Multimodal Lab</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Methods: Lab Setup</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Davide Ahmar, Wim Pouw, Šárka Kadavá </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lab-setup" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Lab setup</h1>
+<p>This section provides a practical guide on how to assemble each component used in our MMLab default setup, along with the procedures for operating the recording systems during data acquisition. As mentioned in the introduction, our choices of equipment were guided by the principles of (1) accessibility, (2) affordability, (3) portability, (4) integration and (5) modularity. Importantly, we do not endorse any particular manufacturer and, although we describe the exact brands models used in our setup, alternative components can be substituted provided they meet similar technical specifications. An overview of the full lab configuration, including a depiction of the experimental design, is provided in Figure 1. In what follows, we first elaborate on the data streams and recording devices included in the current version of MMLab; and finish with integration of all streams under one central clock via LabStreamLayer (LSL).</p>
+<p>Figure 1. Overview of experimental design, MMLab setup and equipment specifications. (A) Experimental design depicting the 2x2 factorial design in the structured singing task. In the Vision conditions (most-left, middle-left) participants face each other directly, whereas in the NoVision conditions (middle-right, most-right) a visual barrier prevents mutual visual access. In the Movement conditions (most-left, middle-right), participants are free to move naturally while singing, whereas in the NoMovement conditions (middle-left, most-right) they are instructed to remain still. (B) Illustration of the MMLab setup used in the experiment. Each participant is recorded by three frame-synchronized cameras (Video: blue lines, wired to a Window-based PC), a head-mounted microphone (Audio: red lines, wired to amplifier and a Linux-based mini PC), two electromyographical sensors, one electrocardiogram sensor and one respiration belt (Physiology: purple dashed lines, wireless Bluetooth transmission to the Windows PCs). The Video and Physiology streams from the two Windows PCs and the Audio streams from the two Linux mini-PCs were integrated over a wired local network LSL system (Lab Steaming Layer: green, wired to a third Windows-based PC). (C) Equipment specifications and pricing information for the LSL (top, green), Video (bottom, blue), Audio (left, red) and Physiology (right, purple).</p>
+<section id="video" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="video"><span class="header-section-number">1.1</span> Video</h2>
+<p>Choosing the Video Recording Setup: The MMLab camera setup is primarily optimized for video-based, whole-body 3D motion tracking (MT). Thanks to rapid advancements in motion analysis technologies and fueled by growing interest across research and clinical domains, there are many MT systems available on the market, each offering distinct strengths and trade-offs (for a comprehensive review of different systems see van Schaik &amp; Dominici, 2020) . For our MML setup, we opted for a video-based MT system (with computer vision models for pose-estimations) rather than device-based systems (which use dedicated sensors to capture movement), since it best aligns with our five core requirements. In fact, while device-based systems (e.g.,Vicon or Qualysis) can reach sub-millimeter accuracy, they come at a steep financial cost (typically &gt; €100,000 or more for full systems, (van der Kruk &amp; Reijne, 2018; van Schaik &amp; Dominici, 2020). In contrast, video-based systems using consumer-grade cameras can be implemented for under €1,000, making them orders of magnitude more affordable. Importantly, affordable video-based MT systems still maintain high levels of precision that are sufficient for most behavioral studies, with minimal loss of accuracy compared to state-of-the-art device-based systems (for performance comparisons between video-based and device-based systems, see Koul &amp; Novembre, 2025; Martini et al., 2022; Ota et al., 2020; Pouw et al., 2020). Additionally, the free and open source nature of most computer vision models that are used to extract full-body pose estimates from standard RGB video recordings - such as OpenPose (Cao et al., 2019) Mediapipe (Lugaresi et al., 2019) - has dramatically improved the accessibility of MT research for many researches that do not have access to proprietary hardware (and their black-boxed software). Finally, in contrast to the complex, expensive-to-insure, and sometimes bulky nature of device-based motion tracking systems, video-based setups in contrast can consist of lightweight, portable components (e.g., USB-cameras, foldable tripods, and a laptop), making them ideal for mobile research settings and, notably, particularly suitable for studying diverse populations like human infants and non-human animals, as they do not require wearable sensors or body markers.</p>
+<p>Video-recording Equipment: The video-recording setup of MMLab comprises six USB cameras mounted on two movable arches, with three cameras assigned to (i.e., facing) each participant. Each three-camera arch was connected to a dedicated recording computer (Dell Precision 3640 Tower) to manage the video streams independently. To improve portability, the camera arches can be replaced with foldable tripods provided that each camera remains fixed during recording and positioned approximately at the participants’ head height across all sessions. Although a single front-facing camera is sufficient for basic 2D body pose estimation, using three simultaneous viewpoints allows for more robust pose extraction and, importantly, triangulation in 3D space. For the cameras, here we chose the “Elgato Facecam” (link?) as they best aligned with our principles. Each unit is relatively inexpensive (~€120), lightweight (96 g), capable of recording in full-HD resolution (1080p) at 60 Hz, and comes with a free software (Elgato Hub, link?) that allows for adjusting camera settings. Crucially, it also has adjustable shutter speed (up to 1/250s), which is an important component for motion tracking, as lower shutter speeds (below 1/100s) tend to introduce motion blur and, therefore, can impair pose estimation accuracy. Naturally, other camera models can be substituted, as long as they allow for adjustable shutter speeds reaching above 1/100s. Quarto only: See here for shutter speed analyses.</p>
+<p>Quarto only: see here for more information on the camera and computer equipment Each trio of cameras was fed to a Windows PC equipped with a multi-core processor (e.g., Intel i7 or equivalent) capable of encoding and processing the three video streams in parallel. To prevent bandwidth overload and reduce the risk of dropped frames, two of camera-to-PC connections were mediated by a powered USB hub and distributed across separate USB buses wherever possible (e.g., by allocating one camera to a USB 3.0 port and the remaining cameras to separate USB 2.0 controllers). The use of a powered hub also provided stable external power to the cameras and reduced voltage drop across longer cable runs, minimizing video frame loss.</p>
+<p>Video Recording Procedures: Before recordings, each camera setting was manually configured through the Elgato Camera Hub software to ensure optimal conditions for MT. Specifically, we set the shutter speed to 1/200s to reduce motion bur, downsampled the image resolution to qHD (960 × 540) to minimize data storage demands, and fixed the ISO at 354 to stabilize image brightness and contrast under short exposure times. [Quarto: here can be screenshot from Elgato Hub] To simultaneously capture the three frame-synced videos from each camera trios in the two recordings PC and stream the corresponding time-stamped frames to the LSL, we used a custom Python script by Kadavá and Pouw (2024). This script leverages the OpenCV (Bradski, 2000) and FFmpegCV (ref?) libraries to feed the combined side-by-side videos from the three cameras into a single compositive video using multithreading, which ensured that all frames were synchronized for each sampling timepoint. The video was recorded at 60 Hz in an uncompressed format to preserve image fidelity during acquisition. Importantly, the script also integrated the videos with the LSL using the PyLSL library (Kothe, 2014), which generates an LSL stream containing a running frame index value f(t) paired with common LSL timestamp t aligned with all the others recording modalities. [Quarto: here camera script] After each session, the raw videos were compressed using the XVID codec at a 2.5x reduction ratio to ease data transfer and storage space. [Quarto: compression script]</p>
+<p>Camera Calibration Procedures: To ensure 3D pose estimation from multi-angle recordings, video-based MT algorithms require prior information on the intrinsic parameters (e.g., focal length, distortion coefficients) and extrinsic parameters (i.e., spatial orientation and position relative to other cameras) of each device (for more information, see Karashchuk et al., 2021). Therefore, before each recording, we performed a calibration procedure for each trio of cameras assigned to a participant. Specifically, we recorded a short (∼1-minute) calibration video using a ChArUco calibration board (see Figure 1 C) that was moved systematically throughout the full vertical and horizontal space later occupied by the participant during the experiment. These calibration videos were then used to compute the geometric parameters for 3D triangulation during MT (see Section X – Motion Capture Analysis).</p>
+</section>
+<section id="audio-recordings" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="audio-recordings"><span class="header-section-number">1.2</span> Audio Recordings</h2>
+<p>Choosing the Audio Recording Setup: While both device-based MT systems and commercially available cameras typically include built-in microphones, the audio quality of these microphones is typically insufficient for high-resolution analyses of speech features such as pitch, intensity and prosody(Švec &amp; Granqvist, 2010) . Therefore, to obtain a good level of acoustic fidelity, in our MMLab we opted for a high-quality, head-mounted condenser microphone recording independently from the cameras. This design ensured consistent mouth-to-mic distance, reduced ambient interference, and reliable amplitude and frequency tracking across sessions. Additionally, to stream the audio signal to the LSL, we preferred a Linux-based PC over Windows or macOS because it enabled real-time streaming of low-latency, high precision audio thanks to its Advanced Linux Sound Architecture (ALSA).</p>
+<p>Audio Recording Equipment: For the microphone, we employed a professional-grade, head-mounted condenser microphone (model: AKG C520, price ~€250) for each participant, as shown in Figure 1 C. The head-mounted configuration was important for maintaining a fixed distance between the participant’s mouth and the microphone capsule (essential for measurement of speech amplitude and prosodic features), whilst the cardioid polar pattern further focused sensitivity toward the speaker’s mouth and rejected off-axis environmental noise. Additionally, its built-in shock-mount system helped reduce the mechanical noise generated by body movements. Both microphones were powered via a XLR connection to a DAP PRE-202 low-noise, 2-channel digital amplifier (price: ~€90), which provided a +48V phantom power and included a low-cut filter to suppress low-frequency ambient noise. Input gain on the amplifier was manually fixed at 25% across all recordings to standardize signal levels. From the amplifier, the signal from each microphone was routed via two XLR-to-USB interface to two MINIX NEO z83-4 MAX Linux-based mini-PC (price: ~€170).</p>
+<p>Audio Recording Procedures: To record and stream participants’ audio to the LSL, we used a custom-made Python script developed in collaboration with Technical Support Group (TSG) at the Donders Institute. [Quarto: mic recording script] The script was executed on each MINIX Linux device and utilized the alsaaudio library to record each signal in mono at a sampling rate of 16 kHz, with 16-bit little-endian encoding optimized for low-latency buffering. The audio data from each MINIX was then streamed to the LSL using the pylsl library (Kothe, 2014), pushing small chunks of 160 data points timestamped against the system clock. The LSL then used the declared sampling rate and local system clock to reconstruct sample timing, allowing synchronization with other multimodal streams at sub-millisecond resolution. Additionally, to ensure data quality before acquisition, we used a secondary Python script that allowed for real-time graphic visualization of the incoming audio stream. This script pulled the audio data back from LSL and plotted it on a live display that was continuously updated, enabling to verify waveform quality and monitor for issues such as noise artifacts, clipping, or dropouts. [Quarto: audio signal visualizing script]</p>
+</section>
+<section id="physiological-recordings" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="physiological-recordings"><span class="header-section-number">1.3</span> Physiological Recordings</h2>
+<p>Choosing the Physiological Setup: To complement the audio-visual modalities in our MMLab setup, we also included physiological recordings of the EMG activity from participants’ biceps and triceps and thoracic respiration, with the goal of quantifying interpersonal physiological synchrony. Here, we wanted to prioritize a system that could support a modular sensor architecture, allowing researchers to buy only the biosensors relevant to their experimental goal. Additionally, we opted for a system that could transmit these signals wirelessly, thus granting participants free movements during the recordings. Finally, we needed something that could be easily integrated within the LSL system to ensure temporal synchronization with the other measures. Among all the avaliable proprietary options, we chose “PLUX Biosignals” recording system as it seemed to meet all these requirements and offered a strong price/quality balance.</p>
+<p>Physiological Recording Equipment: As shown in Figure 1C, the equipment consisted of two (one per participant) “biosignalplux Hub” (price: ~€2000), each supporting up to 4 input channels and capable of sampling at rates of up to 3000 Hz per channel with 16-bit resolution (Note that an 8-channel biosignalplux Hub is also available, costing ~€4000). These devices transmitted data wirelessly via bluetooth in real time to their respective recording computers (the same used for video recordings) using a dedicated bluetooth dongle. To record participants’ muscle activity, we used two surface EMG sensors per participant (price ~€170), one placed over the biceps brachii and one over the triceps brachii of the right arm, allowing us to monitor the activation patterns of both flexor and extensor muscle groups. Prior to electrode placement, the skin was cleaned with an alcohol-based wipe and prepared using abrasive conductive gel (Nuprep) to reduce impedance and enhance signal quality. The electrodes were positioned in a bipolar configuration and aligned with the longitudinal axis of each target muscle. The EMG sensors operated in a bipolar differential configuration using two adhesive electrodes (positive and negative A separate reference (ground) electrode was placed on the participant’s olecranon of the right elbows bone with minimal muscle activity to reduce baseline noise. For cardiac activity, we used the biosignalplux ECG sensor configured for single-lead acquisition in the Einthoven triangle configuration, with the positive electrode placed on the left arm, negative on the right arm and ground on the left leg. To record respiratory patterns, we used a piezoelectric respiration sensor (PZT; price ~€170) per participant, secured around the upper thorax using an adjustable elastic strap. The sensing element was positioned centrally over the sternum. The strap was adjusted to ensure firm contact without restricting breathing. The sensor measured thoracic expansion and contraction during inhalation and exhalation via a flexible strip containing a centrally embedded piezoelectric sensing membrane.</p>
+<p>Physiological Recording Procedures: Signal acquisition and LSL integration was managed using the OpenSignals (r)evolution software from biosignalsplux. Using the GUI of the software, we configured the EMGs and PZT channels to sample at 1000 Hz and visualized these signals in real time to verify signal-to-noise ratio and appropriate signal amplitude across EMG, ECG and respiration channels. The data streams were then broadcasted directly to the LSL using the software’s built-in LSL integration (see documentation here), resulting in two streams (one per participant) each containing the two raw EMG and one PZT time series synchronized with the other data modalities.</p>
+</section>
+<section id="integration-via-lab-streaming-layer-lsl" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="integration-via-lab-streaming-layer-lsl"><span class="header-section-number">1.4</span> Integration via Lab Streaming Layer (LSL)</h2>
+<p>Choosing the Integration Setup: A major challenge in multimodal research relates to synchronization and integration of different recordings that operate on distinct hardware platforms, communicate via different software interfaces, rely on independent systems clocks, and sample at different frequencies. Traditionally, synchronization of multimodal streams has been done post-recording by aligning common timestamped marker acquired during recordings for each modality. However, this approach relies on multiple independent recording computers with device-specific scripts for sending and receiving markers, resulting in decentralized data storage across systems. All of this increases the technical overheard as well as the manual effort during post-alignment. Additionally, even minor issues like latency differences or hardware incompatibilities can introduce significant lags that can easily mis-align the time series, often without any knowledge from the experimenters. For instance, video recordings are prone to dropped frames during acquisition, which, unless properly accounted for by timestamping each frame, can result in de-synchronization that is difficult to detect and correct post hoc. To address these issues, in our MML we decided to implement the Lab Streaming Layer (Kothe et al., 2025) an open-sourced, cross-platform middleware system designed to enable real-time, sub-millisecond synchronization of heterogeneous data streams recorded from different devices. Unlike marker-based synchronization, the LSL creates a shared time base across all incoming data streams using each device’s local monotonic clock. This allows for all the streams to be synchronized at the time of recording and stored in a centralized data format. In addition, LSL is free-to-use, open-source, portable and highly modular, supporting a wide range of recording devices either through native compatibility (like the biosignalsplux device) or via custom-built LSL “outlet” scripts that stream data into the shared time framework (like our video and audio recording scripts).</p>
+<p>LSL Equipment and Assembly: At a system level, the LSL consists of the core liblsl library (Stenner et al., 2022) - a cross-platform API running working on Windows, macOS, and Linux - and associated GUI applications such as the LabRecorder (Kothe et al., 2025). Functionally, the LSL is built on a simple architecture of Outlets and Inlets. Each recording device broadcasts its stream (i.e., Outlet) via built-in system or via custom-made scripts in the form of descriptive metadata (e.g., stream name, content, type, number of channels, etc.). The receiving application (i.e., Inlet), such as LabRecorder, automatically detect these streams and records them in real time. To achieve multimodal synchronization, the LSL leverages each machine’s local monotonic clock and continuously performs clock offset estimation between the Outlet and Inlet through periodic pinging, which are then used to created a shared time based across all streams with sub-millisecond alignment. This software architecture must be physically implemented through a local network, that can span multiple PC’s. As shown in Figure 1B–C, our setup comprised two Windows PCs, each connected to three wired video cameras and wireless physiological sensors, and two Linux mini PCs, each connected to a wired audio stream. A third Windows PC was then used to centrally record all these synchronized data streams using the LSL’s LabRecorder. All machines were interconnected via a wired Gigabit Ethernet local area network (LAN) using a shared 5-port Gigabit switch (model used: NETGEAR GS305v3).</p>
+<p>LSL Recording Procedures: The two Window PCs and the two Linux mini PCs functioned as an LSL Outlets, broadcasting their respective data stream over the local network via custom made scripts or native software integration as described in the methods above. The LabRecorder computer acted as the LSL Inlet, detecting and resolving all available streams. For the audio and physiological modalities, the full time-series data samples (together with their metadata) were transmitted via LSL and recorded directly into an Extensible Data Format (.xdf)file. In contrast, for the video modality, only the frame-level metadata were streamed via LSL. This entailed that each video frame was associated with a corresponding LSL timestamp and frame index, synchronized with the other modalities. The raw video files themselves were instead recorded locally on their respective Windows PCs Prior to each recording, the LabRecorder graphical interface allowed us to check the presence of all expected streams from both participants. Once confirmed, recording was initiated through the LabRecorder interface, resulting in a single .xdf file, containing the audio, two EMGs, ECG, and respiration timeseries (with metadata) and combined three-videos metadata for each participant under a shared time base with sub-millisecond alignment. [Quarto: screenshot of LabRecorder]</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Mobile Multimodal Lab"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Methods: Lab Setup"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">authors:</span><span class="co"> Davide Ahmar,  Wim Pouw, Šárka Kadavá</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lab setup </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>This section provides a practical guide on how to assemble each component used in our MMLab default setup, along with the procedures for operating the recording systems during data acquisition. As mentioned in the introduction, our choices of equipment were guided by the principles of (1) accessibility, (2) affordability, (3) portability, (4) integration and (5) modularity. Importantly, we do not endorse any particular manufacturer and, although we describe the exact brands models used in our setup, alternative components can be substituted provided they meet similar technical specifications. An overview of the full lab configuration, including a depiction of the experimental design, is provided in Figure 1. In what follows, we first elaborate on the data streams and recording devices included in the current version of MMLab; and finish with integration of all streams under one central clock via LabStreamLayer (LSL).</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Figure 1. Overview of experimental design, MMLab setup and equipment specifications.  (A) Experimental design depicting the 2x2 factorial design in the structured singing task. In the Vision conditions (most-left, middle-left) participants face each other directly, whereas in the NoVision conditions (middle-right, most-right) a visual barrier prevents mutual visual access. In the Movement conditions (most-left, middle-right), participants are free to move naturally while singing, whereas in the NoMovement conditions (middle-left, most-right) they are instructed to remain still. (B) Illustration of the MMLab setup used in the experiment. Each participant is recorded by three frame-synchronized cameras (Video: blue lines, wired to a Window-based PC), a head-mounted microphone (Audio: red lines, wired to amplifier and a Linux-based mini PC), two electromyographical sensors, one electrocardiogram sensor and one respiration belt (Physiology: purple dashed lines, wireless Bluetooth transmission to the Windows PCs). The Video and Physiology streams from the two Windows PCs and the Audio streams from the two Linux mini-PCs were integrated over a wired local network LSL system (Lab Steaming Layer: green, wired to a third Windows-based PC). (C) Equipment specifications and pricing information for the LSL (top, green), Video (bottom, blue), Audio (left, red) and Physiology (right, purple). </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Video</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Choosing the Video Recording Setup: The MMLab camera setup is primarily optimized for video-based, whole-body 3D motion tracking (MT). Thanks to rapid advancements in motion analysis technologies and fueled by growing interest across research and clinical domains, there are many MT systems available on the market, each offering distinct strengths and trade-offs (for a comprehensive review of different systems see van Schaik &amp; Dominici, 2020) . For our MML setup, we opted for a video-based MT system (with computer vision models for pose-estimations) rather than device-based systems (which use dedicated sensors to capture movement), since it best aligns with our five core requirements. In fact, while device-based systems (e.g.,Vicon or Qualysis) can reach sub-millimeter accuracy, they come at a steep financial cost (typically &gt; €100,000 or more for full systems, (van der Kruk &amp; Reijne, 2018; van Schaik &amp; Dominici, 2020). In contrast, video-based systems using consumer-grade cameras can be implemented for under €1,000, making them orders of magnitude more affordable. Importantly, affordable video-based MT systems still maintain high levels of precision that are sufficient for most behavioral studies, with minimal loss of accuracy compared to state-of-the-art device-based systems (for performance comparisons between video-based and device-based systems, see Koul &amp; Novembre, 2025; Martini et al., 2022; Ota et al., 2020; Pouw et al., 2020). </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Additionally, the free and open source nature of most computer vision models that are used to extract full-body pose estimates from standard RGB video recordings - such as OpenPose (Cao et al., 2019) Mediapipe (Lugaresi et al., 2019) - has dramatically improved the accessibility of MT research for many researches that do not have access to proprietary hardware (and their black-boxed software). Finally, in contrast to the complex, expensive-to-insure, and sometimes bulky nature of device-based motion tracking systems, video-based setups in contrast can consist of lightweight, portable components (e.g., USB-cameras, foldable tripods, and a laptop), making them ideal for mobile research settings and, notably, particularly suitable for studying diverse populations like human infants and non-human animals, as they do not require wearable sensors or body markers.  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Video-recording Equipment:  The video-recording setup of MMLab comprises six USB cameras mounted on two movable arches, with three cameras assigned to (i.e., facing) each participant. Each three-camera arch was connected to a dedicated recording computer (Dell Precision 3640 Tower) to manage the video streams independently. To improve portability, the camera arches can be replaced with foldable tripods provided that each camera remains fixed during recording and positioned approximately at the participants’ head height across all sessions. Although a single front-facing camera is sufficient for basic 2D body pose estimation, using three simultaneous viewpoints allows for more robust pose extraction and, importantly, triangulation in 3D space. For the cameras, here we chose the “Elgato Facecam” (link?) as they best aligned with our principles. Each unit is relatively inexpensive (~€120), lightweight (96 g), capable of recording in full-HD resolution (1080p) at 60 Hz, and comes with a free software (Elgato Hub, link?) that allows for adjusting camera settings. Crucially, it also has adjustable shutter speed (up to 1/250s), which is an important component for motion tracking, as lower shutter speeds (below 1/100s) tend to introduce motion blur and, therefore, can impair pose estimation accuracy. Naturally, other camera models can be substituted, as long as they allow for adjustable shutter speeds reaching above 1/100s.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Quarto only: See here for shutter speed analyses. </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Quarto only: see here for more information on the camera and computer equipment </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Each trio of cameras was fed to a Windows PC equipped with a multi-core processor (e.g., Intel i7 or equivalent) capable of encoding and processing the three video streams in parallel. To prevent bandwidth overload and reduce the risk of dropped frames, two of camera-to-PC connections were mediated by a powered USB hub and distributed across separate USB buses wherever possible (e.g., by allocating one camera to a USB 3.0 port and the remaining cameras to separate USB 2.0 controllers).  The use of a powered hub also provided stable external power to the cameras and reduced voltage drop across longer cable runs, minimizing video frame loss. </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Video Recording Procedures: Before recordings, each camera setting was manually configured through the Elgato Camera Hub software to ensure optimal conditions for MT. Specifically, we set the shutter speed to 1/200s to reduce motion bur, downsampled the image resolution to qHD (960 × 540) to minimize data storage demands, and fixed the ISO at 354 to stabilize image brightness and contrast under short exposure times. </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto: here can be screenshot from Elgato Hub</span><span class="co">]</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>To simultaneously capture the three frame-synced videos from each camera trios in the two recordings PC and stream the corresponding time-stamped frames to the LSL, we used a custom Python script by Kadavá and Pouw (2024). This script leverages the OpenCV (Bradski, 2000) and FFmpegCV (ref?) libraries to feed the combined side-by-side videos from the three cameras into a single compositive video using multithreading, which ensured that all frames were synchronized for each sampling timepoint. The video was recorded at 60 Hz in an uncompressed format to preserve image fidelity during acquisition. Importantly, the script also integrated the videos with the LSL using the PyLSL library (Kothe, 2014), which generates an LSL stream containing a running frame index value f(t) paired with common LSL timestamp t aligned with all the others recording modalities.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto: here camera script</span><span class="co">]</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>After each session, the raw videos were compressed using the XVID codec at a 2.5x reduction ratio to ease data transfer and storage space. </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto: compression script</span><span class="co">]</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Camera Calibration Procedures: To ensure 3D pose estimation from multi-angle recordings, video-based MT algorithms require prior information on the intrinsic parameters (e.g., focal length, distortion coefficients) and extrinsic parameters (i.e., spatial orientation and position relative to other cameras) of each device (for more information, see Karashchuk et al., 2021). Therefore, before each recording, we performed a calibration procedure for each trio of cameras assigned to a participant. Specifically, we recorded a short (∼1-minute) calibration video using a ChArUco calibration board (see Figure 1 C) that was moved systematically throughout the full vertical and horizontal space later occupied by the participant during the experiment. These calibration videos were then used to compute the geometric parameters for 3D triangulation during MT (see Section X – Motion Capture Analysis).</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Audio Recordings</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Choosing the Audio Recording Setup: While both device-based MT systems and commercially available cameras typically include built-in microphones, the audio quality of these microphones is typically insufficient for high-resolution analyses of speech features such as pitch, intensity and prosody(Švec &amp; Granqvist, 2010) . Therefore, to obtain a good level of acoustic fidelity, in our MMLab we opted for a high-quality, head-mounted condenser microphone recording independently from the cameras. This design ensured consistent mouth-to-mic distance, reduced ambient interference, and reliable amplitude and frequency tracking across sessions. Additionally, to stream the audio signal to the LSL, we preferred a Linux-based PC over Windows or macOS because it enabled real-time streaming of low-latency, high precision audio thanks to its Advanced Linux Sound Architecture (ALSA). </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Audio Recording Equipment: For the microphone, we employed a professional-grade, head-mounted condenser microphone (model: AKG C520, price ~€250) for each participant, as shown in Figure 1 C. The head-mounted configuration was important for maintaining a fixed distance between the participant’s mouth and the microphone capsule (essential for measurement of speech amplitude and prosodic features), whilst the cardioid polar pattern further focused sensitivity toward the speaker’s mouth and rejected off-axis environmental noise. Additionally, its built-in shock-mount system helped reduce the mechanical noise generated by body movements. Both microphones were powered via a XLR connection to a DAP PRE-202 low-noise, 2-channel digital amplifier (price: ~€90), which provided a +48V phantom power and included a low-cut filter to suppress low-frequency ambient noise. Input gain on the amplifier was manually fixed at 25% across all recordings to standardize signal levels. From the amplifier, the signal from each microphone was routed via two XLR-to-USB interface to two MINIX NEO z83-4 MAX Linux-based mini-PC (price: ~€170). </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Audio Recording Procedures: To record and stream participants’ audio to the LSL, we used a custom-made Python script developed in collaboration with Technical Support Group (TSG) at the Donders Institute. </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto: mic recording script</span><span class="co">]</span> </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>The script was executed on each MINIX Linux device and utilized the alsaaudio library to record each signal in mono at a sampling rate of 16 kHz, with 16-bit little-endian encoding optimized for low-latency buffering. The audio data from each MINIX was then streamed to the LSL using the pylsl library (Kothe, 2014), pushing small chunks of 160 data points timestamped against the system clock. The LSL then used the declared sampling rate and local system clock to reconstruct sample timing, allowing synchronization with other multimodal streams at sub-millisecond resolution. Additionally, to ensure data quality before acquisition, we used a secondary Python script that allowed for real-time graphic visualization of the incoming audio stream. This script pulled the audio data back from LSL and plotted it on a live display that was continuously updated, enabling to verify waveform quality and monitor for issues such as noise artifacts, clipping, or dropouts. </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto: audio signal visualizing script</span><span class="co">]</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Physiological Recordings</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Choosing the Physiological Setup: To complement the audio-visual modalities in our MMLab setup, we also included physiological recordings of the EMG activity from participants’ biceps and triceps and thoracic respiration, with the goal of quantifying interpersonal physiological synchrony. Here, we wanted to prioritize a system that could support a modular sensor architecture, allowing researchers to buy only the biosensors relevant to their experimental goal. Additionally, we opted for a system that could transmit these signals wirelessly, thus granting participants free movements during the recordings. Finally, we needed something that could be easily integrated within the LSL system to ensure temporal synchronization with the other measures. Among all the avaliable proprietary options, we chose “PLUX Biosignals” recording system as it seemed to meet all these requirements and offered a strong price/quality balance.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Physiological Recording Equipment: As shown in Figure 1C, the equipment consisted of two (one per participant) “biosignalplux Hub” (price: ~€2000), each supporting up to 4 input channels and capable of sampling at rates of up to 3000 Hz per channel with 16-bit resolution (Note that an 8-channel biosignalplux Hub is also available, costing ~€4000). These devices transmitted data wirelessly via bluetooth in real time to their respective recording computers (the same used for video recordings) using a dedicated bluetooth dongle. To record participants’ muscle activity, we used two surface EMG sensors per participant (price ~€170), one placed over the biceps brachii and one over the triceps brachii of the right arm, allowing us to monitor the activation patterns of both flexor and extensor muscle groups. Prior to electrode placement, the skin was cleaned with an alcohol-based wipe and prepared using abrasive conductive gel (Nuprep) to reduce impedance and enhance signal quality. The electrodes were positioned in a bipolar configuration and aligned with the longitudinal axis of each target muscle. The EMG sensors operated in a bipolar differential configuration using two adhesive electrodes (positive and negative A separate reference (ground) electrode was placed on the participant’s olecranon of the right elbows bone with minimal muscle activity to reduce baseline noise. For cardiac activity, we used the biosignalplux ECG sensor configured for single-lead acquisition in the Einthoven triangle configuration, with the positive electrode placed on the left arm, negative on the right arm and ground on the left leg. To record respiratory patterns, we used a piezoelectric respiration sensor (PZT; price ~€170) per participant, secured around the upper thorax using an adjustable elastic strap. The sensing element was positioned centrally over the sternum. The strap was adjusted to ensure firm contact without restricting breathing. The sensor measured thoracic expansion and contraction during inhalation and exhalation via a flexible strip containing a centrally embedded piezoelectric sensing membrane.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Physiological Recording Procedures: Signal acquisition and LSL integration was managed using the OpenSignals (r)evolution software from biosignalsplux. Using the GUI of the software, we configured the EMGs and PZT channels to sample at 1000 Hz and visualized these signals in real time to verify signal-to-noise ratio and appropriate signal amplitude across EMG, ECG and respiration channels.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>The data streams were then broadcasted directly to the LSL using the software’s built-in LSL integration (see documentation here), resulting in two streams (one per participant) each containing the two raw EMG and one PZT time series synchronized with the other data modalities. </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Integration via Lab Streaming Layer (LSL)</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>Choosing the Integration Setup: A major challenge in multimodal research relates to synchronization and integration of different recordings that operate on distinct hardware platforms, communicate via different software interfaces, rely on independent systems clocks, and sample at different frequencies. Traditionally, synchronization of multimodal streams has been done post-recording by aligning common timestamped marker acquired during recordings for each modality. However, this approach relies on multiple independent recording computers with device-specific scripts for sending and receiving markers, resulting in decentralized data storage across systems. All of this increases the technical overheard as well as the manual effort during post-alignment. Additionally, even minor issues like latency differences or hardware incompatibilities can introduce significant lags that can easily mis-align the time series, often without any knowledge from the experimenters. For instance, video recordings are prone to dropped frames during acquisition, which, unless properly accounted for by timestamping each frame, can result in de-synchronization that is difficult to detect and correct post hoc.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>To address these issues, in our MML we decided to implement the Lab Streaming Layer (Kothe et al., 2025) an open-sourced, cross-platform middleware system designed to enable real-time, sub-millisecond synchronization of heterogeneous data streams recorded from different devices. Unlike marker-based synchronization, the LSL creates a shared time base across all incoming data streams using each device’s local monotonic clock. This allows for all the streams to be synchronized at the time of recording and stored in a centralized data format. In addition, LSL is free-to-use, open-source, portable and highly modular, supporting a wide range of recording devices either through native compatibility (like the biosignalsplux device) or via custom-built LSL “outlet” scripts that stream data into the shared time framework (like our video and audio recording scripts). </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>LSL Equipment and Assembly: At a system level, the LSL consists of the core liblsl library (Stenner et al., 2022) - a cross-platform API running working on Windows, macOS, and Linux - and associated GUI applications such as the LabRecorder (Kothe et al., 2025). Functionally, the LSL is built on a simple architecture of Outlets and Inlets. Each recording device broadcasts its stream (i.e., Outlet) via built-in system or via custom-made scripts in the form of descriptive metadata (e.g., stream name, content, type, number of channels, etc.). The receiving application (i.e., Inlet), such as LabRecorder, automatically detect these streams and records them in real time. To achieve multimodal synchronization, the LSL leverages each machine’s local monotonic clock and continuously performs clock offset estimation between the Outlet and Inlet through periodic pinging, which are then used to created a shared time based across all streams with sub-millisecond alignment. This software architecture must be physically implemented through a local network, that can span multiple PC’s. </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>As shown in Figure 1B–C, our setup comprised two Windows PCs, each connected to three wired video cameras and wireless physiological sensors, and two Linux mini PCs, each connected to a wired audio stream. A third Windows PC was then used to centrally record all these synchronized data streams using the LSL’s LabRecorder. All machines were interconnected via a wired Gigabit Ethernet local area network (LAN) using a shared 5-port Gigabit switch (model used: NETGEAR GS305v3).  </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>LSL Recording Procedures:  The two Window PCs and the two Linux mini PCs functioned as an LSL Outlets, broadcasting their respective data stream over the local network via custom made scripts or native software integration as described in the methods above. The LabRecorder computer acted as the LSL Inlet, detecting and resolving all available streams. For the audio and physiological modalities, the full time-series data samples (together with their metadata) were transmitted via LSL and recorded directly into an Extensible Data Format (.xdf)file. In contrast, for the video modality, only the frame-level metadata were streamed via LSL. This entailed that each video frame was associated with a corresponding LSL timestamp and frame index, synchronized with the other modalities. The raw video files themselves were instead recorded locally on their respective Windows PCs</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Prior to each recording, the LabRecorder graphical interface allowed us to check the presence of all expected streams from both participants. Once confirmed, recording was initiated through the LabRecorder interface, resulting in a single .xdf file, containing the audio, two EMGs, ECG, and respiration timeseries (with metadata) and combined three-videos metadata for each participant under a shared time base with sub-millisecond alignment.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Quarto: screenshot of LabRecorder</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

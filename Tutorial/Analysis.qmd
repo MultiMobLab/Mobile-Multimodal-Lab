@@ -1,0 +1,5 @@
+---
+title: "Mobile Multimodal Lab"
+subtitle: "Analysis"
+authors: Davide Ahmar,  Wim Pouw, Šárka Kadavá
+---
