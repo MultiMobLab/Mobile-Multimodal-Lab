@@ -1,7 +1,7 @@
 <div align="center">
   <h1>MOBILE MULTIMODAL LAB</h1>
   <h3><i>An Open-Source, Low-Cost and Portable Laboratory for the study of Multimodal Human Behavior</i></h3>
-  <img src="Donders_MML_LOGO.png" alt="Mobile Multimodal Lab Logo">
+  <img src="Logo MMLab.png" alt="Mobile Multimodal Lab Logo">
 </div>
 
 
