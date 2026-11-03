@@ -30,7 +30,7 @@ Note:
 - Audio is **not** recorded.
 - Camera indices may need to be adjusted manually in `cams = [3, 2, 0]`.
 
-Authors: Dr. Wim Pouw & Šárka Kadavá
+Authors: Wim Pouw & Šárka Kadavá
 Last Edited: 10/05/2025 by Davide Ahmar
     * this script uses the stabilized version of read_frames function with grab/retrieve to avoid frame drops
 
