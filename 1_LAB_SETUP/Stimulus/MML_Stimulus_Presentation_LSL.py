@@ -59,8 +59,10 @@ pause_duration = 1              # Pause between beep and tone onset (sec)
 bb = buttonbox.ButtonBox()
 
 # Create LSL stream for event markers
-info = StreamInfo('AudioEvents', 'Markers', 1, 0, 'string', 'myuidw43536')
+# <chunk: stimulus-lsl-outlet>
+info = StreamInfo('AudioEvents', 'Markers', 1, 0, 'string', 'MML_StimulusMarkers')
 outlet = StreamOutlet(info)
+# </chunk>
 
 # ---------------- HELPER FUNCTIONS ---------------- #
 
@@ -116,9 +118,11 @@ for condition in conditions:
                 play_audio(full_path, condition, trial)
                 time.sleep(time_between_presentations)
 
+        # <chunk: stimulus-lsl-push>
         # Marker: participant should begin singing
         event_marker = f"{condition}_{trial}_StartParticipantSinging"
         outlet.push_sample([event_marker])
+        # </chunk>
 
         # Beep before singing
         play_beep()

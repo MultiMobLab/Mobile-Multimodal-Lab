@@ -46,6 +46,7 @@ PERIOD_SIZE = 160  # Number of audio frames per read (~10ms of audio at 16kHz)
 
 # ------------- LSL STREAM INITIALIZATION ------------- #
 # Define metadata for the stream to be broadcast
+# <chunk: audio-lsl-outlet>
 info = StreamInfo(name=STREAM_NAME,
                   type=STREAM_TYPE,
                   channel_count=CHANNEL_COUNT,
@@ -54,6 +55,7 @@ info = StreamInfo(name=STREAM_NAME,
 
 # Create the LSL outlet for sending data chunks
 outlet = StreamOutlet(info)
+# </chunk>
 
 # ------------- AUDIO INPUT SETUP ------------- #
 # Open default audio capture device in NON-BLOCKING mode
@@ -83,6 +85,7 @@ threading.Thread(target=ask_user).start()
 
 # ------------- MAIN LOOP ------------- #
 # Continuously read audio chunks and send them over LSL
+# <chunk: audio-lsl-push>
 while running:
     # Read from the audio device
     length, data = inp.read()  # length = number of frames read, data = raw bytes
@@ -94,6 +97,7 @@ while running:
 
         # Push the audio chunk to LSL with timestamp
         outlet.push_chunk(audio_array, timestamp=timestamp)
+# </chunk>
 
     # Sleep briefly to avoid maxing out the CPU
     time.sleep(0.001)

@@ -67,13 +67,15 @@ print('Data will be saved in: ' + vidloc)
 
 # --- LSL setup --- #
 freq = 500  # Number of LSL samples (frame counters) sent per second
-frame_rate = 200.0  # Target frame rate for video acquisition (~60 fps max)
+frame_rate = 200.0  # Upper cap on the capture loop rate (not a target); the cameras actually deliver ~60 fps
 frame_counter1, frame_counter2, frame_counter3 = 1, 1, 1  # Initialize counters for each camera stream
 
 # Create the LSL stream outlet for broadcasting frame counters
+# <chunk: video-lsl-outlet>
 stream_info = StreamInfo(name='MyWebcamFrameStream', type='frameNR', channel_count=1,
                          channel_format='int32', nominal_srate=freq, source_id='MyWebcamFrameStream')
 outlet = StreamOutlet(stream_info)
+# </chunk>
 
 # --- Open cameras --- #
 def open_cameras():
@@ -204,11 +206,13 @@ def getWebcamData(cap1, cap2, cap3, video_writer):
     cv2.destroyAllWindows()
 
 # --- LSL thread that sends frame counters --- #
+# <chunk: video-lsl-push>
 def sendLSLFrames(camera_thread):
     """
     Continuously streams the current frame counter (frame_counter1) to LSL
     at the rate defined by `freq`, until the main camera thread ends.
     """
+    # Only frame_counter1 is streamed: all three counters increment together
     stamp = local_clock()  # initialize first LSL timestamp
     while camera_thread.is_alive():  # keep streaming until main video thread ends
         time.sleep(0.001)  # sleep briefly to avoid busy-waiting
@@ -216,6 +220,7 @@ def sendLSLFrames(camera_thread):
             pass  # wait until next target timestamp
         stamp = local_clock() + (1.0 / freq)  # set time for next frame
         outlet.push_sample([frame_counter1])  # send the frame counter
+# </chunk>
 
 # --- Start Script Execution --- #
 print(sys.version)  # Print Python version for diagnostics
