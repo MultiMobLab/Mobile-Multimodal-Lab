@@ -1,0 +1,28 @@
+# {.unnumbered}
+
+::: {.content-visible when-format="docx"}
+
+::: {custom-style="Author"}
+Davide Ahmar^1,2,3^, Wim Pouw^3,4^, Šárka Kadavá^3,5,6^
+:::
+
+::: {custom-style="Affiliations"}
+^1^Max-Planck Institute for Human Development, Berlin
+
+^2^Humboldt University in Berlin
+
+^3^Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+
+^4^Department of Computational Cognitive Science, Research Center for Cognitive Science and AI, Tilburg University
+
+^5^Leibniz-Centre General Linguistics (ZAS), Berlin 
+
+^6^Georg-August-Universität Göttingen
+:::
+
+:::
+
+
+**Abstract.** xxx
+
+**Word count.** xxx

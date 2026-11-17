@@ -22,3 +22,5 @@ Scripts/XDF_PROCESSING/data_processed
 /Doc-sync
 _quarto-manuscript.yml
 /old
+
+**/*.quarto_ipynb

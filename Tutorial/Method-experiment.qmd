@@ -1,12 +1,17 @@
----
-title: "Untitled"
-format: html
----
+# The Proof-of-Concept Experiment {#sec-exp}
 
+## Experimental Rationalle {#sec-exp-ratio}
+Our proof-of-concept experiment investigates the role of interpersonal synchrony that emerges across multiple modalities (namely vocalization, bodily movements and physiological markers) during a structured singing task. We opted for such a paradigm because musical interactions offer a wealth of intra-and-inter-personal dynamics unfolding across different behavioral and physiological channels. For instance, research on music cognition has shown that the perception of and synchronization with musical structure are shaped by multiscale influences, including physiological states [@vickhoffMusicStructureDetermines2013], bodily moments [@toiviainenEmbodiedMeterHierarchical2010], psychological traits [@novembreEmpathicPerspectiveTaking2019], and processes of musical enculturation [@hannonMusicAcquisitionEffects2007]. Additionally, at a methodological level, this type of research requires recording of brain/body signals during active behaviors in naturalistic settings. This makes it particularly well suited for a proof-of-concept experiment with the mobile multimodal setup. 
 
-# Method I: Experimental design and procedure
+## Experimental Design and Procedures {#sec-exp-design}
+Two participants engaged in a joint singing task within a two-by-two factorial design, manipulating the (1) visual access between participants (Vision vs. NoVision) and the (2) freedom of movement (Movement vs. NoMovement), as depicted in Figure 1A. Each of the four conditions (Vision x Movement, Vision x NoMovement, NoVision x Movement, NoVision x NoMovement) was presented in a random order and consisted of five structured trials: after a keyboard press to initiate the condition and relay the pre-defined marker to the LSL, participants listened to a set of synthetic melodies composed of five randomized MIDI notes that had been created in advance to standardize pitch, duration, and temporal structure. Following the audio presentations, participants were instructed to vocally reproduce the melodies in synchrony with each other during a 10 second interval delimited by start-and-end auditory beeps. A custom Python script  handled the presentation of auditory stimuli, the timing of each experimental phase, and the streaming of event markers via LSL.
 
-Two participants engaged in a joint singing task within a two-by-two factorial design, manipulating the (1) visual access between participants (Vision vs. NoVision) and the (2) freedom of movement (Movement vs. NoMovement), as depicted in Figure 1, A. A custom python script handled the presentation of auditory stimuli, the timing of each experimental phase, and the streaming of event markers via LSL. 
-[Quarto: here is script for presentation of stimuli]
-Each of the four conditions (Vision_Movement, Vision_NoMovement, NoVision_Movement, NoVision_NoMovement) was presented in a random order and consisted of five structured trials: after a keyboard press to initiate the condition and relay the marker to the LSL, participants listened to a set of synthetic melodies composed of five randomized MIDI notes that had been created in advance to standardize pitch, duration, and temporal structure. Following the audio presentations, participants were instructed to vocally reproduce the melodies in synchrony with each other during a 10 second interval delimited by start-and-end auditory beeps.
-Following this design, we expected that the Vision_Movement condition to yield the highest levels of vocal synchrony, as visual access and freedom of movement allow participants to couple both motor and vocal-acoustic systems during interaction. However, because this experiment was designed solely to demonstrate the MMLab’s functionality, we did not focus on formal hypothesis testing nor specific outcome measures. Rather, our pipeline was structured such that this placeholder paradigm can be replaced with any experimental design involving one or more participants and two or more data streams.  
+::: {.content-visible when-format="html"}
+[Quarto: here is script for presentation of stimuli: MMLab_Stimulus_Presentation_LSL]
+[SCRIPT: 1_LAB_SETUP/Stimulus/MML_Stimulus_Presentation_LSL.py]
+
+:::
+
+We expected that the Vision_Movement condition would yield the highest levels of vocal synchrony, as visual access and freedom of movement allow participants to couple both motor and vocal-acoustic systems during interaction. However, because this experiment was designed solely to demonstrate the MMLab’s functionality, we did not focus on formal hypothesis testing nor specific outcome measures. Rather, our pipeline was structured such that this placeholder paradigm can be replaced with any experimental design involving one or more participants and two or more data streams.  
+
+ 

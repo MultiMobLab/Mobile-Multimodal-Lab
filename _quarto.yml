@@ -7,7 +7,8 @@ project:
   # Run: python sync_gdocs.py download  → pull edits back
 
 website:
-  title: "Mobile Multimodal Lab"
+  title: "Mobile Multimodal Lab" 
+  description: "Tutorial for an Open-Source, Low-Cost, and Portable Laboratory for the Study of Multimodal Behavior"
   sidebar:
     style: "floating"
     search: true
@@ -20,13 +21,13 @@ website:
       - section: "Methods"
         contents:
           - text: "Overview"
-            href: Tutorial/02_lab_setup.qmd
+            href: Tutorial/Method-overview.qmd
           - text: "Experimental design"
-            href: Tutorial/Method-experiment.qmd # TODO add also relevant scripts to view
+            href: Tutorial/Method-experiment.qmd 
           - text: "Lab Setup"
             href: Tutorial/Method-labsetup.qmd
           - text: "Processing"
-            href: Tutorial/Method-processing.qmd
+            href: Tutorial/Method-preprocessing.qmd
           - text: "Motion tracking"
             href: Tutorial/Method-processing.qmd
 
@@ -34,6 +35,7 @@ website:
         contents:
           - text: "Overview"
             href: Tutorial/Analysis.qmd
+
 
   navbar:
     tools:
@@ -43,6 +45,22 @@ website:
             href: https://github.com/MultiMobLab/Mobile-Multimodal-Lab
           - text: Report a Bug
             href: https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues
+
+author:
+  - name: Davide Ahmar
+    affiliations:
+      - name: Max-Planck Institute for Human Development, Berlin
+      - name: Humboldt University in Berlin
+      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+  - name: Wim Pouw
+    affiliations:
+      - name: Department of Computational Cognitive Science, Research Center for Cognitive Science and AI, Tilburg University
+      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+  - name: Šárka Kadavá
+    affiliations:
+      - name: Leibniz-Centre for General Linguistics (ZAS)
+      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+      - name: Georg-August-Universität Göttingen
 
 # Default format: HTML tutorial (full code + all sections)
 format:
@@ -58,8 +76,8 @@ format:
 
 # Default execution: run and show code in HTML
 execute:
-  echo: true
-  eval: true
+  echo: false
+  eval: false
   warning: false
   message: false
-  cache: true                # cache outputs so re-renders are fast
+  cache: false                # cache outputs so re-renders are fast

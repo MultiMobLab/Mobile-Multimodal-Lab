@@ -1,5 +1,124 @@
----
-title: "Mobile Multimodal Lab"
-subtitle: "Methods: Processing"
-authors: Davide Ahmar,  Wim Pouw, Šárka Kadavá
----
+# Multimodal Signal Processing {#sec-process}
+Once all the data streams have been preprocessed and converted into workable formats (@sec-preproc), the next step consists in extracting and processing the relevant signals from each multimodal time series to then perform the relevant statistical analyses. Here we provide a detailed overview of the steps employed to process multimodal signals. We divided this section into two:  **(-@sec-process-mt)** motion tracking - including **(-@sec-process-mt-choose)** details about software, **(-@sec-process-mt-prep)** video preparation, **(-@sec-process-mt-calib)** camera calibration, and **(-@sec-process-mt-mt)** 2D and 3D motion tracking - and **(-@sec-process-other)** other signal extraction and filtering - namely **(-@sec-process-other-audio)** amplitude envelopes from audio, **(-@sec-process-other-ecg)** heart rate from ECG, muscle activation envelopes (bicep and triceps) from EMGs, and **(-@sec-process-other-resp)** respiratory waveforms from respiration. A final section **(-@sec-process-merging)** describes the process of merging all the signals together in preparation for further analyses (@sec-analysis).
+
+Importantly, all steps described in this section (and in @sec-analysis) are *highly specific* to our experimental settings and serve only as a *proof-of-concept demonstration* of the MMLab in action. Because the experiment involved a single dyad (the authors themselves) and lacks the controls required for substantive statistical inference, the signals extracted and analyses performed are not intended as a rigorous pipeline for studying interpersonal synchrony. Rather, they serve as an illustrative template to show that the MMLab functions in a realistic recording scenario and that meaningful signals and statistical patterns can be extracted from its multimodal recordings. 
+
+## Motion Tracking {#sec-process-mt}
+### Choosing the Motion Tracking Software {#sec-process-mt-choose}
+Extracting motion data from standard RGB videos requires a pose estimation model - i.e., a computer vision model, typically built on convolutional or transformer neural networks, that has been pre-trained on large annotated datasets to localize landmarks in human bodies (e.g., shoulders, elbows, wrists, etc.) in each video frame [@voulodimosDeepLearningComputer2018]. Over the last decade, several freely available (and mostly open-source) pose estimation libraries have been developed, including *OpenPose* [@caoOpenPoseRealtimeMultiPerson2019], *MediaPipe* [@lugaresiMediaPipeFrameworkBuilding2019], *DeepLabCut* [@mathisDeepLabCutMarkerlessPose2018], and, more recently, large “foundation” models such as *Sapiens* [@khirodkarSapiensFoundationHuman2025]. 
+
+These libraries primarily output 2D keypoints from each camera view (although some do provide a monocular 3D estimate, but these estimates are not metrically accurate and are generally unsuitable for quantitative biomechanical analysis). Therefore, obtaining research-grade 3D coordinates requires combining 2D detections from multiple (typically 3 or more) synchronized cameras with a geometric *triangulation* step based on camera *calibration parameters* (intrinsic and extrinsic), analogous to how device-based motion capture systems reconstruct 3D positions from their marker detections. 
+
+For the MMLab, we aimed to find a motion tracking pipeline that adheres to our standards of accessibility, affordability and modularity. Additionally, we aimed for wrapping all steps (namely *pose estimation*, *camera calibration*, and *3D triangulation*) into a single, reproducible pipeline, thus making it accessible to researchers without a specialized computer vision or biomechanics background. Therefore, we chose *FreeMocap* [@samirfreemocap], an open-source motion tracking pipeline that integrates both 2D and 3D tracking into a single, Python-based workflow using an intuitive graphical interface for user accessibility. *FreeMoCap* uses the *MediaPipe* Holistic model to detect 2D landmarks on the whole body (33 points), with added (option) face (up to 468 points) and hands (21 points per hand) from each synchronized camera view, and then uses Anipose (Karashchuk et al., 2021) to triangulate these 2D detections into 3D coordinates (in meters). Detailed instructions on how to set up and use *FreeMoCap* can be found [here](https://docs.freemocap.org/documentation/index_md.html#welcome-skele-friend). 
+
+Below, we describe the steps we employed to prepare the videos and calibrate the cameras to perform motion tracking with FreeMoCap. An Overview of these preparatory steps and motion tracking pipeline can be seen in Figure 3. 
+
+### Video Preparation {#sec-process-mt-prep}
+FreeMoCap expects each camera view to be provided as a separate, time-aligned video file. Since we recorded each triplet of cameras as a single composite file (@sec-setup-video), we first split each composite recording into three individual videos using a custom Python script built around the `OpenCV` library
+
+::: {.content-visible when-format="html"}
+
+[Quarto Link with Script and Explanation  MML_Video_Split.ipynb]
+For each (trimmed) video recording (obtained in @sec-preproc-clip), the script reads the video stream frame by frame, retrieves the native resolution and frame rate from the OpenCV metadata, and slices each frame horizontally into three equal-width sections corresponding to the three camera views. 
+[CODE: 3_MOTION_TRACKING/1_Video_Segmentation/MML_Video_Split.ipynb#video-split-setup]
+These sections are then written out as three separate video files  that preserve the original frame rate and inherit the synchronization of the source recording. Both the output codec/container and the assumed number of cameras per source file are parameterized, allowing the script to be reused for setups with different recording configurations. 
+
+:::
+
+### Camera Calibration {#sec-process-mt-calib}
+In order to reconstruct 3D coordinates from the 2D landmarks, we computed intrinsic and extrinsic parameters of each camera trio from the ChArUco board calibration videos (see @sec-setup-video) using the `Anipose` library [@karashchukAniposeToolkitRobust2021].
+
+::: {.content-visible when-format="html"}
+
+[Quarto Link with Script and Explanation  MMLab_Calibration_anipose.ipynb]
+The script iterates through the output of the previous splitting step and bundles together the three corresponding videos (from each session). Aniposelib then processes this three-video bundle by detecting the ChArUco markers in every frame and matching corresponding detections across the synchronized videos, solving jointly for the intrinsic matrix of each camera and the extrinsic transformations between them. The board parameters used in this script are specific to our physical calibration target (i.e., a 7 × 5 ChArUco board with 108-mm squares and 85-mm ArUco markers drawn from the default 4 × 4-bit dictionary of 50 patterns), and should be adjusted by the user if a differently sized board is used. 
+[CODE: 3_MOTION_TRACKING/2_Video_Calibration/MMLab_Calibration_anipose.ipynb#calib-board]
+The resulting calibration parameters are then written into a TOML file for each session.
+[CODE: 3_MOTION_TRACKING/2_Video_Calibration/MMLab_Calibration_anipose.ipynb#calib-anipose-run]
+Ideally, average reprojection error is less than 1 pixel (but acceptable until 3 pixels, see Karashchuk et al., 2021) 
+
+:::
+
+### Motion Tracking and Triangulation {#sec-process-mt-mt}
+The three split video and the corresponding TOML calibration parameters were then passed to FreeMoCap which performed two sequential operations. Firstly, it ran the MediaPipe’s Holistic model on each of the three videos to localize, frame by frame, the coordinates of the anatomical landmarks in the 2D pixel space for the whole body (head, torso, arms, legs, and feet, 33 keypoints in total) and hands (21 keypoints per hand). Secondly, these 2D keypoints were triangulated into 3D world coordinates using `Anipose`, based on the precomputed calibration parameters, yielding x, y and z positions (in meters, relative to the camera rig) for each landmark in each frame. To reduce high-frequency jitter, we also applied a 4th-order, zero-phase Butterworth filter with a 7-Hz cutoff to both the 2D and 3D trajectories, leveraging *FreeMoCap*'s post-processing stage. Because *FreeMoCap* returns one sample per video frame, the resulting 2D and 3D landmark time series have the effective frame rate of each recording (i.e., the rate at which the cameras actually delivered frames, nominally 60 fps, see @sec-preproc-clip). These time series were saved as CSV files (for details on the *FreeMoCap* workflow, see the [documentation](https://docs.freemocap.org/documentation/index_md.html)). Since webcam frame rates are not perfectly constant, we did not assume a fixed sampling rate. Instead, each frame was assigned its corresponding LSL timestamp when merging the motion data with the other modalities (@sec-process-merging). Although *FreeMoCap* outputs the full set of whole-body and hand landmarks, for the proof-of-concept coupling analyses presented in @sec-analysis we carried forward only the right index finger landmark (x, y, z axes) into the merged multimodal dataset (see @sec-process-merging), as the right hand motion was the most salient movement during our co-singing task. 
+ 
+## Other Multimodal Signals Processing {#sec-process-other}
+To extract and filter the signals from audio and physiological time series, we used a single python script that iterates through the inputs, identifies the relevant files, applies the modality-specific processing pipeline, and merges all signals together (per trial) in a csv file. 
+
+::: {.content-visible when-format="html"}
+
+[Quarto Link with Script and Explanation  MMLab_Multimodal_Filtering.ipynb]
+The script is built around the librosa (McFee et al., 2015) and SciPy (Virtanen et al., 2020) libraries and contains two general-purpose filtering methods that are used across all modalities.  The first is a butterworth filter, which can be flexibly implemented as a low-pass, high-pass or bandpass filter depending on the analyses. All Butterworth filters are applied with zero-phase (forward–backward) filtering (via scipy.signal.filtfilt), which eliminates the phase distortion that a single-pass filter would introduce. To prevent boundary artefacts, each signal is padded with 1000 edge-replicated samples before filtering and trimmed back to its original length afterwards. 
+[CODE: 4a_PROCESSED/Script_FILTERING/MML_Multimodal_Filtering.ipynb#filter-butterworth]
+All high-pass, low-pass, and bandpass filters described in the subsections below use this same Butterworth design unless otherwise noted. The second is a notch filter (via scipy.signal.iirnotch), which is used to suppress narrowband electrical interferences acquired during recordings (in our case, the European grid frequency of 50 Hz). The sharpness of the notch is controlled by a quality factor (Q), where higher values produce a narrower rejection band (we used Q = 30 throughout, which removes the 50-Hz component with minimal distortion of neighbouring frequencies). 
+[CODE: 4a_PROCESSED/Script_FILTERING/MML_Multimodal_Filtering.ipynb#filter-notch]
+
+:::
+
+### Audio Amplitude Envelope {#sec-process-other-audio}
+From each raw audio time-series, we extracted a smoothed amplitude envelope from the audio, which represents the slowly-varying time-series tracking instantaneous loudness and capturing the rhythmic structure of the participants' vocalizations. To do so, we followed a similar procedure outlined by Tilsen and Arvaniti [-@tilsenSpeechRhythmAnalysis2013].  First, the denoised mono audio (sampled at 16 kHz) was filtered with a 2nd-order zero-phase Butterworth bandpass spanning 400–4000 Hz (i.e., a sequential high-pass and low-pass filter). This bandpass filtering isolates the frequency range that carries most of the vocal energy (fundamental frequencies and harmonics of the sung voice) while removing low-frequency rumble (e.g., HVAC noise, microphone handling, breath sounds) and high-frequency hiss. Second, the bandpassed signal was rectified by taking its absolute value, converting the oscillating waveform into its instantaneous magnitude. Third, the rectified signal was smoothed with a 2nd-order zero-phase Butterworth low-pass filter at 10 Hz, preserving the note- and phrase-level amplitude modulations of interest while attenuating faster fluctuations within individual notes. Fourth, the resulting envelope was min–max normalized to the [0, 1] range, thus resulting in a scale-invariant signal comparable across recordings and within participants. 
+
+::: {.content-visible when-format="html"}
+
+[Plot of Raw and Cleaned Audio for Quarto]
+Figure S7. Plot of Raw (Blue) and Filtered (Blue) Audio Signal. 
+
+:::
+
+### ECG Filtering {#sec-process-other-ecg}
+To filter the raw ECG signal (sampled at 1 kHz), we first applied a 4th-order high-pass filter at 0.5 Hz to remove slow baseline drifts caused by respiration and electrode motion, followed by a 4th-order low-pass filter at 20 Hz to attenuate high-frequency muscle artefacts. We then applied a notch filter centered at 50 Hz (Q = 30) to suppress grid-frequency electrical interference picked up by the sensor cables. Following visual inspection of these signals, we decided to apply an additional denoising step using the Empirical Mode Decomposition [EMD, @huangEmpiricalModeDecomposition1998], a data-driven method that decomposes a signal into a series of oscillatory components (Intrinsic Mode Functions, or IMFs) ordered from highest to lowest frequency. We extracted and discarded the first IMF, which captures the fastest residual oscillations that were not fully removed by the Butterworth filters, and retained the second IMF as the cleaned ECG signal. This EMD step was implemented using the `emd` package [@quinnEMDEmpiricalMode2021]. Note, this deviates from gold-standard signal ECG processing pipelines to some extent, as our aim was to retrieve a smooth cardiac signal reflecting the heart cycle dynamics rather than to process the time series to estimate heart rate intervals (e.g., for heart rate variability).
+
+::: {.content-visible when-format="html"}
+
+[Plot of Raw and Cleaned ECG for Quarto]
+
+Figure S8. Plot of Raw (grey) and Filtered (blue) ECG signal. 
+
+:::
+
+### Muscle Activation Envelopes {#sec-process-other-muscleenv}
+The raw EMG signals from the biceps and triceps sensors (sampled at 1K Hz) were processed in three steps to obtain a smoothed muscle activation envelope. Firstly, a 4th-order high-pass filter at 30 Hz removed low-frequency artefacts such as movement-related baseline shifts and any residual cardiac contamination. Secondly, the high-passed signal was full-wave rectified (absolute value), converting the bipolar EMG bursts into a unipolar magnitude signal. Thirdly, a 4th-order low-pass filter at 20 Hz smoothed the rectified signal into a continuous activation envelope that tracks the overall contraction intensity of the muscle over time. This high-pass, rectify-low, pass sequence is a standard approach for extracting linear envelopes from surface EMG [e.g., @delucaFilteringSurfaceEMG2010; @pouwHumanVoiceAligns2025]. Both the biceps and triceps envelopes were processed identically and saved as separate columns in the output CSV.
+
+::: {.content-visible when-format="html"}
+[Plot of Raw and Cleaned EMG for Quarto]
+
+Figure S9. Plot of Raw (grey) and Filtered (blue) EMG signals for Bicep (top) and Tricep (bottom)
+
+:::
+
+### Respiratory Envelope {#sec-process-other-resp}
+The raw respiration signal (sampled at 1 kHz) was smoothed with a 4th-order low-pass filter at 1 Hz to isolate the slow respiratory waveform and remove high-frequency noise from the piezoelectric sensor. The resulting continuous time series the cyclical inhalation and exhalation cycles rather than very finescale fluctuations in chest kinematics. 
+
+::: {.content-visible when-format="html"}
+[Plot of Raw and Cleaned Resp for Quarto]
+
+:::
+
+## Multimodal Signal Merging {#sec-process-merging}
+The final processing step merges all the individual filtered signals into a single, time-aligned multimodal matrix, which is necessary for the cross-modal coupling analyses described in @sec-analysis. This requires resolving two challenges inherent to multimodal recordings. First, each modality operates at its native sampling rate – 60 Hz for the motion tracking (the frame rate of the Elgato Facecams), 16 kHz for the audio amplitude envelope,  and 1 kHz for the physiological signals (ECG, EMGs, RESP). Second, even signals sharing a nominal sampling rate carry different timestamps, because LSL timestamps reflect the precise moment each sample arrived at the receiving machine, which varies across devices due to differences in internal buffering, and transmission latencies (for more information see [here](https://labstreaminglayer.readthedocs.io/info/time_synchronization.html)). Additionally, the motion tracking output from FreeMoCap is indexed by video frame numbers, which need to be mapped to their corresponding LSL timestamps. 
+
+To address this, the script performs three operations: 
+
+>(1) time-zeros each stream and maps motion frame indices to LSL timestamps; 
+
+::: {.content-visible when-format="html"}
+[CODE: 4a_PROCESSED/Script_FILTERING/MML_Multimodal_Filtering.ipynb#merge-frame-to-lsl]
+
+:::
+
+>(2) resamples all modalities to a 1 kHz vector using linear interpolation (whereby prior low-pass filtering perfomed in @sec-process-other prevents resampling artefacts); 
+
+::: {.content-visible when-format="html"}
+[CODE: 4a_PROCESSED/Script_FILTERING/MML_Multimodal_Filtering.ipynb#merge-time-grid]
+
+:::
+
+>and (3) concatenates all signals into a single trial-level CSV.
+
+::: {.content-visible when-format="html"}
+[CODE: 4a_PROCESSED/Script_FILTERING/MML_Multimodal_Filtering.ipynb#merge-resample]
+
+:::
+
+These files contain both participants’ synchronized motion, audio, ECG, respiration, and EMG data, serving as input for the analyses in @sec-analysis.
+
