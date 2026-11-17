@@ -1,24 +1,19 @@
 project:
   type: website
   output-dir: docs
-  # Run: quarto render                  → HTML tutorial (default)
-  # Run: quarto render --profile manuscript → PDF manuscript
-  # Run: python sync_gdocs.py upload    → push all .qmd to Google Docs for review
-  # Run: python sync_gdocs.py download  → pull edits back
 
 website:
   title: "Mobile Multimodal Lab" 
-  description: "Tutorial for an Open-Source, Low-Cost, and Portable Laboratory for the Study of Multimodal Behavior"
   sidebar:
     style: "floating"
     search: true
     contents:
       - text: "Home"
-        href: Tutorial/index.qmd
-      - section: "Introduction"
+        href: index.qmd
+      - text: "I. Introduction"
         href: Tutorial/Introduction.qmd
 
-      - section: "Methods"
+      - section: "II. Methods"
         contents:
           - text: "Overview"
             href: Tutorial/Method-overview.qmd
@@ -31,11 +26,12 @@ website:
           - text: "Motion tracking"
             href: Tutorial/Method-processing.qmd
 
-      - section: "Analysis"
-        contents:
-          - text: "Overview"
-            href: Tutorial/Analysis.qmd
-
+      - text: "III. Analysis"
+        href: Tutorial/Analysis.qmd
+      - text: "IV. Results"
+        href: Tutorial/Results.qmd
+      - text: "V. Conclusions"
+        href: Tutorial/Discussion.qmd
 
   navbar:
     tools:
@@ -46,21 +42,21 @@ website:
           - text: Report a Bug
             href: https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues
 
-author:
-  - name: Davide Ahmar
-    affiliations:
-      - name: Max-Planck Institute for Human Development, Berlin
-      - name: Humboldt University in Berlin
-      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
-  - name: Wim Pouw
-    affiliations:
-      - name: Department of Computational Cognitive Science, Research Center for Cognitive Science and AI, Tilburg University
-      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
-  - name: Šárka Kadavá
-    affiliations:
-      - name: Leibniz-Centre for General Linguistics (ZAS)
-      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
-      - name: Georg-August-Universität Göttingen
+# author:
+#   - name: Davide Ahmar
+#     affiliations:
+#       - name: Max-Planck Institute for Human Development, Berlin
+#       - name: Humboldt University in Berlin
+#       - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+#   - name: Wim Pouw
+#     affiliations:
+#       - name: Department of Computational Cognitive Science, Research Center for Cognitive Science and AI, Tilburg University
+#       - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+#   - name: Šárka Kadavá
+#     affiliations:
+#       - name: Leibniz-Centre for General Linguistics (ZAS)
+#       - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+#       - name: Georg-August-Universität Göttingen
 
 # Default format: HTML tutorial (full code + all sections)
 format:

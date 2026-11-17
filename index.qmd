@@ -1,7 +1,21 @@
 ---
 title: "Mobile Multimodal Lab"
-subtitle: "Reproducible manual for setting up interactive laboratory setup with multimodal signal collection"
-authors: Davide Ahmar, Šárka Kadavá, Wim Pouw
+subtitle: "Tutorial for an Open-Source, Low-Cost, and Portable Laboratory for the Study of Multimodal Behavior"
+author:
+  - name: Davide Ahmar
+    affiliations:
+      - name: Max-Planck Institute for Human Development, Berlin
+      - name: Humboldt University in Berlin
+      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+  - name: Wim Pouw
+    affiliations:
+      - name: Department of Computational Cognitive Science, Research Center for Cognitive Science and AI, Tilburg University
+      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+  - name: Šárka Kadavá
+    affiliations:
+      - name: Leibniz-Centre for General Linguistics (ZAS)
+      - name: Donders Institute for Brain, Cognition, and Behaviour, Radboud University
+      - name: Georg-August-Universität Göttingen
 ---
 
 ## About project
@@ -30,10 +44,6 @@ To ensure that all the signals are synchronized, we use the Lab streaming layer 
 ![Setup](Setup_scheme.png)
 
 Additionally, the setup is build in a modular way, so that anyone can add or remove equipment and recording from the default setup as long as these devices are LSL compatible
-
-## How to read
-
-Here we write something about how it should be read and used...
 
 ## Acknowledgements
 
