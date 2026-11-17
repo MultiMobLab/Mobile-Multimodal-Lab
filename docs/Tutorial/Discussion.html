@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>discussion – Mobile Multimodal Lab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-28ca869b8c6ad9c203eec20305e76537.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Mobile Multimodal Lab</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MultiMobLab/Mobile-Multimodal-Lab/issues">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Tutorial/Discussion.html">V. Conclusions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">I. Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">II. Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental design</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-labsetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Method-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motion tracking</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">III. Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IV. Results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Tutorial/Discussion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">V. Conclusions</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-discussion" id="toc-sec-discussion" class="nav-link active" data-scroll-target="#sec-discussion"><span class="header-section-number">1</span> Discussion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+
+
+
+<section id="sec-discussion" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Discussion</h1>
+<p>The MMLab was developed to provide an accessible, low-cost, and open-source solution for capturing multimodal human behaviors in both lab-based and ecological environments. Rather than a single piece of software or hardware, the MMLab is a suite of freely available resources – comprising the present paper, an extended Quarto book, and an accompanying GitHub repository. Together, they function as an end-to-end blueprint for assembling a multimodal recording system, executing recording procedures, and processing and analyzing the resulting data streams.</p>
+<p>The tutorial-style structure of this manuscript walks the reader through each step of this pipeline. Grounding all procedures in our proof-of-concept experiment (<strong>?@sec-exp</strong>, a structured interpersonal singing task with a 2×2 (Vision × Movement) design), <strong>?@sec-setup</strong> described the setup of the MMLab, covering the choice and configuration of hardware for video, audio, wireless physiology (ECG, EMG, respiration), and the central integration of all streams through the LSL. <strong>?@sec-preproc</strong> dealt with multimodal wrangling and stream preprocessing, describing signal extraction from the unitary file, stream segmentation and multimodal re-merging. <strong>?@sec-process</strong> covered multimodal signal processing, including full 3D motion-tracking pipeline, extraction of audio amplitude envelopes, heart rate, muscle activation, and respiratory waveforms, ending with the merging of all filtered signals onto a multimodal array. Finally, <strong>?@sec-analysis</strong> presents a proof-of-concept analysis using mutual information, quantifying interpersonal coupling across vocal, physiological, and kinematic channels between the two co-singing participants.</p>
+<p>Across these sections, the MMLab was consistently built around five complementary principles. First, in terms of <em>accessibility</em>, all documentation, code, and tutorials are fully open-sourced. The intent is not only to make the tools available, but to make the technical knowledge behind them transparent and reusable. This lowers the barrier to entry for new users and serves as a pedagogical resource for students and technical staff, as well as offering the opportunity for others to contribute and improve on our designs. Second, in terms of <em>affordability</em>, we demonstrated that a lab capable of simultaneously capturing video (for 3D motion tracking), high-fidelity audio, and wireless physiological signals from two interacting participants can be fully assembled for under €10,000 using off-the shelf consumer-grade components and open-source software Third, in terms of <em>portability</em>, the MMLab allows for mobile research: the recording equipment and laptops can be transported inside simple suitcases and reassembled outside of a fixed laboratory room. This opens the door to field-based, ecologically valid recordings that are typically inaccessible to heavy, room-mounted commercial setups. Fourth, in terms of <em>integration and synchronization</em>, the LabStreamingLayer (LSL) serves as the unifying backbone of the MMLab, solving one of the most persistent bottlenecks in multimodal research (i.e., sub-millisecond synchronization of heterogeneous data streams recorded on different machines, operating systems, and sampling rates) without requiring proprietary middleware. Fifth, in terms of <em>modularity</em>, MMLab is intended to beMMLab is intended to be easily extensible beyond the specific configuration described here. Any device with a native LSL outlet (or a simple python wrapper, as we demonstrated for video and audio) can be added to the pipeline, leaving any user (or future developments of MMLab) with opportunities to add or substitute any modality, leaving any user (or future developments of MMLab) with opportunities to add or substitute any modality (e.g., eye-tracking, EEG, additional biosensors, VR headsets, or additional participants) without rebuilding the underlying infrastructure.</p>
+<p>Beyond these technical contributions, the MMLab is motivated by a broader concern about ecological validity in the study of human behavior. Historically, psychological, cognitive, and neuroscientific research has relied heavily on temporally coarse-grained, unimodal measures: self-reports and Likert-scale questionnaires in social psychology <span class="citation" data-cites="baumeisterPsychologyScienceSelfReports2007">(<a href="#ref-baumeisterPsychologyScienceSelfReports2007" role="doc-biblioref">Baumeister, Vohs, and Funder 2007</a>)</span>, button presses and accuracy scores in cognitive and neuropsychological work <span class="citation" data-cites="maselliSimpleLaboratoryStudies2023 parsonsPsychologicalScienceNeeds2019">(<a href="#ref-maselliSimpleLaboratoryStudies2023" role="doc-biblioref">Maselli et al. 2023</a>; <a href="#ref-parsonsPsychologicalScienceNeeds2019" role="doc-biblioref">Parsons, Kruijt, and Fox 2019</a>)</span>. This was largely a pragmatic choice: until recently, capturing the temporally rich, multimodal reality of behavior was methodologically prohibitive <span class="citation" data-cites="batemanMethodologicalTheoreticalIssues2016 sanbonmatsuImpactComplexityMethods2021">(<a href="#ref-batemanMethodologicalTheoreticalIssues2016" role="doc-biblioref">Bateman 2016</a>; <a href="#ref-sanbonmatsuImpactComplexityMethods2021" role="doc-biblioref">Sanbonmatsu, Cooley, and Butner 2021</a>)</span>. However, although these unimodal measures are valuable for many research questions, they are inherently limited for others. For instance, a Likert-scale rating of how often a person gestures during conversation cannot substitute for a quantitative measure of the movement itself –– its speed, amplitude, or coupling with concurrent speech <span class="citation" data-cites="pouwQuantificationGestureSpeech2020">(<a href="#ref-pouwQuantificationGestureSpeech2020" role="doc-biblioref">Pouw, Trujillo, and Dixon 2020</a>)</span>. Gestures during conversation are tightly coupled with speech prosody <strong>(add classical refs instead of Pouw et al.&nbsp;2020)</strong>, modulated by turn-taking dynamics <span class="citation" data-cites="kendrickTurntakingHumanFacetoface2023">(<a href="#ref-kendrickTurntakingHumanFacetoface2023" role="doc-biblioref">Kendrick, Holler, and Levinson 2023</a>)</span>, and shaped by mutual visibility <span class="citation" data-cites="hollerSocialEyeGaze2014 molSeeingBeingSeen2011">(<a href="#ref-hollerSocialEyeGaze2014" role="doc-biblioref">Holler et al. 2014</a>; <a href="#ref-molSeeingBeingSeen2011" role="doc-biblioref">Mol et al. 2011</a>)</span> in temporally extended and distributed processes shaped by their social context <span class="citation" data-cites="pouwMoreEmbeddedExtended2014 streeckEmbodiedInteractionLanguage2011 trujilloInteractionallyEmbeddedGestalt2023">(<a href="#ref-pouwMoreEmbeddedExtended2014" role="doc-biblioref">Pouw et al. 2014</a>; <a href="#ref-streeckEmbodiedInteractionLanguage2011" role="doc-biblioref">Streeck, Goodwin, and LeBaron 2011</a>; <a href="#ref-trujilloInteractionallyEmbeddedGestalt2023" role="doc-biblioref">Trujillo and Holler 2023</a>)</span>. Similarly, emotional and affective states are increasingly understood as dynamic processes that emerge from the continuous interplay between central nervous system activity, peripheral physiology, and overt bodily behavior <span class="citation" data-cites="dmelloReviewMetaAnalysisMultimodal2015 maussMeasuresEmotionReview2009">(<a href="#ref-dmelloReviewMetaAnalysisMultimodal2015" role="doc-biblioref">D’Mello and Kory 2015</a>; <a href="#ref-maussMeasuresEmotionReview2009" role="doc-biblioref">Mauss and Robinson 2009</a>)</span>. Capturing such states therefore requires jointly measuring the neural, autonomic, and behavioral dynamics that co-constitute them, rather than any single channel or proxy in isolation.</p>
+<p>In this context, the MMLab is a methodological response to the current and future state of research across these fields. By making the technical infrastructure for synchronized, multi-stream recording available at a fraction of the previous cost, it enables researchers to move from proxies for behavior to direct measurements of behavior and its underlying neural and physiological signals –– and it makes this move available to labs that would otherwise be priced out of such work. Taken together, this matters both for equity of access and for the diversity of research questions that get asked. In this sense, MMLab contributes to a broader movement in which the question is no longer whether behavior can be captured multimodally, but which embodied processes and inter-personal dynamics become tractable objects of scientific inquiry.</p>
+<p>Alongside its strengths, the MMLab comes with some important limitations. The most obvious is the absence of the institutional and commercial support that accompanies off-the-shelf systems. When a lab purchases a commercial motion-tracking system, it gains more than hardware: installation, calibration support, warranty replacements, and a vendor to call when something breaks. The MMLab has none of this. It is a collection of documented components held together by open-source software which shifts the burden of maintenance, troubleshooting, and repair onto the developer community and, ultimately, onto the users themselves. A related limitation is that the MMLab presupposes a baseline of technical literacy. Although we have deliberately documented every step in prose and opted for extensive code comments, the pipeline still assumes some familiarity with Python, the command line, basic networking, and the logic of digital signal processing. The tutorial aims to lower this barrier, but it does not eliminate it.</p>
+<p>The biggest practical challenge remains the robustness of the multimodal setup. Every component of the MMLab is prone to errors – as in any recording setup, commercial or otherwise. While the setup has been validated in a proof-of-concept experiment and the pipeline is written to prevent common issues and support individual troubleshooting, problems will arise, including in configurations we cannot anticipate, since users will adapt the setup to hardware and environments we have not tested. Here we list the most recurring problems. First, <em>synchronization</em>: LSL’s clock-offset estimation can degrade under heavy WLAN traffic, and consumer-grade devices with irregular sampling rates can even violate the assumptions of LSL’s built-in jitter correction <span class="citation" data-cites="kotheLabStreamingLayer2025">(<a href="#ref-kotheLabStreamingLayer2025" role="doc-biblioref">Kothe et al. 2025</a>)</span>. In practice, a wired network and manual inspection of inter-stream offsets after each session are essential. Second, <em>data acquisition</em>: Depending on the data stream being recorded, larger setups face bandwidth constraints. For instance, consumer-grade USB cameras drop frames when bandwidth is saturated, so the pipeline has to be built assuming drops will occur. Third, <em>resource contention</em>: pushing too many high-bandwidth streams through a single node can produce gaps in the recorded data via LabStreamingLayer <span class="citation" data-cites="kotheLabStreamingLayer2025">(<a href="#ref-kotheLabStreamingLayer2025" role="doc-biblioref">Kothe et al. 2025</a>)</span>, and streams recorded on the same machine compete for CPU, disk, and bus resources, so a problem in one stream can propagate to others. None of these issues are fatal, but all require careful pre-testing and some iterative debugging.</p>
+<p>Finally, the operational limitations above concern whether the system records; a separate question is what it records. The MMLab relies largely on consumer-grade sensors and approximating algorithms. Even a flawlessly executed session will not match the spatial and temporal precision of a commercial marker-based system (consider, for instance, 0.05 mm error for OptiTrack vs.&nbsp;1.5 cm error for computer-vision motion capture). For many behavioral research questions, however, this ceiling is well above what the analysis requires: the effects of interest in multimodal communication typically live at the scale of gestures, postures, and prosodic contours rather than sub-millimeter displacements, and consumer-grade capture resolves them comfortably. Moreover, the modularity of the MMLab allows precision to be concentrated where a given study needs it: a camera can be positioned for close capture of the face or hands when fine articulatory or manual details is the target, sampling rates and resolutions can be raised for the streams that carry the effect of interest, and less critical modalities can be recorded more coarsely to conserve bandwidth. Rather than delivering uniform high precision at uniform high cost, the MMLab lets researchers allocate fidelity to match their question. The MMLab is thus not a one-click, black-box solution that works automatically in every environment with every device. It is, however, a transparent and extensible one. We intend to continue improving the pipeline, which includes building a community of developers willing to maintain existing functionalities, add new features (e.g.&nbsp;modalities), and document recurring user issues.</p>
+<p>Looking forward, we see the MMLab less as a finished product and more as a continuously evolving system that adapts to new technology and contributions from other users. The long-term viability of an open system depends on the community that maintains it. We intend to establish a clear contribution model that lowers the barrier to adding features, fixing bugs, and extending documentation, together with a versioning scheme that lets users track changes and reproduce earlier configurations reliably. Adding features also include implementation of new modalities or data streams. Since MMLab is built on the LabStreamingLayer architecture, any LSL-compatible device can in principle be integrated. Additions such as eye-tracking, electromagnetic articulography (EMA), Electroencephalography (EEG) and others would broaden the range of questions the MMLab can address, particularly those linking overt communicative behavior to underlying physiological states.</p>
+<p>Alongside new developments, future efforts shall also focus on lowering the technical barrier. Containerization (e.g.&nbsp;using Docker) could package the software environment so that setup no longer depends on manual installation and dependency management; configuration templates could provide validated starting points for common recording scenarios; a lightweight graphical interface would make stream selection and session control accessible without the command line; and a quality-control dashboard would surface inter-stream offsets, dropped frames, and other diagnostics for inspection immediately after each session. Together, these would move the MMLab closer to usability by researchers without a strong programming background.</p>
+<p>Taken together, these developments point toward what we see as the central promise of the MMLab: not simply a cheaper alternative to commercial systems, but a broadening of who can do multimodal research, where, and on whom. Because the setup is portable, it enables recording in contexts outside the lab – naturalistic and field settings, developmental populations such as caregiver-infant dyads, and older or clinical groups for whom travelling to a lab is itself a barrier to participation. Because it is affordable and open, it lowers the threshold for laboratories or individuals without the budget for proprietary systems, and for research communities and regions in which such equipment has simply been out of reach, widening both the range of questions that can be asked and the diversity of populations from which answers are drawn. And because every component, from acquisition to analysis, is documented and inspectable, studies built on the MMLab are reproducible by construction, and the setup itself becomes a shared, extensible foundation that the community can adapt rather than a black box that each lab must trust on faith. Multimodal behavior is among the richest windows onto human behavior. Our hope is that the MMLab helps open that window to a wider range of researchers, settings, and participants than current tools allow.</p>
+
+
+<!-- -->
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-batemanMethodologicalTheoreticalIssues2016" class="csl-entry" role="listitem">
+Bateman, John A. 2016. <span>“Methodological and Theoretical Issues in Multimodality.”</span> In <em><span class="nocase">Handbuch Sprache im multimodalen Kontext</span></em>, edited by Nina-Maria Klug and Hartmut Stöckl, 36–74. Berlin: De Gruyter. <a href="https://doi.org/10.1515/9783110296099-003">https://doi.org/10.1515/9783110296099-003</a>.
+</div>
+<div id="ref-baumeisterPsychologyScienceSelfReports2007" class="csl-entry" role="listitem">
+Baumeister, Roy F., Kathleen D. Vohs, and David C. Funder. 2007. <span>“Psychology as the Science of Self-Reports and Finger Movements: Whatever Happened to Actual Behavior?”</span> <em>Perspectives on Psychological Science</em> 2 (4): 396–403. <a href="https://doi.org/10.1111/j.1745-6916.2007.00051.x">https://doi.org/10.1111/j.1745-6916.2007.00051.x</a>.
+</div>
+<div id="ref-dmelloReviewMetaAnalysisMultimodal2015" class="csl-entry" role="listitem">
+D’Mello, Sidney K., and Jacqueline Kory. 2015. <span>“A Review and Meta-Analysis of Multimodal Affect Detection Systems.”</span> <em>ACM Computing Surveys</em> 47 (3): 43:1–36. <a href="https://doi.org/10.1145/2682899">https://doi.org/10.1145/2682899</a>.
+</div>
+<div id="ref-hollerSocialEyeGaze2014" class="csl-entry" role="listitem">
+Holler, Judith, Louise Schubotz, Spencer Kelly, Peter Hagoort, Manuela Schuetze, and Aslı Özyürek. 2014. <span>“Social Eye Gaze Modulates Processing of Speech and Co-Speech Gesture.”</span> <em>Cognition</em> 133 (3): 692–97. <a href="https://doi.org/10.1016/j.cognition.2014.08.008">https://doi.org/10.1016/j.cognition.2014.08.008</a>.
+</div>
+<div id="ref-kendrickTurntakingHumanFacetoface2023" class="csl-entry" role="listitem">
+Kendrick, Kobin H., Judith Holler, and Stephen C. Levinson. 2023. <span>“Turn-Taking in Human Face-to-Face Interaction Is Multimodal: Gaze Direction and Manual Gestures Aid the Coordination of Turn Transitions.”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 378 (1875): 20210473. <a href="https://doi.org/10.1098/rstb.2021.0473">https://doi.org/10.1098/rstb.2021.0473</a>.
+</div>
+<div id="ref-kotheLabStreamingLayer2025" class="csl-entry" role="listitem">
+Kothe, Christian, Seyed Yahya Shirazi, Tristan Stenner, David Medine, Chadwick Boulay, Matthew I. Grivich, Fiorenzo Artoni, Tim Mullen, Arnaud Delorme, and Scott Makeig. 2025. <span>“The <span>Lab Streaming Layer</span> for Synchronized Multimodal Recording.”</span> <em>Imaging Neuroscience</em> 3: IMAG.a.136. <a href="https://doi.org/10.1162/IMAG.a.136">https://doi.org/10.1162/IMAG.a.136</a>.
+</div>
+<div id="ref-maselliSimpleLaboratoryStudies2023" class="csl-entry" role="listitem">
+Maselli, Antonella, Jeremy Gordon, Mattia Eluchans, Gian Luca Lancia, Thomas Thiery, Riccardo Moretti, Paul Cisek, and Giovanni Pezzulo. 2023. <span>“Beyond Simple Laboratory Studies: Developing Sophisticated Models to Study Rich Behavior.”</span> <em>Physics of Life Reviews</em> 46: 220–44. <a href="https://doi.org/10.1016/j.plrev.2023.07.006">https://doi.org/10.1016/j.plrev.2023.07.006</a>.
+</div>
+<div id="ref-maussMeasuresEmotionReview2009" class="csl-entry" role="listitem">
+Mauss, Iris B., and Michael D. Robinson. 2009. <span>“Measures of Emotion: A Review.”</span> <em>Cognition and Emotion</em> 23 (2): 209–37. <a href="https://doi.org/10.1080/02699930802204677">https://doi.org/10.1080/02699930802204677</a>.
+</div>
+<div id="ref-molSeeingBeingSeen2011" class="csl-entry" role="listitem">
+Mol, Lisette, Emiel Krahmer, Alfons Maes, and Marc Swerts. 2011. <span>“Seeing and Being Seen: The Effects on Gesture Production.”</span> <em>Journal of Computer-Mediated Communication</em> 17 (1): 77–100. <a href="https://doi.org/10.1111/j.1083-6101.2011.01558.x">https://doi.org/10.1111/j.1083-6101.2011.01558.x</a>.
+</div>
+<div id="ref-parsonsPsychologicalScienceNeeds2019" class="csl-entry" role="listitem">
+Parsons, Sam, Anne-Wil Kruijt, and Elaine Fox. 2019. <span>“Psychological Science Needs a Standard Practice of Reporting the Reliability of Cognitive-Behavioral Measurements.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 2 (4): 378–95. <a href="https://doi.org/10.1177/2515245919879695">https://doi.org/10.1177/2515245919879695</a>.
+</div>
+<div id="ref-pouwMoreEmbeddedExtended2014" class="csl-entry" role="listitem">
+Pouw, Wim, Jacqueline A. de Nooijer, Tamara van Gog, Rolf A. Zwaan, and Fred Paas. 2014. <span>“Toward a More Embedded/Extended Perspective on the Cognitive Function of Gestures.”</span> <em>Frontiers in Psychology</em> 5: 359. <a href="https://doi.org/10.3389/fpsyg.2014.00359">https://doi.org/10.3389/fpsyg.2014.00359</a>.
+</div>
+<div id="ref-pouwQuantificationGestureSpeech2020" class="csl-entry" role="listitem">
+Pouw, Wim, James P. Trujillo, and James A. Dixon. 2020. <span>“The Quantification of Gesture–Speech Synchrony: A Tutorial and Validation of Multimodal Data Acquisition Using Device-Based and Video-Based Motion Tracking.”</span> <em>Behavior Research Methods</em> 52 (2): 723–40. <a href="https://doi.org/10.3758/s13428-019-01271-9">https://doi.org/10.3758/s13428-019-01271-9</a>.
+</div>
+<div id="ref-sanbonmatsuImpactComplexityMethods2021" class="csl-entry" role="listitem">
+Sanbonmatsu, David M., Emily H. Cooley, and Jonathan E. Butner. 2021. <span>“The Impact of Complexity on Methods and Findings in Psychological Science.”</span> <em>Frontiers in Psychology</em> 11: 580111. <a href="https://doi.org/10.3389/fpsyg.2020.580111">https://doi.org/10.3389/fpsyg.2020.580111</a>.
+</div>
+<div id="ref-streeckEmbodiedInteractionLanguage2011" class="csl-entry" role="listitem">
+Streeck, Jürgen, Charles Goodwin, and Curtis LeBaron, eds. 2011. <em>Embodied Interaction: Language and Body in the Material World</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-trujilloInteractionallyEmbeddedGestalt2023" class="csl-entry" role="listitem">
+Trujillo, James P., and Judith Holler. 2023. <span>“Interactionally Embedded Gestalt Principles of Multimodal Human Communication.”</span> <em>Perspectives on Psychological Science</em> 18 (5): 1136–59. <a href="https://doi.org/10.1177/17456916221141422">https://doi.org/10.1177/17456916221141422</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Discussion {#sec-discussion}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>The MMLab was developed to provide an accessible, low-cost, and open-source solution for capturing multimodal human behaviors in both lab-based and ecological environments. Rather than a single piece of software or hardware, the MMLab is a suite of freely available resources – comprising the present paper, an extended Quarto book, and an accompanying GitHub repository. Together, they function as an end-to-end blueprint for assembling a multimodal recording system, executing recording procedures, and processing and analyzing the resulting data streams. </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>The tutorial-style structure of this manuscript walks the reader through each step of this pipeline. Grounding all procedures in our proof-of-concept experiment (@sec-exp, a structured interpersonal singing task with a 2×2 (Vision × Movement) design), @sec-setup described the setup of the MMLab, covering the choice and configuration of hardware for video, audio,  wireless physiology (ECG, EMG, respiration), and the central integration of all streams through the LSL. @Sec-preproc dealt with multimodal wrangling and stream preprocessing, describing signal extraction from the unitary file, stream segmentation and multimodal re-merging. @Sec-process covered multimodal signal processing, including full 3D motion-tracking pipeline, extraction of audio amplitude envelopes, heart rate, muscle activation, and respiratory waveforms, ending with the merging of all filtered signals onto a multimodal array. Finally, @sec-analysis presents a proof-of-concept analysis using mutual information, quantifying interpersonal coupling across vocal, physiological, and kinematic channels between the two co-singing participants. </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Across these sections, the MMLab was consistently built around five complementary principles. First, in terms of *accessibility*, all documentation, code, and tutorials are fully open-sourced. The intent is not only to make the tools available, but to make the technical knowledge behind them transparent and reusable. This lowers the barrier to entry for new users and serves as a pedagogical resource for students and technical staff, as well as offering the opportunity for others to contribute and improve on our designs. Second, in terms of *affordability*, we demonstrated that a lab capable of simultaneously capturing video (for 3D motion tracking), high-fidelity audio, and wireless physiological signals from two interacting participants can be fully assembled for under €10,000 using off-the shelf consumer-grade components and open-source software Third, in terms of *portability*, the MMLab allows for mobile research: the recording equipment and laptops can be transported inside simple suitcases and reassembled outside of a fixed laboratory room. This opens the door to field-based, ecologically valid recordings that are typically inaccessible to heavy, room-mounted commercial setups. Fourth, in terms of *integration and synchronization*, the LabStreamingLayer (LSL) serves as the unifying backbone of the MMLab, solving one of the most persistent bottlenecks in multimodal research (i.e., sub-millisecond synchronization of heterogeneous data streams recorded on different machines, operating systems, and sampling rates) without requiring proprietary middleware.  Fifth, in terms of *modularity*, MMLab is intended to beMMLab is intended to be easily extensible beyond the specific configuration described here. Any  device with a native LSL outlet  (or a simple python wrapper, as we demonstrated for video and audio) can be added to the pipeline, leaving any user (or future developments of MMLab) with opportunities to add or substitute any modality, leaving any user (or future developments of MMLab) with opportunities to add or substitute any modality (e.g., eye-tracking, EEG, additional biosensors, VR headsets, or additional participants) without rebuilding the underlying infrastructure.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Beyond these technical contributions, the MMLab is motivated by a broader concern about ecological validity in the study of human behavior. Historically, psychological, cognitive, and neuroscientific research has relied heavily on temporally coarse-grained, unimodal measures: self-reports and Likert-scale questionnaires in social psychology <span class="co">[</span><span class="ot">@baumeisterPsychologyScienceSelfReports2007</span><span class="co">]</span>, button presses and accuracy scores in cognitive and neuropsychological work <span class="co">[</span><span class="ot">@maselliSimpleLaboratoryStudies2023; @parsonsPsychologicalScienceNeeds2019</span><span class="co">]</span>. This was largely a pragmatic choice: until recently, capturing the temporally rich, multimodal reality of behavior was methodologically prohibitive <span class="co">[</span><span class="ot">@batemanMethodologicalTheoreticalIssues2016; @sanbonmatsuImpactComplexityMethods2021</span><span class="co">]</span>. However, although these unimodal measures are valuable for many research questions, they are inherently limited for others. For instance, a Likert-scale rating of how often a person gestures during conversation cannot substitute for a quantitative measure of the movement itself –– its speed, amplitude, or coupling with concurrent speech <span class="co">[</span><span class="ot">@pouwQuantificationGestureSpeech2020</span><span class="co">]</span>. Gestures during conversation are tightly coupled with speech prosody **(add classical refs instead of Pouw et al. 2020)**, modulated by turn-taking dynamics  <span class="co">[</span><span class="ot">@kendrickTurntakingHumanFacetoface2023</span><span class="co">]</span>, and shaped by mutual visibility <span class="co">[</span><span class="ot">@hollerSocialEyeGaze2014; @molSeeingBeingSeen2011</span><span class="co">]</span> in temporally extended and distributed processes shaped by their social context <span class="co">[</span><span class="ot">@pouwMoreEmbeddedExtended2014; @streeckEmbodiedInteractionLanguage2011; @trujilloInteractionallyEmbeddedGestalt2023</span><span class="co">]</span>. Similarly, emotional and affective states are increasingly understood as dynamic processes that emerge from the continuous interplay between central nervous system activity, peripheral physiology, and overt bodily behavior <span class="co">[</span><span class="ot">@dmelloReviewMetaAnalysisMultimodal2015; @maussMeasuresEmotionReview2009</span><span class="co">]</span>. Capturing such states therefore requires jointly measuring the neural, autonomic, and behavioral dynamics that co-constitute them, rather than any single channel or proxy in isolation.  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>In this context, the MMLab is a methodological response to the current and future state of research across these fields. By making the technical infrastructure for synchronized, multi-stream recording available at a fraction of the previous cost, it enables researchers to move from proxies for behavior to direct measurements of behavior and its underlying neural and physiological signals –– and it makes this move available to labs that would otherwise be priced out of such work. Taken together, this matters both for equity of access and for the diversity of research questions that get asked. In this sense, MMLab contributes to a broader movement in which the question is no longer whether behavior can be captured multimodally, but which embodied processes and inter-personal dynamics become tractable objects of scientific inquiry. </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Alongside its strengths, the MMLab comes with some important limitations. The most obvious is  the absence of the institutional and commercial support that accompanies off-the-shelf systems. When a lab purchases a commercial motion-tracking system, it gains more than hardware: installation, calibration support, warranty replacements, and a vendor to call when something breaks. The MMLab has none of this. It is a collection of documented components held together by open-source software which shifts the burden of maintenance, troubleshooting, and repair onto the developer community and, ultimately, onto the users themselves. A related limitation is that the MMLab presupposes a baseline of technical literacy. Although we have deliberately documented every step in prose and opted for extensive code comments, the pipeline still assumes some familiarity with Python, the command line, basic networking, and the logic of digital signal processing. The tutorial aims to lower this barrier, but it does not eliminate it.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The biggest practical challenge remains the robustness of the multimodal setup. Every component of the MMLab is prone to errors – as in any recording setup, commercial or otherwise. While the setup has been validated in a proof-of-concept experiment and the pipeline is written to prevent common issues and support individual troubleshooting, problems will arise, including in configurations we cannot anticipate, since users will adapt the setup to hardware and environments we have not tested. Here we list the most recurring problems. First, *synchronization*: LSL's clock-offset estimation can degrade under heavy WLAN traffic, and consumer-grade devices with irregular sampling rates can even violate the assumptions of LSL's built-in jitter correction [@kotheLabStreamingLayer2025]. In practice, a wired network and manual inspection of inter-stream offsets after each session are essential. Second, *data acquisition*: Depending on the data stream being recorded, larger setups face bandwidth constraints. For instance, consumer-grade USB cameras drop frames when bandwidth is saturated, so the pipeline has to be built assuming drops will occur. Third, *resource contention*: pushing too many high-bandwidth streams through a single node can produce gaps in the recorded data via LabStreamingLayer <span class="co">[</span><span class="ot">@kotheLabStreamingLayer2025</span><span class="co">]</span>, and streams recorded on the same machine compete for CPU, disk, and bus resources, so a problem in one stream can propagate to others. None of these issues are fatal, but all require careful pre-testing and some iterative debugging. </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Finally, the operational limitations above concern whether the system records; a separate question is what it records. The MMLab relies largely on consumer-grade sensors and approximating algorithms. Even a flawlessly executed session will not match the spatial and temporal precision of a commercial marker-based system (consider, for instance, 0.05 mm error for OptiTrack vs. 1.5 cm error for computer-vision motion capture). For many behavioral research questions, however, this ceiling is well above what the analysis requires: the effects of interest in multimodal communication typically live at the scale of gestures, postures, and prosodic contours rather than sub-millimeter displacements, and consumer-grade capture resolves them comfortably. Moreover, the modularity of the MMLab allows precision to be concentrated where a given study needs it: a camera can be positioned for close capture of the face or hands when fine articulatory or manual details is the target, sampling rates and resolutions can be raised for the streams that carry the effect of interest, and less critical modalities can be recorded more coarsely to conserve bandwidth. Rather than delivering uniform high precision at uniform high cost, the MMLab lets researchers allocate fidelity to match their question.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>The MMLab is thus not a one-click, black-box solution that works automatically in every environment with every device. It is, however, a transparent and extensible one. We intend to continue improving the pipeline, which includes building a community of developers willing to maintain existing functionalities, add new features (e.g. modalities), and document recurring user issues. </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Looking forward, we see the MMLab less as a finished product and more as a continuously evolving system that adapts to new technology and contributions from other users. The long-term viability of an open system depends on the community that maintains it. We intend to establish a clear contribution model that lowers the barrier to adding features, fixing bugs, and extending documentation, together with a versioning scheme that lets users track changes and reproduce earlier configurations reliably. Adding features also include implementation of new modalities or data streams. Since MMLab is built on the LabStreamingLayer architecture, any LSL-compatible device can in principle be integrated. Additions such as eye-tracking, electromagnetic articulography (EMA), Electroencephalography (EEG) and others would broaden the range of questions the MMLab can address, particularly those linking overt communicative behavior to underlying physiological states. </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Alongside new developments, future efforts shall also focus on lowering the technical barrier. Containerization (e.g. using Docker) could package the software environment so that setup no longer depends on manual installation and dependency management; configuration templates could provide validated starting points for common recording scenarios; a lightweight graphical interface would make stream selection and session control accessible without the command line; and a quality-control dashboard would surface inter-stream offsets, dropped frames, and other diagnostics for inspection immediately after each session. Together, these would move the MMLab closer to usability by researchers without a strong programming background.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Taken together, these developments point toward what we see as the central promise of the MMLab: not simply a cheaper alternative to commercial systems, but a broadening of who can do multimodal research, where, and on whom. Because the setup is portable, it enables recording in contexts outside the lab – naturalistic and field settings, developmental populations such as caregiver-infant dyads, and older or clinical groups for whom travelling to a lab is itself a barrier to participation. Because it is affordable and open, it lowers the threshold for laboratories or individuals without the budget for proprietary systems, and for research communities and regions in which such equipment has simply been out of reach, widening both the range of questions that can be asked and the diversity of populations from which answers are drawn. And because every component, from acquisition to analysis, is documented and inspectable, studies built on the MMLab are reproducible by construction, and the setup itself becomes a shared, extensible foundation that the community can adapt rather than a black box that each lab must trust on faith. Multimodal behavior is among the richest windows onto human behavior. Our hope is that the MMLab helps open that window to a wider range of researchers, settings, and participants than current tools allow.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

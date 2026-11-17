@@ -1,0 +1,75 @@
+project:
+  type: book
+
+book:
+  title: "Mobile Multimodal Lab: An Open-Source, Low-Cost, and Portable Laboratory for the Study of Multimodal Behavior"
+  chapters:
+    - index.qmd           # title page 
+    - Introduction.qmd 
+    - Method-overview.qmd
+    - Method-experiment.qmd
+    - Method-labsetup.qmd
+    - Method-preprocessing.qmd
+    - Method-processing.qmd
+    - Analysis.qmd
+    - Results.qmd
+    - Discussion.qmd
+    - Outro.qmd
+    - References.qmd
+  
+crossref: 
+  chapters: true
+format:
+  docx:
+    number-offset: [-1]
+    reference-doc: reference-style.docx    # your custom reference template (see below)
+    number-sections: true
+    number-depth: 3          
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    keep-md: false
+    highlight-style: none
+    toc: false
+    linestretch: 2
+
+language:
+  crossref-ch-prefix: "Section"
+    
+  # pdf:
+  #     documentclass: scrreprt
+  #     pdf-engine: xelatex   # or pdflatex
+  #     latex-auto-mk: true
+  #     classoption: [oneside, open=any]
+  #     number-sections: false
+  #     suppress-bibliography: false
+  #     keep-tex: true
+  #     toc: false
+  #     include-in-header:
+  #       text: |
+  #         \usepackage{multirow}
+  #         \usepackage{etoolbox}
+  #         \usepackage{setspace}
+  #         \usepackage{lineno}
+  #         \renewcommand\linenumberfont{\normalfont\small}
+  #         \renewcommand{\thefootnote}{\arabic{footnote}}
+  #         \renewcommand{\thepage}{\arabic{page}}
+  #         \newcounter{mychapter}
+  #         \renewcommand{\chapter}[1]{%
+  #           \refstepcounter{mychapter}%
+  #           \par\vspace{6pt}%
+  #           {\large\bfseries #1}%
+  #           \par\vspace{3pt}%
+  #           \setcounter{section}{0}%
+  #         }
+  #         \RedeclareSectionCommand[beforeskip=12pt, afterskip=1pt, font=\normalsize\bfseries]{section}
+  #         \RedeclareSectionCommand[beforeskip=8pt, afterskip=1pt, font=\normalsize\bfseries\itshape]{subsection}
+  #         \RedeclareSectionCommand[beforeskip=6pt, afterskip=1pt, font=\normalsize\itshape]{subsubsection}
+
+execute:
+  echo: false
+  warning: false
+  freeze: auto
+
+bibliography: references.bib
+csl: apa.csl    # download from Zotero style repo
+link-citations: true
